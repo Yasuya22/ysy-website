@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YSY総合サービス｜ホームページ制作・デザイン・SNS運用・業務サポート（東京・中野）</title>
+<meta name="description" content="東京都中野区のYSY総合サービス。ホームページ制作・チラシ・デザイン・SNS運用・資料制作・業務サポートまで、小さな「困った」にまとめて出動します。">
+<meta property="og:title" content="YSY総合サービス｜ホームページ制作・デザイン・SNS運用・業務サポート（東京・中野）">
+<meta property="og:description" content="東京都中野区のYSY総合サービス。ホームページ制作・チラシ・デザイン・SNS運用・資料制作・業務サポートまで、小さな「困った」にまとめて出動します。">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Dela+Gothic+One&family=Noto+Sans+JP:wght@500;700;900&family=Noto+Sans+Thai:wght@400;600;700&family=Kanit:wght@600;800&display=swap">
+<style>
+/* Layout: original comic-book hero site. Paper + halftone ground, panels slam in, speed lines, power gauges tied to scroll. Single fixed look. */
+:root{
+  --paper:#FFF7E2; --ink:#121212; --red:#E3261B; --red-d:#A9160F; --yellow:#FFD21F; --white:#FFFFFF; --sub:#3D3A33;
+  --f-hero:'Bangers','Dela Gothic One',Impact,sans-serif;
+  --f-jp:'Dela Gothic One','Noto Sans JP',sans-serif;
+  --f-body:'Noto Sans JP','Hiragino Sans',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.8;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(rgba(18,18,18,.10) 1.2px,transparent 1.3px) 0 0/9px 9px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--ink)}
+main,header,footer{position:relative;z-index:1}
+main,header{overflow-x:clip}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ---------- menu ---------- */
+.menu-btn{position:fixed;overflow:hidden;z-index:60;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));width:64px;height:64px;border-radius:50%;background:var(--yellow);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font-family:var(--f-hero);font-size:17px;letter-spacing:.06em;cursor:pointer;transition:transform .2s}
+.menu-btn:hover{transform:rotate(-8deg) scale(1.06)}
+.menu-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.overlay{position:fixed;inset:0;z-index:55;background:var(--red);display:flex;align-items:center;justify-content:center;clip-path:circle(0 at calc(100% - 46px) 46px);transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
+.overlay::before{content:"";position:absolute;left:50%;top:50%;width:300vmax;height:300vmax;background:repeating-conic-gradient(rgba(0,0,0,.14) 0 4deg,transparent 4deg 12deg);animation:spin 40s linear infinite}
+body.open .overlay{clip-path:circle(150% at calc(100% - 46px) 46px)}
+.overlay nav{position:relative;display:flex;flex-direction:column;gap:6px;text-align:center}
+.overlay a{font-family:var(--f-jp);font-size:clamp(22px,4.6vw,38px);color:var(--white);text-decoration:none;-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink);opacity:0;transform:scale(.6) rotate(-6deg);transition:opacity .3s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.overlay a small{display:block;font-family:var(--f-hero);font-size:16px;letter-spacing:.2em;-webkit-text-stroke:0;text-shadow:none;color:var(--yellow)}
+body.open .overlay a{opacity:1;transform:none}
+body.open .overlay a:nth-child(2){transition-delay:.06s}body.open .overlay a:nth-child(3){transition-delay:.12s}body.open .overlay a:nth-child(4){transition-delay:.18s}body.open .overlay a:nth-child(5){transition-delay:.24s}body.open .overlay a:nth-child(6){transition-delay:.3s}body.open .overlay a:nth-child(7){transition-delay:.36s}body.open .overlay a:nth-child(8){transition-delay:.42s}body.open .overlay a:nth-child(9){transition-delay:.48s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--white);padding-block:calc(84px + env(safe-area-inset-top,0px)) 70px;border-bottom:6px solid var(--ink)}
+.speed{position:absolute;left:50%;top:44%;width:260vmax;height:260vmax;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,#262626 0 2.2deg,var(--ink) 2.2deg 7deg);animation:spin 60s linear infinite}
+.hero-in{position:relative;display:grid;justify-items:center;text-align:center;gap:6px}
+.emblem{position:relative;width:min(300px,62vw);aspect-ratio:1;display:grid;place-items:center;animation:slam .9s cubic-bezier(.2,1.6,.4,1) both .1s}
+.emblem .burst{position:absolute;inset:-22%;background:var(--yellow);clip-path:polygon(50% 0,58% 20%,77% 6%,73% 28%,96% 24%,82% 42%,100% 52%,80% 60%,93% 79%,71% 75%,70% 98%,55% 82%,43% 100%,37% 79%,17% 92%,22% 69%,0 64%,18% 50%,3% 32%,24% 31%,20% 9%,40% 22%);filter:drop-shadow(6px 6px 0 var(--red));animation:pulse 2.4s ease-in-out infinite 1.2s}
+.emblem img{position:relative;width:78%;height:78%;object-fit:cover;border-radius:50%;border:5px solid var(--ink)}
+.ysy{font-family:var(--f-hero);font-size:clamp(84px,17vw,190px);line-height:.9;letter-spacing:.04em;color:var(--red);-webkit-text-stroke:4px var(--white);paint-order:stroke fill;text-shadow:8px 8px 0 var(--white);margin:18px 0 0;transform:rotate(-4deg);animation:pop .7s cubic-bezier(.2,1.6,.4,1) both .55s}
+.tag{font-family:var(--f-jp);font-size:clamp(22px,4.2vw,40px);line-height:1.35;margin:10px 0 0;animation:popflat .6s cubic-bezier(.2,1.6,.4,1) both .8s}
+.tag em{font-style:normal;color:var(--yellow)}
+.sub{max-width:34em;color:#D8D4CA;margin:8px 0 18px;animation:fadeup .6s ease both 1s}
+.btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;animation:fadeup .6s ease both 1.15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;font-family:var(--f-jp);font-size:16px;text-decoration:none;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn.red{background:var(--red);color:var(--white)}
+.btn.yel{background:var(--yellow);color:var(--ink)}
+.hero .btn{border-color:var(--white);box-shadow:5px 5px 0 var(--white)}
+.scroll-cue{margin-top:30px;font-family:var(--f-hero);letter-spacing:.3em;color:var(--yellow);animation:bob 1.4s ease-in-out infinite}
+.shake{animation:shake .45s ease both .3s}
+
+
+.hero-stage{position:relative;width:min(380px,74vw);aspect-ratio:687/760;display:grid;place-items:center}
+.hero-stage .burst{position:absolute;inset:-6% -14%;background:var(--yellow);clip-path:polygon(50% 0,58% 20%,77% 6%,73% 28%,96% 24%,82% 42%,100% 52%,80% 60%,93% 79%,71% 75%,70% 98%,55% 82%,43% 100%,37% 79%,17% 92%,22% 69%,0 64%,18% 50%,3% 32%,24% 31%,20% 9%,40% 22%);filter:drop-shadow(8px 8px 0 var(--red));animation:burstin .5s cubic-bezier(.2,1.6,.4,1) both .55s, pulse 2.4s ease-in-out infinite 1.4s}
+.chara{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.35))}
+.chara.fly{animation:flyin 1s cubic-bezier(.2,.9,.25,1.15) both .1s, hover 3s ease-in-out infinite 1.2s}
+.title-row{display:flex;align-items:center;gap:14px;margin-top:6px}
+.crest{width:clamp(56px,10vw,96px);height:auto;aspect-ratio:1;border-radius:50%;border:4px solid var(--white);box-shadow:5px 5px 0 var(--red);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both .7s}
+.title-row .ysy{margin:0}
+@keyframes flyin{0%{transform:translate(-70vw,55vh) rotate(-25deg) scale(.4);opacity:0}70%{opacity:1}100%{transform:none;opacity:1}}
+@keyframes burstin{0%{transform:scale(0) rotate(-40deg)}100%{transform:none}}
+@keyframes hover{50%{transform:translateY(-12px) rotate(-1.5deg)}}
+.arrive .flyby{position:absolute;width:min(190px,30vw);height:auto;left:0;top:7%;transform:translate(var(--fx,-60vw),-50%) rotate(-12deg);filter:drop-shadow(6px 6px 0 rgba(0,0,0,.35));pointer-events:none;z-index:2}
+.call-chara{width:min(180px,42%);height:auto;align-self:flex-end;margin-top:-90px;margin-right:-6px;filter:drop-shadow(5px 5px 0 var(--ink));animation:hover 3s ease-in-out infinite}
+.foot-brand{display:flex;align-items:center;gap:10px}.foot-brand img{width:28px;height:28px;border-radius:50%}
+
+
+.head-chara{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.head-chara>div{min-width:0}
+.side-chara{width:clamp(110px,18vw,190px);height:auto;flex-shrink:0;filter:drop-shadow(5px 6px 0 rgba(18,18,18,.25));margin-bottom:-18px}
+.side-chara.worry{animation:wobble 2.6s ease-in-out infinite}
+.side-chara.floaty{animation:hover 3s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.transform-panel{margin:0 auto 26px;width:min(300px,62vw);border:5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--yellow);transform:rotate(2deg) scale(var(--tp,1));transition:transform .1s linear;position:relative;z-index:1}
+.transform-panel img{display:block;width:100%;height:auto}
+@media (max-width:560px){.side-chara{width:96px}}
+
+
+/* 4koma */
+.koma{background:var(--white);color:var(--ink);border:4px solid var(--white);box-shadow:8px 8px 0 var(--yellow);padding:18px;margin-bottom:44px}
+.koma-title{font-family:var(--f-jp);font-size:clamp(17px,2.4vw,22px);margin:0 0 12px}
+.koma-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.k{margin:0;position:relative;border:3px solid var(--ink);aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;background:#FFF1C9}
+.k1{background:#E9E6DF}.k2{background:var(--yellow)}.k3{background:radial-gradient(circle,#ff6a5c,var(--red))}.k4{background:var(--ink)}
+.k img{position:absolute;inset:6% 6% 22%;width:88%;height:72%;object-fit:contain}
+.k4 img{object-fit:cover;inset:0;width:100%;height:100%;object-position:top}
+.k figcaption{position:relative;z-index:1;margin:0 6px 8px;width:calc(100% - 12px)}
+.kb{display:block;background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:6px 8px;font-family:var(--f-jp);font-size:clamp(11px,1.4vw,14px);line-height:1.35;text-align:center}
+.kno{position:absolute;top:4px;left:4px;z-index:2;background:var(--ink);color:var(--yellow);font-family:var(--f-hero);font-size:16px;width:26px;height:26px;display:grid;place-items:center}
+.k.pre{opacity:1;transform:none}
+.wcard .cap p{margin:6px 0 0;font-size:13px;line-height:1.7;color:var(--sub)}
+.logo-fig{background:var(--ink)!important;display:grid;place-items:center}
+.logo-fig img{width:62%!important;height:auto!important;object-fit:contain!important}
+
+.koma-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.koma-title{margin:0}
+.koma-title em{font-style:normal;white-space:nowrap;color:var(--red);background:var(--yellow);padding:0 6px;border:2px solid var(--ink)}
+.clock{width:44px;height:44px;border-radius:50%;border:4px solid var(--ink);background:var(--white);position:relative;flex-shrink:0}
+.clock i{position:absolute;left:50%;top:50%;width:3px;height:15px;background:var(--red);transform-origin:50% 100%;translate:-50% -100%;animation:tick 1.2s steps(12) infinite}
+@keyframes tick{to{rotate:360deg}}
+.day{position:absolute;top:4px;right:4px;z-index:2;background:var(--red);color:var(--white);font-family:var(--f-hero);letter-spacing:.06em;font-size:14px;padding:0 6px;border:2px solid var(--ink)}
+.k3{background:repeating-conic-gradient(from 0deg at 50% 45%,#ff5446 0 6deg,var(--red) 6deg 12deg)}
+.k3 img{animation:zoomfly .8s ease-in-out infinite alternate}
+@keyframes zoomfly{to{transform:translateX(6px) scale(1.04)}}
+.ksfx{position:absolute;left:6px;top:34px;z-index:2;font-family:var(--f-jp);font-size:clamp(16px,2vw,22px);color:var(--yellow);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;transform:rotate(-10deg)}
+.k4{background:var(--yellow)}
+.phone{position:absolute;left:50%;top:10%;width:56%;aspect-ratio:9/17;translate:-50% 0;background:var(--ink);border-radius:14px;padding:6px;box-shadow:4px 4px 0 var(--red);animation:popflat .5s cubic-bezier(.2,1.6,.4,1) both}
+.ph-scr{height:100%;border-radius:9px;background:var(--ink);overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;gap:6%;padding-top:10%;background:repeating-conic-gradient(from 0deg at 50% 30%,#2a2a2a 0 5deg,#151515 5deg 12deg)}
+.ph-scr b{font-family:var(--f-hero);color:var(--red);font-size:clamp(14px,2.2vw,24px);-webkit-text-stroke:1px var(--white);line-height:1}
+.ph-scr img{position:static!important;width:70%!important;height:auto!important;inset:auto!important}
+.ph-btn{width:60%;height:8%;background:var(--red);border:2px solid var(--white)}
+.ph-line{width:70%;height:3%;background:#555}.ph-line.s{width:50%}
+.days{display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px;border:3px solid var(--ink);font-family:var(--f-hero);letter-spacing:.06em;text-align:center;position:relative;overflow:hidden;background:var(--white)}
+.days span{position:relative;z-index:1;padding:4px 0;border-left:2px solid var(--ink)}
+.days span:first-child{border-left:0}
+.days .goal{background:var(--yellow);color:var(--red)}.days .goal small{font-family:var(--f-jp);font-size:.8em;margin-left:4px}
+.days::before{content:"";position:absolute;inset:0;background:rgba(227,38,27,.18);transform-origin:left;transform:scaleX(var(--dp,1));transition:transform .2s linear}
+.koma-note{margin:10px 0 0;font-size:12px;color:var(--sub);line-height:1.6}
+@media (max-width:760px){.days{font-size:12px}.koma-head .clock{width:36px;height:36px}}
+
+
+.chat{position:absolute;inset:16% 10% 26%;background:var(--white);border:3px solid var(--ink);border-radius:14px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:10px}
+.chat .msg{align-self:flex-start;background:#E9E6DF;border:2px solid var(--ink);border-radius:12px 12px 12px 2px;padding:6px 8px;font-size:clamp(10px,1.3vw,13px);font-weight:700;line-height:1.35;animation:fadeup .5s ease both}
+.chat .msg.me{align-self:flex-end;background:var(--yellow);border-radius:12px 12px 2px 12px;animation-delay:.6s}
+
+/* ===== rescue v2 ===== */
+.rescue{padding:0;height:260vh;position:relative;background:#0d0d14}
+.rescue-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--white);transform:translate(var(--shx,0px),var(--shy,0px))}
+.rs-sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,#3b1e2e 0%,#1a1424 45%,#0b0b12 100%)}
+.rs-sky::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 62%,rgba(255,210,31,calc(var(--rp,0)*.22)) 0 3deg,transparent 3deg 9deg);mix-blend-mode:screen}
+.moon{position:absolute;right:12%;top:10%;width:clamp(44px,7vw,80px);aspect-ratio:1;border-radius:50%;background:#F6EBC8;box-shadow:0 0 40px 10px rgba(246,235,200,.25);opacity:calc(1 - var(--rp,0)*.7)}
+.rs-city{position:absolute;left:-2%;width:104%;bottom:15%;height:38%;}
+.rs-city.far{fill:#1c1b2b;transform:translateY(calc(var(--par,0) * 10px))}
+.rs-city.near{fill:#111019;height:30%;transform:translateY(calc(var(--par,0) * 22px))}
+.rs-city .wins rect{fill:#FFD86B;opacity:.7}
+.warn{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 calc(var(--wr,0)*160px) calc(var(--wr,0)*40px) rgba(227,38,27,.75);z-index:6}
+.rumble{position:absolute;left:6%;top:16%;font-family:var(--f-jp);font-size:clamp(28px,5vw,58px);color:#B9A8FF;-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;opacity:var(--ru,0);transform:rotate(-8deg) translate(var(--rux,0px),0);z-index:6}
+.shop{position:absolute;left:50%;bottom:15%;translate:-50% 0;width:min(320px,64vw);height:clamp(150px,26vh,220px);background:#E9DCC1;border:5px solid var(--ink);border-bottom:0;z-index:2;box-shadow:inset -14px 0 0 rgba(0,0,0,.12)}
+.floor2{position:absolute;left:0;right:0;top:0;height:34%;display:flex;justify-content:space-around;align-items:center;background:#D8C9AA;border-bottom:4px solid var(--ink)}
+.floor2 span{width:18%;height:56%;background:#5D7F96;border:3px solid var(--ink);box-shadow:inset 0 0 0 3px #87A9C0}
+.awning{position:absolute;left:-14px;right:-14px;top:34%;height:20%;background:repeating-linear-gradient(90deg,var(--red) 0 26px,var(--white) 26px 52px);border:4px solid var(--ink);clip-path:polygon(0 0,100% 0,100% 70%,94% 100%,88% 70%,82% 100%,76% 70%,70% 100%,64% 70%,58% 100%,52% 70%,46% 100%,40% 70%,34% 100%,28% 70%,22% 100%,16% 70%,10% 100%,4% 70%,0 100%)}
+.sign{position:absolute;left:50%;top:56%;translate:-50% 0;font-family:var(--f-jp);font-size:clamp(12px,1.8vw,17px);color:var(--ink);background:var(--yellow);border:3px solid var(--ink);padding:0 10px;white-space:nowrap;z-index:1}
+.win{position:absolute;left:9%;bottom:0;width:46%;height:30%;background:linear-gradient(135deg,#BFE0F2 0 40%,#9CC7E0 40%);border:4px solid var(--ink);border-bottom:0}
+.door{position:absolute;right:9%;bottom:0;width:24%;height:40%;background:#8A5A33;border:4px solid var(--ink);border-bottom:0}
+.rescue-stage .shop{left:calc(50% + (var(--rp,0) * 0%))}
+.rocks{position:absolute;inset:0;z-index:3;pointer-events:none}
+.rock2{position:absolute;left:0;top:0;will-change:transform;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.45))}
+.rock2 svg{display:block;width:100%;height:auto;overflow:visible;transform-origin:50% 50%}
+.rock2 b{position:absolute;left:50%;top:50%;translate:-50% -50%;font-family:var(--f-jp);font-weight:400;font-size:clamp(14px,2.2vw,24px);color:var(--white);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;white-space:nowrap}
+.rock2.red b{color:#FFB3A8}
+.fx{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+.shock{position:absolute;left:50%;top:52%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:6px solid rgba(255,230,140,.9);box-shadow:0 0 30px rgba(255,210,31,.8);transform:scale(var(--sk,0));opacity:var(--sko,0);z-index:4;pointer-events:none}
+.flash{position:absolute;inset:0;background:#FFF8DC;opacity:var(--fl,0);z-index:7;pointer-events:none}
+.ground{position:absolute;left:0;right:0;bottom:0;height:15%;background:linear-gradient(#3b342e,#24201c);border-top:5px solid var(--ink);z-index:2}
+.ground::before{content:"";position:absolute;inset:-5px 0 auto;height:5px;background:repeating-linear-gradient(90deg,#4b433b 0 40px,#3b342e 40px 80px)}
+.lift-panel{position:absolute;left:50%;bottom:13%;margin:0;width:min(400px,78vw);translate:-50% calc(var(--lp,1) * 130%);rotate:calc(var(--lr,6) * 1deg);scale:var(--ls,1);border:6px solid var(--ink);box-shadow:10px 10px 0 var(--yellow),0 0 calc(var(--rp,0)*60px) rgba(255,210,31,.55);z-index:4;background:var(--ink)}
+.lift-panel img{display:block;width:100%;height:auto;max-height:64vh;object-fit:cover;object-position:top}
+.lift-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 14px,rgba(255,255,255,calc(var(--ll,0)*.5)) 14px 16px);mix-blend-mode:overlay;pointer-events:none}
+.catch{position:absolute;left:50%;top:2%;translate:-50% 0;font-family:var(--f-jp);font-size:clamp(46px,9vw,104px);color:var(--yellow);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--red);z-index:8;scale:var(--cs,0);rotate:-8deg;pointer-events:none;white-space:nowrap}
+.rescue-cap{position:absolute;left:0;right:0;bottom:3%;margin:0;text-align:center;font-family:var(--f-jp);font-size:clamp(17px,3vw,28px);z-index:8;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-shadow:3px 3px 0 var(--ink)}
+@media (min-width:900px){.rescue-stage .shop{left:calc(50% + (var(--rp,0) * 22%))}.lift-panel{left:calc(50% - (var(--rp,0) * 10%))}}
+
+.rescue-cap span{display:block;transition:opacity .3s}
+.rescue-cap .c1{opacity:var(--c1,1)}
+.rescue-cap .c2{opacity:var(--c2,0);position:absolute;left:0;right:0;bottom:0;padding-left:inherit;padding-right:inherit}
+.rescue-cap em{font-style:normal;color:var(--yellow)}
+.lift-tags{position:absolute;left:4%;right:4%;top:3%;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.lift-tags span{font-family:var(--f-jp);font-size:clamp(12px,1.9vw,17px);color:var(--white);background:rgba(90,82,74,.92);border:3px solid var(--ink);padding:1px 8px;-webkit-text-stroke:1px var(--ink);paint-order:stroke fill;rotate:-3deg}
+.lift-tags span:nth-child(even){rotate:3deg}
+.lift-tags .red{background:var(--red-d)}
+.rescue-stage.shake-now{animation:none}
+@media (prefers-reduced-motion:reduce){.rescue{height:auto}.rescue-stage{position:relative;height:90vh}}
+
+
+.vimg{width:100%;height:auto;display:block;filter:drop-shadow(4px 6px 0 rgba(0,0,0,.45));animation:vbob 1.8s ease-in-out infinite;transform-origin:50% 90%}
+.villain:nth-child(2) .vimg{animation-delay:-.6s}.villain:nth-child(3) .vimg{animation-delay:-1.2s}
+.villain.hit .vimg{animation:vhit .45s ease}
+.villain.down .vimg{animation:vdown .7s ease forwards}
+.hit-panel{position:absolute;inset:4%;margin:0;z-index:6;border:6px solid var(--ink);box-shadow:10px 10px 0 var(--yellow);background:var(--ink);opacity:0;pointer-events:none;transform:scale(.4) rotate(-8deg)}
+.hit-panel img{width:100%;height:100%;object-fit:cover;display:block}
+.hit-panel.show{animation:hitpanel 1.4s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes hitpanel{0%{opacity:0;transform:scale(.4) rotate(-8deg)}14%{opacity:1;transform:scale(1.04) rotate(1deg)}22%{transform:scale(1) rotate(0)}30%{transform:translate(-8px,4px)}36%{transform:translate(6px,-4px)}42%{transform:none}82%{opacity:1;transform:none}100%{opacity:0;transform:scale(1.08)}}
+.hp-sfx{position:absolute;right:5%;top:6%;font-family:var(--f-jp);font-size:clamp(36px,7vw,84px);color:var(--yellow);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--red);rotate:-10deg}
+@media (max-width:640px){.hit-panel{inset:2%}.vline{display:none}}
+
+
+/* ===== battle v3 ===== */
+.battle{background:#2A1B3D;color:var(--white);border-block:6px solid var(--ink)}
+.battle .label{background:var(--yellow);color:var(--ink)}
+.battle .lead{color:#D9CFEA}
+.arena.panel{position:relative;overflow:hidden;color:var(--white);border-color:var(--ink);height:clamp(380px,48vw,520px);padding:0;background:radial-gradient(ellipse at 70% 115%,#8A3420 0%,#3A2556 45%,#1A1229 100%)}
+.arena-bg{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 30% 62%,rgba(255,255,255,.05) 0 4deg,transparent 4deg 11deg),linear-gradient(transparent 82%,#140D20 82%)}
+.arena.quake{animation:shake .45s ease}
+.arena.charge .arena-bg{animation:charge .5s ease}
+@keyframes charge{50%{filter:brightness(1.8) hue-rotate(-20deg)}}
+.round{position:absolute;left:14px;top:12px;z-index:4;display:flex;flex-direction:column;gap:0;font-family:var(--f-hero);letter-spacing:.12em;color:var(--yellow);font-size:clamp(14px,1.8vw,20px);line-height:1.1}
+.round b{font-family:var(--f-jp);font-weight:400;letter-spacing:.02em;color:var(--white);font-size:clamp(16px,2.4vw,26px)}
+.queue{position:absolute;right:12px;top:10px;z-index:4;display:flex;gap:6px;margin:0;padding:0;list-style:none}
+.queue li{width:clamp(36px,5vw,52px);aspect-ratio:1;border:3px solid var(--ink);background:#3A2A55;border-radius:50%;overflow:hidden;opacity:.7}
+.queue li img{width:100%;height:100%;object-fit:cover;object-position:top}
+.queue li.now{opacity:1;border-color:var(--yellow);box-shadow:0 0 0 3px var(--red)}
+.queue li.done{opacity:.4;filter:grayscale(1)}
+.queue li.done::after{content:"";}
+.b-hero{position:absolute;left:4%;bottom:8%;width:clamp(120px,20vw,230px);height:auto;z-index:3;filter:drop-shadow(5px 5px 0 rgba(0,0,0,.5));animation:hover 2.6s ease-in-out infinite;transition:opacity .15s}
+.b-hero.away{opacity:0}
+.foe{position:absolute;left:58%;bottom:7%;width:clamp(160px,26vw,290px);translate:-50% 0;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.foe.enter{animation:foein .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes foein{from{transform:translateX(60%) scale(.6);opacity:0}}
+.vwrap{position:relative;width:100%}
+.vimg{width:100%;height:auto;display:block;filter:drop-shadow(5px 7px 0 rgba(0,0,0,.5));animation:vbob 1.8s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes vbob{50%{transform:translateY(-6px) rotate(1.5deg)}}
+.foe.hit .vimg{animation:vhit .55s ease}
+@keyframes vhit{0%,100%{transform:none}12%{transform:translateX(26px) rotate(14deg);filter:brightness(3.2) drop-shadow(0 0 16px #fff)}40%{transform:translateX(-12px) rotate(-6deg)}70%{transform:translateX(6px)}}
+.foe.down .vimg{animation:vdown .8s ease forwards}
+@keyframes vdown{to{transform:translate(50px,30px) rotate(85deg) scale(.6);opacity:.3;filter:grayscale(1)}}
+.ko{position:absolute;left:50%;top:26%;translate:-50% 0;font-family:var(--f-hero);font-size:clamp(40px,7vw,80px);color:var(--yellow);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--red);rotate:-12deg;scale:0;transition:scale .4s cubic-bezier(.2,1.8,.4,1);z-index:2}
+.foe.down .ko{scale:1}
+.vline{margin:0;font-size:clamp(11px,1.3vw,14px);color:#E8E0F5;font-weight:700}
+.foe.down .vline{visibility:hidden}
+.hp{width:86%;height:14px;border:3px solid var(--ink);background:#555}
+.hp i{display:block;height:100%;width:var(--hp,100%);background:linear-gradient(#7CE36A,#3FB02F);transition:width .45s ease}
+.hp.low i{background:linear-gradient(#FF8A7A,var(--red))}
+.atk{position:absolute;left:0;top:0;z-index:5;opacity:0;pointer-events:none;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.5))}
+.atk.on{opacity:1;animation:atkinL .3s cubic-bezier(.2,1.4,.4,1)}
+.atk.on[data-from="right"]{animation-name:atkinR}
+@keyframes atkinL{from{opacity:0;translate:-90px 30px;scale:.85}to{opacity:1;translate:0 0;scale:1}}
+@keyframes atkinR{from{opacity:0;translate:90px 20px;scale:.85}to{opacity:1;translate:0 0;scale:1}}
+.atk.lunge{animation:atkinL .3s cubic-bezier(.2,1.4,.4,1),lungeL .45s ease .3s}
+.atk.lunge[data-from="right"]{animation:atkinR .3s cubic-bezier(.2,1.4,.4,1),lungeR .45s ease .3s}
+@keyframes lungeL{35%{translate:16px -4px}100%{translate:0 0}}
+@keyframes lungeR{35%{translate:-16px -4px}100%{translate:0 0}}
+.impact{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;z-index:6;pointer-events:none;opacity:0}
+.impact::before{content:"";position:absolute;inset:-100px;background:radial-gradient(circle,#fff 0 18%,#FFE66B 30%,#FF8A2A 48%,transparent 62%);clip-path:polygon(50% 0,58% 32%,86% 10%,68% 40%,100% 46%,70% 56%,92% 86%,60% 66%,52% 100%,42% 68%,12% 90%,32% 58%,0 50%,32% 42%,10% 14%,42% 32%)}
+.impact::after{content:"";position:absolute;inset:-70px;border-radius:50%;border:7px solid rgba(255,240,170,.9)}
+.impact.mega::before{inset:-190px}.impact.mega::after{inset:-140px}
+.impact.go{animation:impact .6s ease-out forwards}
+@keyframes impact{0%{opacity:1;transform:scale(.2) rotate(0)}30%{opacity:1;transform:scale(1.15) rotate(15deg)}100%{opacity:0;transform:scale(1.6) rotate(30deg)}}
+.eyebeam{position:absolute;height:22px;width:var(--bl,300px);margin-top:-11px;transform-origin:0 50%;z-index:5;pointer-events:none;opacity:0;border-radius:12px;background:linear-gradient(180deg,rgba(255,80,40,0) 0,#FF3B2A 22%,#FFE0D0 45%,#fff 50%,#FFE0D0 55%,#FF3B2A 78%,rgba(255,80,40,0) 100%);box-shadow:0 0 18px 6px rgba(255,60,40,.85),0 0 60px 16px rgba(255,140,40,.55)}
+.eyebeam::after{content:"";position:absolute;inset:-6px 0;background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.55) 30px 34px);animation:beamflow .25s linear infinite}
+@keyframes beamflow{to{background-position:34px 0}}
+.eyebeam.fire{animation:eyebeam 1s ease-out forwards}
+@keyframes eyebeam{0%{opacity:1;clip-path:inset(0 100% 0 0)}30%{opacity:1;clip-path:inset(0 0 0 0)}80%{opacity:1;clip-path:inset(0 0 0 0)}100%{opacity:0;clip-path:inset(0 0 0 100%)}}
+.eyeglow{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;z-index:6;pointer-events:none;opacity:0;background:radial-gradient(circle,#fff 0 22%,rgba(255,200,170,.9) 38%,rgba(255,60,40,.6) 58%,transparent 72%)}
+.eyeglow.on{animation:eyeglow 1.2s ease-out forwards}
+@keyframes eyeglow{0%{opacity:0;transform:scale(.3)}20%{opacity:1;transform:scale(1.3)}80%{opacity:1;transform:scale(1)}100%{opacity:0}}
+.whiteout{position:absolute;inset:0;background:#FFF6D8;opacity:0;z-index:8;pointer-events:none}
+.whiteout.flash{animation:wo .7s ease-out}
+@keyframes wo{0%{opacity:0}15%{opacity:.95}100%{opacity:0}}
+.hit-sfx{position:absolute;z-index:7;font-family:var(--f-jp);font-size:clamp(32px,6vw,70px);color:var(--yellow);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--red);pointer-events:none;opacity:0;white-space:nowrap}
+.hit-sfx.mega{font-size:clamp(30px,6.4vw,78px)}
+.hit-sfx.go{animation:boom .95s cubic-bezier(.2,1.6,.4,1) forwards}
+.battle-ctrl{display:flex;justify-content:center;margin-top:22px}
+.mv{font-family:var(--f-jp);font-size:clamp(18px,2.6vw,26px);color:var(--ink);background:var(--yellow);border:4px solid var(--ink);box-shadow:6px 6px 0 var(--red);padding:12px 28px;min-height:72px;min-width:min(420px,100%);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:transform .12s,box-shadow .12s}
+.mv small{font-family:var(--f-body);font-weight:700;font-size:12px;color:var(--sub);letter-spacing:.06em}
+.mv:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--red)}
+.mv:active:not(:disabled){transform:translate(4px,4px);box-shadow:1px 1px 0 var(--red)}
+.mv:disabled{opacity:.6;cursor:default}
+.mv.final{background:var(--red);color:var(--yellow);-webkit-text-stroke:1px var(--ink);box-shadow:6px 6px 0 var(--yellow);animation:pulse 1.4s ease-in-out infinite}
+.mv.final small{color:#FFE9A8;-webkit-text-stroke:0}
+.battle-msg{margin:16px 0 0;text-align:center;font-family:var(--f-jp);font-size:clamp(15px,2.2vw,20px);min-height:1.6em}
+.victory{margin-top:18px;text-align:center;background:var(--red);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--yellow);padding:22px 18px;animation:slam .6s cubic-bezier(.2,1.6,.4,1)}
+.vic-big{margin:0;font-family:var(--f-jp);font-size:clamp(34px,7vw,64px);color:var(--yellow);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--ink);line-height:1.1}
+.victory p{margin:6px 0 14px;font-weight:700}
+.victory .btns{justify-content:center}
+@media (max-width:640px){
+  .arena.panel{height:480px}
+  .foe{left:66%;bottom:auto;top:66px;width:54%}
+  .b-hero{left:4%;bottom:6px;width:120px}
+}
+/* ===== transform stage ===== */
+.tf-stage{position:relative;width:min(380px,72vw);aspect-ratio:517/760;margin:0 auto 14px;z-index:1}
+.tf-burst{position:absolute;inset:-18% -30%;background:radial-gradient(circle,#FFF6C8 0 12%,#FFD21F 30%,rgba(255,150,40,.85) 48%,transparent 66%);clip-path:polygon(50% 0,56% 30%,75% 4%,68% 34%,97% 18%,76% 44%,100% 52%,74% 60%,94% 84%,66% 70%,64% 100%,52% 74%,40% 100%,38% 72%,12% 92%,28% 62%,0 56%,26% 46%,4% 20%,32% 34%,24% 4%,44% 30%);transform:scale(calc(.75 + var(--tp,0)*.45)) rotate(calc(var(--tp,0)*40deg));transition:transform .1s linear}
+.tf-ring{position:absolute;left:50%;top:46%;width:60%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;border:6px solid rgba(255,255,255,.8);box-shadow:0 0 30px #fff;animation:ring 1.6s ease-out infinite}
+@keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(1.7);opacity:0}}
+.tf-bit{position:absolute;left:50%;top:44%;width:22px;height:14px;background:var(--white);border:2px solid var(--ink);clip-path:polygon(0 30%,40% 0,100% 20%,80% 100%,20% 80%);animation:bit 1.8s ease-out infinite}
+.b1{--dx:-160px;--dy:-120px}.b2{--dx:150px;--dy:-140px;animation-delay:.3s}.b3{--dx:-180px;--dy:40px;animation-delay:.6s}.b4{--dx:170px;--dy:60px;animation-delay:.9s}.b5{--dx:-90px;--dy:-190px;animation-delay:1.2s;background:#8C1F1A}.b6{--dx:110px;--dy:-60px;animation-delay:1.5s;background:#2D2B33}
+@keyframes bit{from{transform:translate(0,0) rotate(0);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(540deg);opacity:0}}
+.tf-hero{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(0 0 18px rgba(255,240,180,.9)) drop-shadow(6px 6px 0 rgba(0,0,0,.35));transform:scale(calc(.9 + var(--tp,0)*.15));transition:transform .1s linear}
+.tf-sfx{position:absolute;right:-18%;top:-4%;font-family:var(--f-jp);font-size:clamp(24px,4.6vw,46px);color:var(--white);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--ink);rotate:12deg;animation:pulse 1.2s ease-in-out infinite}
+/* ===== rescue lifter ===== */
+.lifter2{position:absolute;left:50%;bottom:12%;width:min(360px,64vw,52vh);translate:-50% calc(var(--lp,1) * 140%);z-index:4;scale:var(--ls,1)}
+.lift-hero{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 0 calc(var(--rp,0)*26px) rgba(255,210,31,.9)) drop-shadow(6px 8px 0 rgba(0,0,0,.45))}
+.held{position:absolute;left:-14%;right:-14%;top:-27%;height:30%;z-index:-1}
+.held svg{width:100%;height:100%;display:block;filter:drop-shadow(8px 10px 0 rgba(0,0,0,.45))}
+.held-tags{position:absolute;inset:14% 8%;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:6px}
+.held-tags span{font-family:var(--f-jp);font-size:clamp(13px,2vw,19px);color:var(--white);background:rgba(70,63,57,.95);border:3px solid var(--ink);padding:1px 9px;-webkit-text-stroke:1px var(--ink);paint-order:stroke fill;rotate:-3deg}
+.held-tags span:nth-child(even){rotate:3deg}
+.held-tags .red{background:var(--red-d)}
+@media (min-width:900px){.lifter2{left:calc(50% - (var(--rp,0) * 10%))}.catch{left:72%;top:14%}}
+
+
+/* ===== later-half life ===== */
+.band{background:var(--red);color:var(--white);border-block:5px solid var(--ink);overflow:hidden;white-space:nowrap;position:relative;z-index:2;transform:rotate(-1.2deg);margin:-6px -2%;width:104%}
+.band-in{display:inline-flex;gap:46px;padding-block:12px;animation:tick 28s linear infinite;font-family:var(--f-jp);font-size:clamp(16px,2.4vw,24px)}
+.band-in span::after{content:"★";color:var(--yellow);margin-left:46px}
+.band.rev{transform:rotate(1.2deg)}.band.rev .band-in{animation-direction:reverse}
+.band.yel{background:var(--yellow);color:var(--ink)}.band.yel .band-in span::after{color:var(--red)}
+.band.blk{background:var(--ink)}.band.blk .band-in span::after{color:var(--red)}
+@keyframes tick{to{transform:translateX(-50%)}}
+.feat-card{transition:transform .25s,box-shadow .25s;overflow:visible}
+.feat-card:hover{transform:translate(-4px,-6px) rotate(-1deg);box-shadow:12px 14px 0 var(--ink)}
+.ficon{position:absolute;right:-14px;top:-22px;width:64px;height:64px;display:grid;place-items:center;background:var(--yellow);border:4px solid var(--ink);box-shadow:4px 4px 0 var(--red);clip-path:polygon(50% 0,61% 22%,85% 12%,78% 38%,100% 50%,78% 62%,85% 88%,61% 78%,50% 100%,39% 78%,15% 88%,22% 62%,0 50%,22% 38%,15% 12%,39% 22%);animation:spinslow 10s linear infinite}
+.ficon svg{width:30px;height:30px;fill:none;stroke:var(--ink);stroke-width:4;stroke-linejoin:round;stroke-linecap:round;animation:spinslow 10s linear infinite reverse}
+@keyframes spinslow{to{rotate:360deg}}
+.wcard{overflow:visible;position:relative}
+.flow{row-gap:56px!important;margin-top:46px!important}
+.wcard::after{content:"MISSION\A COMPLETE";white-space:pre;position:absolute;right:-10px;top:14px;z-index:3;font-family:var(--f-hero);font-size:clamp(14px,1.6vw,18px);letter-spacing:.08em;line-height:1.05;text-align:center;color:var(--red);border:4px double var(--red);background:rgba(255,255,255,.92);padding:4px 8px;rotate:12deg;scale:3;opacity:0;transition:scale .35s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.wcard.in::after,.wcard:not(.pre)::after{scale:1;opacity:1;transition-delay:.45s}
+.flow-wrap{position:relative}
+.flow-track{position:relative;height:16px;margin:0 2% 34px;border:4px solid var(--ink);background:var(--white)}
+.flow-track i{position:absolute;inset:0;transform-origin:left;transform:scaleX(var(--fp,0));background:repeating-linear-gradient(-45deg,var(--red) 0 12px,var(--red-d) 12px 24px)}
+.flow-hero{position:absolute;top:50%;left:calc(var(--fp,0) * 100%);width:clamp(70px,9vw,110px);height:auto;translate:-50% -62%;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.35));transition:left .1s linear}
+.fstep{position:relative;padding-top:64px!important;transition:background .3s,transform .3s}
+.fstep .fpose{position:absolute;right:8px;top:-38px;width:clamp(66px,7vw,90px);height:auto;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.3));transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.fstep.lit{background:#FFF3C4;transform:translateY(-6px)}
+.fstep.lit .fpose{transform:scale(1.12) rotate(-4deg)}
+.fstep.lit .st{background:var(--yellow);color:var(--ink)}
+.faq-hero{position:relative;flex-shrink:0}
+.say{position:absolute;right:88%;top:4px;white-space:nowrap;background:var(--white);border:3px solid var(--ink);border-radius:18px;padding:6px 12px;font-family:var(--f-jp);font-size:clamp(13px,1.8vw,16px);line-height:1.35;box-shadow:3px 3px 0 var(--ink);animation:popflat .5s ease both}
+.say::after{content:"";position:absolute;right:-12px;top:22px;border:8px solid transparent;border-left:12px solid var(--ink)}
+.about{position:relative;padding-top:250px!important}
+.about-city{position:absolute;left:0;right:0;top:0;height:230px;pointer-events:none;overflow:hidden}
+.about-city svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px;fill:var(--ink)}
+.roof-hero{position:absolute;left:calc(50% + 6px);bottom:104px;width:clamp(70px,8vw,100px);height:auto;animation:hover 3s ease-in-out infinite}
+.pin{position:absolute;left:calc(50% - 70px);bottom:150px;background:var(--red);color:var(--white);font-family:var(--f-jp);font-size:14px;padding:2px 10px;border:3px solid var(--ink)}
+.pin::after{content:"";position:absolute;left:50%;bottom:-12px;translate:-50% 0;border:7px solid transparent;border-top:8px solid var(--ink)}
+.sos{background:linear-gradient(#141428 0 260px,var(--yellow) 260px)!important;padding-top:300px!important}
+.sos::before{display:none}
+.signal{position:absolute;left:0;right:0;top:0;height:260px;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,#2A2A55,#141428 70%)}
+.signal::before{content:"";position:absolute;inset:0;background:radial-gradient(1.5px 1.5px at 10% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 60%,#fff,transparent),radial-gradient(1px 1px at 55% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 75% 15%,#fff,transparent),radial-gradient(1px 1px at 88% 55%,#fff,transparent),radial-gradient(1px 1px at 42% 80%,#fff,transparent);animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.4}}
+.sbeam{position:absolute;left:50%;bottom:-10px;width:clamp(160px,26vw,280px);height:330px;translate:-50% 0;transform-origin:50% 100%;background:linear-gradient(to top,rgba(255,240,170,.05),rgba(255,240,170,.42));clip-path:polygon(46% 100%,54% 100%,100% 0,0 0);animation:sweep 6s ease-in-out infinite}
+.screst{position:absolute;left:50%;top:24px;width:clamp(110px,15vw,160px);aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(circle,rgba(255,244,190,.95) 0 58%,rgba(255,244,190,.4) 70%,transparent 72%);display:grid;place-items:center;animation:sweepc 6s ease-in-out infinite}
+.screst img{width:66%;height:auto;border-radius:50%;opacity:.9;box-shadow:0 0 0 4px rgba(20,20,40,.6)}
+@keyframes sweep{0%,100%{rotate:-14deg}50%{rotate:14deg}}
+@keyframes sweepc{0%,100%{translate:calc(-50% - 60px) 6px}50%{translate:calc(-50% + 60px) 6px}}
+.cloud{position:absolute;height:40px;border-radius:40px;background:rgba(80,80,130,.55);filter:blur(2px);animation:drift 30s linear infinite}
+.cloud.c1{width:220px;top:40px;left:-240px}.cloud.c2{width:160px;top:120px;left:-180px;animation-delay:-14s;animation-duration:38s}
+@keyframes drift{to{transform:translateX(calc(100vw + 260px))}}
+footer{position:relative;overflow:hidden}
+.foot-hero{position:absolute;left:-140px;top:50%;width:110px;height:auto;translate:0 -50%;animation:footfly 9s linear infinite}
+@keyframes footfly{0%{left:-140px}60%,100%{left:110%}}
+.foot-bye{position:absolute;right:16px;top:-2px;font-family:var(--f-jp);color:var(--yellow);font-size:14px}
+@media (max-width:760px){.ficon{width:52px;height:52px;right:-6px}.ficon svg{width:24px}.flow-track{display:none}.fstep{padding-top:20px!important;padding-right:96px!important}.fstep .fpose{top:auto;bottom:10px;right:8px;width:76px}.say{right:auto;left:auto;right:30%;top:-46px}.about{padding-top:240px!important}}
+@media (prefers-reduced-motion:reduce){.band-in,.ficon,.ficon svg,.sbeam,.screst,.cloud,.foot-hero{animation:none!important}}
+
+
+/* sound toggle */
+.snd-btn{position:fixed;z-index:60;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));height:56px;min-width:56px;padding:0 14px 0 12px;border-radius:28px;background:var(--ink);color:var(--white);border:3px solid var(--yellow);box-shadow:4px 4px 0 var(--red);display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--f-hero);letter-spacing:.08em;font-size:12px;line-height:1.05;text-align:left}
+.snd-btn b{font-size:15px;color:var(--yellow);font-weight:400}
+.snd-ic{display:flex;align-items:flex-end;gap:3px;height:20px}
+.snd-ic i{display:block;width:4px;height:6px;background:var(--yellow);border-radius:1px}
+.snd-btn[aria-pressed="true"] .snd-ic i{animation:eq .5s ease-in-out infinite alternate}
+.snd-btn[aria-pressed="true"] .snd-ic i:nth-child(2){animation-delay:-.2s}.snd-btn[aria-pressed="true"] .snd-ic i:nth-child(3){animation-delay:-.35s}
+@keyframes eq{from{height:4px}to{height:20px}}
+.snd-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--red)}
+.snd-btn.hint{animation:sndhint 1.2s ease-in-out 3 1.5s}
+@keyframes sndhint{50%{transform:scale(1.12)}}
+
+
+/* ===== responsive fixes ===== */
+@media (max-width:600px){ .tf-sfx{right:-4%;top:-6%;font-size:clamp(20px,6vw,30px)} }
+@media (min-width:700px) and (max-width:1100px){
+  .ficon{right:-4px}
+  .feat{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .moves{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .move{padding:18px 16px!important}.move h3{font-size:19px!important}.price{font-size:28px!important}
+}
+@media (max-width:1050px){
+  .flow{grid-template-columns:1fr 1fr!important}
+  .flow-track{display:none}
+}
+@media (max-width:560px){ .flow{grid-template-columns:1fr!important} }
+.foot-nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 4px}
+footer .wrap > a{display:inline-flex;align-items:center;min-height:40px}
+footer{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))!important}
+@media (max-width:600px){
+  .snd-btn{height:46px;min-width:46px;padding:0 10px;gap:6px;font-size:10px;left:calc(10px + env(safe-area-inset-left,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+  .snd-btn b{font-size:12px}
+  .menu-btn{width:54px!important;height:54px!important}
+}
+
+
+.lang-btn{position:fixed;z-index:61;right:calc(92px + env(safe-area-inset-right,0px));top:calc(24px + env(safe-area-inset-top,0px));height:44px;padding:0 4px;border-radius:22px;background:var(--white);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--red);display:flex;align-items:center;gap:0}
+.lang-btn button{height:100%;min-width:44px;padding:0 9px;border:0;background:none;cursor:pointer;font-family:'Noto Sans JP','Noto Sans Thai',sans-serif;font-weight:700;font-size:13px;color:#8a8a8a;border-radius:18px}
+.lang-btn button+button{border-left:2px solid #e2ddd0;border-radius:0}
+.lang-btn button.lg-on{color:var(--ink);text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:3px;text-underline-offset:4px}
+.lang-btn button:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
+body.lang-swap main,body.lang-swap header{animation:langfade .35s ease}
+@keyframes langfade{from{opacity:.4;filter:blur(2px)}}
+@media (max-width:600px){.lang-btn{height:40px;right:calc(72px + env(safe-area-inset-right,0px));top:calc(20px + env(safe-area-inset-top,0px));background:rgba(255,255,255,.95)}.lang-btn button{min-width:38px;padding:0 6px;font-size:12px}}
+html[lang="en"] .tag,html[lang="en"] h2,html[lang="en"] .card h3{letter-spacing:.01em}
+html[lang="th"]{--f-jp:'Kanit','Noto Sans Thai','Dela Gothic One',sans-serif;--f-body:'Noto Sans Thai','Noto Sans JP',sans-serif;--f-hero:'Bangers','Kanit',sans-serif}
+html[lang="th"] body{line-height:1.75}
+html[lang="th"] h2,html[lang="th"] .tag{letter-spacing:0;line-height:1.35}
+html[lang="th"] .rock2 b,html[lang="th"] .held-tags span,html[lang="th"] .rock{-webkit-text-stroke:0;text-shadow:2px 2px 0 var(--ink)}
+
+
+.victory{margin-top:100px!important;position:relative}
+.vic-hero{display:block;width:min(170px,42vw);height:auto;margin:-120px auto 2px;filter:drop-shadow(5px 6px 0 var(--ink));animation:vicjump 1s cubic-bezier(.2,1.6,.4,1) both,hover 2.6s ease-in-out infinite 1s}
+@keyframes vicjump{from{transform:translateY(60px) scale(.6);opacity:0}}
+.call-chara{width:min(220px,52%)!important;margin-top:-110px!important}
+.roof-hero{width:clamp(80px,9vw,120px)!important;bottom:100px!important}
+
+.menu-btn{font-size:14px!important;letter-spacing:.02em!important;padding:0!important;overflow:visible!important;white-space:nowrap}
+@media (max-width:600px){.menu-btn{font-size:12px!important}}
+html[lang="th"] .call h3,html[lang="th"] .vic-big,html[lang="th"] .arrive .big,html[lang="th"] .catch,html[lang="th"] .hit-sfx,html[lang="th"] .boom,html[lang="th"] .ysy{-webkit-text-stroke:0!important;text-shadow:3px 3px 0 var(--ink)!important}
+html[lang="th"] .call h3{text-shadow:2px 2px 0 var(--ink)!important}
+.qr-card{display:flex;align-items:center;gap:18px;padding:18px 20px}
+.qr-img{width:150px;height:150px;flex-shrink:0;background:#fff;padding:8px;border:3px solid var(--ink);box-shadow:4px 4px 0 #06C755;image-rendering:pixelated}
+.qr-txt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.qr-ttl{margin:0;font-family:var(--f-jp);font-size:19px;color:#06A64B}
+.qr-sub{margin:0;font-size:13px;color:var(--sub)}
+.qr-open{display:none;align-self:flex-start;margin-top:4px}
+@media (hover:none) and (pointer:coarse), (max-width:600px){.qr-open{display:inline-flex}.qr-sub{display:none}}
+@media (max-width:420px){.qr-card{flex-direction:column;text-align:center}.qr-open{align-self:center}}
+.brand-stack{display:flex;flex-direction:column;align-items:center}
+.brand-sub{margin:4px 0 0;font-family:var(--f-jp);font-size:clamp(26px,5.4vw,58px);letter-spacing:.14em;line-height:1.1;color:var(--white);text-shadow:4px 4px 0 var(--red),-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink);transform:rotate(-4deg);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both .7s;white-space:nowrap}
+html[lang="en"] .brand-sub,html[lang="th"] .brand-sub{font-family:var(--f-hero);letter-spacing:.1em;font-size:clamp(20px,4.4vw,46px)}
+.pp-link{background:none;border:0;padding:4px 0;font:inherit;font-size:13px;font-weight:700;color:var(--red-d);text-decoration:underline;cursor:pointer;align-self:flex-start;min-height:32px}
+.pp-link.foot{color:#E8E3D8;font-weight:400;font-size:12.5px;min-height:40px;padding:0 4px}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pp{position:fixed;inset:0;z-index:85;background:rgba(18,18,18,.82);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.pp-in{position:relative;max-width:720px;width:100%;padding:28px 26px;background:var(--white);line-height:1.8}
+.pp-in h3{font-family:var(--f-jp);font-weight:400;font-size:clamp(22px,3.4vw,30px);margin:0 0 10px}
+.pp-in h4{margin:18px 0 4px;font-size:16px}
+.pp-in p{margin:0;font-size:14px;color:var(--sub);overflow-wrap:anywhere}
+.pp-date{margin-top:18px!important;text-align:right}
+.pp-x{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;border:3px solid var(--ink);background:var(--yellow);font-size:22px;cursor:pointer}
+.thanks .t-ng{display:none}.thanks.ng .t-ng{display:block}.thanks.ng .t-ok{display:none}
+.thanks.ng h3 .t-ng{display:inline}
+.f-send:disabled{opacity:.7;cursor:wait}
+details.opts summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px}
+details.opts summary::-webkit-details-marker{display:none}
+details.opts summary h3{margin:0!important}
+.opts-more{flex-shrink:0;font-size:13px;font-weight:700;border:2px solid var(--ink);padding:4px 12px;background:var(--yellow)}
+.opts-more::after{content:" ＋"}
+details.opts[open] .opts-more::after{content:" －"}
+details.opts[open] dl{margin-top:12px;animation:fadeup .35s ease}
+.lang-btn,.menu-btn{transition:transform .3s ease,opacity .3s ease}
+body.hide-top .lang-btn,body.hide-top .menu-btn{transform:translateY(calc(-100% - 40px));opacity:0;pointer-events:none}
+@media (max-width:760px){
+  .wgrid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:6px 4px 26px;margin-inline:-4px;scrollbar-width:thin}
+  .wgrid .wcard{flex:0 0 84%;scroll-snap-align:center;--r:0deg!important}
+  .wgrid .wcard.pre{opacity:1;transform:none}
+  .wgrid .wcard::after{right:6px}
+  .swipe-hint{display:block!important}
+}
+.swipe-hint{display:none;margin:4px 0 0;text-align:center;font-size:13px;color:#CFCAC0}
+@media (max-width:560px){
+  .flow{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:44px 4px 18px;margin-top:0!important}
+  .flow .fstep{flex:0 0 82%;scroll-snap-align:center}
+  .flow-wrap .swipe-hint{display:block;color:var(--sub)}
+}
+/* quiz */
+.quiz{padding:26px 24px 0;overflow:hidden}
+.qn{font-family:var(--f-jp);font-size:clamp(19px,2.8vw,24px);margin:0 0 14px}
+.opts-btn{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.opts-btn button{font-family:var(--f-body);font-weight:700;font-size:15px;text-align:left;min-height:56px;padding:10px 16px;background:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .12s,box-shadow .12s,background .2s}
+.opts-btn button:hover{background:var(--yellow);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.opts-btn button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.q{animation:qin .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes qin{from{opacity:0;transform:translateX(30px)}}
+.qbar{height:10px;margin:24px -24px 0;background:#eee;border-top:3px solid var(--ink)}
+.qbar i{display:block;height:100%;width:0;background:var(--red);transition:width .4s}
+.res-in{display:flex;gap:20px;align-items:center;animation:qin .4s}
+.res-in img{width:clamp(100px,18vw,160px);height:auto;flex-shrink:0;animation:hover 3s ease-in-out infinite}
+.res-l{margin:0;font-weight:700;color:var(--sub)}
+.res-plan{font-family:var(--f-jp);font-size:clamp(26px,4.4vw,40px);margin:2px 0 4px;color:var(--red);line-height:1.2}
+.res-txt{margin:0 0 14px}
+/* faq */
+.faq-wrap{max-width:900px}
+.faq{display:flex;flex-direction:column;gap:14px}
+.faq details{padding:0}
+.faq summary{list-style:none;cursor:pointer;padding:16px 50px 16px 18px;font-family:var(--f-jp);font-size:clamp(15px,2vw,18px);position:relative;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--f-hero);color:var(--red);font-size:22px;margin-right:10px}
+.faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:var(--f-hero);font-size:28px;transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 18px 18px 46px;color:var(--sub);animation:fadeup .35s ease}
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:start}
+.about-txt{padding:22px 24px}.about-txt p{margin:0 0 12px}.about-txt p:last-child{margin:0}
+/* form */
+.form{padding:24px;display:flex;flex-direction:column;gap:16px}
+.f-row{display:flex;flex-direction:column;gap:6px;border:0;padding:0;margin:0;min-width:0}
+.f-row label,.f-row legend{font-family:var(--f-jp);font-size:15px;padding:0}
+.req,.opt{font-family:var(--f-body);font-size:11px;font-weight:700;margin-left:8px;padding:1px 8px;vertical-align:2px}
+.req{background:var(--red);color:var(--white)}.opt{background:#e6e1d4;color:var(--ink)}
+.form input:not([type=checkbox]),.form select,.form textarea{font:inherit;font-size:16px;padding:12px;border:3px solid var(--ink);background:var(--paper);width:100%;min-height:48px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;box-shadow:4px 4px 0 var(--yellow);background:var(--white)}
+.form [aria-invalid=true]{border-color:var(--red);background:#FFECEA}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}
+.chips2 label{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);padding:6px 12px;font-family:var(--f-body);font-weight:700;font-size:14px;cursor:pointer;min-height:40px;background:var(--white)}
+.chips2 input{width:18px;height:18px;accent-color:var(--red)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700;cursor:pointer}
+.agree input{width:20px;height:20px;margin-top:3px;accent-color:var(--red);flex-shrink:0}
+.f-err{margin:0;color:var(--red-d);font-weight:700}
+.f-send{align-self:stretch}
+.side-col{display:flex;flex-direction:column;gap:26px;min-width:0}
+.side-col .call{margin-top:60px}
+/* thanks */
+.thanks{position:fixed;inset:0;z-index:80;background:rgba(18,18,18,.82);display:flex;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));overflow:auto;animation:fadeup .25s}
+.thanks-in{max-width:520px;width:100%;padding:26px 24px;text-align:center;background:var(--yellow);animation:slam .6s cubic-bezier(.2,1.6,.4,1)}
+.thanks-in img{width:150px;height:auto;margin:-80px auto 0;display:block;animation:hover 3s ease-in-out infinite}
+.thanks-in h3{font-family:var(--f-jp);font-weight:400;font-size:clamp(22px,4vw,30px);margin:6px 0}
+.thanks-in p{margin:0 0 8px}.t-note{font-size:13px;color:var(--sub)}
+.thanks-in textarea{width:100%;font:inherit;font-size:13px;border:3px solid var(--ink);padding:10px;margin:6px 0 14px;background:var(--white);resize:none}
+.thanks-in .btns{justify-content:center}
+.foot-nav{display:flex;flex-wrap:wrap;gap:14px}.foot-nav a{color:#E8E3D8;text-decoration:none}.foot-nav a:hover{color:var(--yellow)}
+@media (max-width:760px){.koma-grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}.res-in{flex-direction:column;text-align:center}.res-in .btns{justify-content:center!important}.side-col .call{margin-top:70px}}
+
+/* ---------- common ---------- */
+section{padding-block:88px}
+.label{display:inline-block;font-family:var(--f-hero);font-size:20px;letter-spacing:.14em;background:var(--ink);color:var(--yellow);padding:2px 14px;transform:rotate(-2deg)}
+h2{font-family:var(--f-jp);font-weight:400;font-size:clamp(30px,5vw,50px);line-height:1.25;margin:10px 0 0;text-wrap:balance}
+.head{margin-bottom:40px}
+.lead{color:var(--sub);max-width:40em;margin:10px 0 0}
+.panel{background:var(--white);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);position:relative;min-width:0}
+
+/* pinch */
+.pinch-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.pinch-grid .panel{padding:26px 22px 22px;display:flex;flex-direction:column;gap:10px}
+.pinch-grid .p1{grid-column:span 5;transform:rotate(-1.5deg)}
+.pinch-grid .p2{grid-column:span 7;transform:rotate(1deg);background:#FFE9E7}
+.pinch-grid .p3{grid-column:span 7;transform:rotate(.6deg);background:#FFF3C4}
+.pinch-grid .p4{grid-column:span 5;transform:rotate(-1deg)}
+.bubble{position:relative;align-self:flex-start;background:var(--white);border:3px solid var(--ink);border-radius:28px;padding:10px 18px;font-family:var(--f-jp);font-size:clamp(18px,2.6vw,24px);line-height:1.4}
+.bubble::after{content:"";position:absolute;left:28px;bottom:-16px;width:22px;height:18px;background:var(--white);border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:skewX(-35deg)}
+.pinch-grid p{margin:12px 0 0;color:var(--sub);font-size:14px}
+.sfx{position:absolute;right:14px;top:-22px;font-family:var(--f-jp);font-size:28px;color:var(--yellow);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;transform:rotate(10deg)}
+
+/* arrival */
+.arrive{background:var(--red);color:var(--white);border-block:6px solid var(--ink);overflow:hidden;position:relative;padding-block:70px}
+.arrive .speed2{position:absolute;left:50%;top:50%;width:240vmax;height:240vmax;transform:translate(-50%,-50%) rotate(var(--rot,0deg));background:repeating-conic-gradient(rgba(255,255,255,.13) 0 2deg,transparent 2deg 9deg)}
+.arrive-in{position:relative;text-align:center}
+.arrive .big{font-family:var(--f-jp);font-size:clamp(48px,11vw,120px);line-height:1.05;color:var(--yellow);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--ink);transform:rotate(-3deg) scale(var(--sc,1));transition:transform .1s linear;margin:0}
+.arrive p{margin:22px auto 0;max-width:34em;font-weight:700}
+
+/* feature */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+.feat .panel{padding:26px 24px}
+.feat .no{font-family:var(--f-hero);font-size:46px;line-height:1;color:var(--red);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.feat h3{font-family:var(--f-jp);font-weight:400;font-size:21px;margin:6px 0 8px;line-height:1.4}
+.feat p{margin:0;color:var(--sub);font-size:14px}
+
+/* moves (price) */
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px}
+.move{padding:24px 24px 22px;display:flex;flex-direction:column;gap:12px}
+.move .rank{font-family:var(--f-hero);letter-spacing:.12em;font-size:18px;color:var(--red)}
+.move h3{font-family:var(--f-jp);font-weight:400;font-size:24px;margin:0;line-height:1.3}
+.move ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--sub);flex:1}
+.move li::before{content:"★";color:var(--red);margin-right:6px}
+.gauge{height:20px;border:3px solid var(--ink);background:var(--white);position:relative;overflow:hidden}
+.gauge i{position:absolute;inset:0;transform-origin:left;transform:scaleX(var(--g,1));background:repeating-linear-gradient(-45deg,var(--red) 0 10px,var(--red-d) 10px 20px)}
+.gauge-l{display:flex;justify-content:space-between;font-family:var(--f-hero);letter-spacing:.1em;font-size:14px}
+.price{font-family:var(--f-jp);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--f-body);font-size:14px;font-weight:700;margin-left:4px}
+.move.mid{background:var(--yellow)}
+.move.top{background:var(--ink);color:var(--white)}
+.move.top ul{color:#D8D4CA}.move.top .gauge{border-color:var(--white)}
+.opts{margin-top:40px;padding:22px 24px}
+.opts h3{font-family:var(--f-jp);font-weight:400;font-size:20px;margin:0 0 10px}
+.opts dl{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));column-gap:28px}
+.opts dl div{display:flex;justify-content:space-between;gap:10px;padding-block:8px;border-bottom:2px dotted var(--ink);font-size:14px}
+.opts dd{margin:0;font-weight:900;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* works */
+.works{background:var(--ink);color:var(--white);border-block:6px solid var(--ink);overflow:hidden}
+.works .label{background:var(--yellow);color:var(--ink)}
+.works .lead{color:#CFCAC0}
+.wgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;align-items:start}
+.wcard{grid-column:span 4;background:var(--white);color:var(--ink);border:4px solid var(--white);box-shadow:8px 8px 0 var(--red);transform:translateY(var(--py,0px)) rotate(var(--r,0deg));will-change:transform}
+.wcard.wide{grid-column:span 6}
+.wcard figure{margin:0;aspect-ratio:4/3;overflow:hidden;border-bottom:4px solid var(--ink);background:#222}
+.wcard img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s}
+.wcard:hover img{transform:scale(1.07)}
+.wcard .cap{padding:12px 14px 14px}
+.wcard .cat{display:inline-block;font-family:var(--f-hero);letter-spacing:.1em;font-size:14px;background:var(--red);color:var(--white);padding:0 8px}
+.wcard h3{font-family:var(--f-jp);font-weight:400;font-size:17px;margin:6px 0 0;line-height:1.45}
+
+/* flow */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
+.flow .panel{padding:20px 18px}
+.flow .st{font-family:var(--f-hero);font-size:22px;letter-spacing:.1em;color:var(--white);background:var(--red);display:inline-block;padding:0 10px;border:3px solid var(--ink);transform:rotate(-3deg)}
+.flow h3{font-family:var(--f-jp);font-weight:400;font-size:18px;margin:10px 0 6px;line-height:1.4}
+.flow p{margin:0;font-size:13.5px;color:var(--sub)}
+
+/* sos */
+.sos{background:var(--yellow);border-top:6px solid var(--ink);position:relative;overflow:hidden}
+.sos::before{content:"";position:absolute;left:50%;top:50%;width:240vmax;height:240vmax;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(0,0,0,.06) 0 3deg,transparent 3deg 10deg);animation:spin 80s linear infinite reverse}
+.sos .wrap{position:relative}
+.sos-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:30px;align-items:start}
+.info{padding:8px 22px}
+.row{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:10px;align-items:center;padding-block:12px;border-bottom:2px dashed var(--ink)}
+.row:last-child{border-bottom:0}
+.row dt{font-family:var(--f-jp);font-size:13px}
+.row dd{margin:0;overflow-wrap:anywhere;font-weight:700}
+.copy{font-family:var(--f-body);font-size:12px;font-weight:700;background:var(--yellow);border:2px solid var(--ink);padding:4px 10px;cursor:pointer;min-height:32px}
+.call{padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:var(--red);color:var(--white)}
+.call h3{font-family:var(--f-jp);font-weight:400;font-size:clamp(24px,3.6vw,32px);margin:0;line-height:1.35;-webkit-text-stroke:1px var(--ink)}
+.call p{margin:0;font-weight:700}
+.call .btn{border-color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+footer{background:var(--ink);color:#CFCAC0;font-size:12.5px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* sfx pop + reveal */
+.boom{position:absolute;font-family:var(--f-jp);color:var(--yellow);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--red);font-size:clamp(34px,6vw,64px);pointer-events:none;z-index:3;transform:rotate(-10deg) scale(0);opacity:0}
+.boom.go{animation:boom 1.1s cubic-bezier(.2,1.6,.4,1) forwards}
+.pre{opacity:0;transform:translateY(60px) rotate(-4deg) scale(.92)}
+.in{transition:opacity .5s ease,transform .6s cubic-bezier(.2,1.5,.4,1)}
+
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes slam{0%{transform:scale(3) rotate(-25deg);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}
+@keyframes pop{0%{transform:scale(.3) rotate(-14deg);opacity:0}100%{transform:rotate(-4deg);opacity:1}}
+@keyframes popflat{0%{transform:scale(.3);opacity:0}100%{transform:none;opacity:1}}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}}
+@keyframes pulse{50%{transform:scale(1.06) rotate(4deg)}}
+@keyframes bob{50%{transform:translateY(6px)}}
+@keyframes shake{0%,100%{transform:none}20%{transform:translate(-6px,3px)}40%{transform:translate(5px,-4px)}60%{transform:translate(-4px,2px)}80%{transform:translate(3px,-2px)}}
+@keyframes boom{0%{transform:rotate(-10deg) scale(0);opacity:0}25%{transform:rotate(-10deg) scale(1.25);opacity:1}45%{transform:rotate(-8deg) scale(1)}80%{opacity:1}100%{transform:rotate(-8deg) scale(1.05);opacity:0}}
+
+@media (max-width:760px){
+  section{padding-block:70px}
+  .pinch-grid .panel,.wcard,.wcard.wide{grid-column:1/-1}
+  .flow{grid-template-columns:1fr 1fr}
+  .sos-grid{grid-template-columns:1fr}
+  .row{grid-template-columns:80px minmax(0,1fr) auto}
+}
+@media (max-width:440px){.flow{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.pre{opacity:1;transform:none}}
+</style>
+<link rel="alternate" hreflang="ja" href="./">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="alternate" hreflang="th" href="th/">
+<script>window.__INIT_LANG="ja";window.__LANG_URLS={"ja": "./", "en": "en/", "th": "th/"};</script>
+</head>
+<body>
+
+
+<div class="lang-btn" id="langBtn" role="group" aria-label="Language"><button type="button" data-l="ja" class="lg-on" aria-pressed="true">日本語</button><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="th" aria-pressed="false" lang="th">ไทย</button></div>
+<button class="snd-btn" id="sndBtn" type="button" aria-pressed="false" aria-label="BGMを再生する"><span class="snd-ic" aria-hidden="true"><i></i><i></i><i></i></span><span class="snd-tx">BGM<br><b>OFF</b></span></button>
+<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="overlay">MENU</button>
+<div class="overlay" id="overlay" hidden>
+  <nav aria-label="メニュー">
+    <a href="#pinch"><small>PINCH</small>こんなピンチに</a>
+    <a href="#battle"><small>BATTLE</small>怪人と対決</a>
+    <a href="#moves"><small>PRICE</small>必殺技（料金）</a>
+    <a href="#works"><small>WORKS</small>これまでの活躍</a>
+    <a href="#shindan"><small>CHECK</small>必殺技診断</a>
+    <a href="#flow"><small>FLOW</small>出動までの流れ</a>
+    <a href="#faq"><small>FAQ</small>よくある質問</a>
+    <a href="#about"><small>ABOUT</small>YSYについて</a>
+    <a href="#sos"><small>CONTACT</small>救援要請</a>
+  </nav>
+</div>
+
+<header class="hero" id="top">
+  <div class="speed" aria-hidden="true"></div>
+  <div class="wrap hero-in shake">
+    <div class="hero-stage">
+      <span class="burst" aria-hidden="true"></span>
+      <img class="chara fly" src="img/fly-side.webp" alt="YSYのヒーローキャラクター">
+    </div>
+    <div class="title-row" role="img" aria-label="YSY総合サービス"><img class="crest" src="img/logo.webp" alt=""><div class="brand-stack"><p class="ysy" aria-hidden="true">YSY</p><p class="brand-sub" aria-hidden="true">総合サービス</p></div></div>
+    <h1 class="tag">その「困った」、<br><em>YSY</em>が出動します。</h1>
+    <p class="sub">Web制作・デザイン・SNS運用・資料制作から各種業務サポートまで。「やりたい」を、必要なカタチでまとめて解決します。</p>
+    <div class="btns">
+      <a class="btn red" href="#sos">救援要請（無料相談）</a>
+      <a class="btn yel" href="#works">これまでの活躍</a>
+    </div>
+    <span class="scroll-cue" aria-hidden="true">SCROLL ▼</span>
+  </div>
+</header>
+
+<main>
+<section id="pinch">
+  <div class="wrap">
+    <div class="head head-chara rv"><div><span class="label">PINCH!</span><h2>こんなピンチ、<br>ありませんか？</h2></div><img class="side-chara worry" src="img/office.webp" alt="困っているスーツ姿のキャラクター"></div>
+    <div class="pinch-grid">
+      <div class="panel p1 rv"><span class="sfx" aria-hidden="true">ガーン</span><span class="bubble">チラシを作る時間がない！</span><p>イベントは来週。告知の準備がまったく進んでいない。</p></div>
+      <div class="panel p2 rv"><span class="sfx" aria-hidden="true">ドキッ</span><span class="bubble">ホームページがなくて信用されない…</span><p>「サイトはありますか？」と聞かれるたびに言葉に詰まる。</p></div>
+      <div class="panel p3 rv"><span class="sfx" aria-hidden="true">グルグル</span><span class="bubble">SNSも資料も、手が回らない！</span><p>本業で手一杯。でも発信も営業資料も止められない。</p></div>
+      <div class="panel p4 rv"><span class="sfx" aria-hidden="true">ハッ</span><span class="bubble">何を頼めばいいかも分からない</span><p>そんな段階からでも大丈夫です。</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="arrive" id="arrive">
+  <div class="speed2" aria-hidden="true"></div>
+  <img class="flyby" id="flyby" src="img/fly-front.webp" alt="" aria-hidden="true">
+  <div class="wrap arrive-in">
+    <div class="tf-stage">
+      <span class="tf-burst" aria-hidden="true"></span><span class="tf-ring" aria-hidden="true"></span>
+      <span class="tf-bit b1" aria-hidden="true"></span><span class="tf-bit b2" aria-hidden="true"></span><span class="tf-bit b3" aria-hidden="true"></span><span class="tf-bit b4" aria-hidden="true"></span><span class="tf-bit b5" aria-hidden="true"></span><span class="tf-bit b6" aria-hidden="true"></span>
+      <img class="tf-hero" src="img/transform-cut.webp" alt="スーツを破ってYSYヒーローに変身するキャラクター">
+      <span class="tf-sfx" aria-hidden="true">バリバリッ！</span>
+    </div>
+    <p class="big" id="arriveBig">YSY参上！</p>
+    <p>そのピンチ、聞きつけた！すぐに変身して駆けつけます。<br>まとめて任せられる。柔軟でスピーディー。相談しやすく、距離が近い。<br>3つの力で、あなたの「やりたい」をカタチにします。</p>
+  </div>
+</div>
+
+<section class="rescue" id="rescue" aria-label="ヒーローが崩れてきたがれきを持ち上げてお店を守る場面">
+  <div class="rescue-stage" id="rescueStage">
+    <div class="rs-sky" aria-hidden="true"><span class="moon"></span></div>
+    <svg class="rs-city far" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300V170h60v-40h50v60h40v-90h70v80h50v-50h60v70h40v-120h80v110h50v-60h70v80h40v-40h60v-70h70v100h50v-50h60v70h40v-30h60v80h50v-110h70v90h60v140z"/></svg>
+    <svg class="rs-city near" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300V200h90v-70h80v100h60v-130h110v120h70v-60h90v90h60v-150h120v140h70v-80h80v100h60v-60h100v70h110v160z"/><g class="wins"></g></svg>
+    <div class="warn" aria-hidden="true"></div>
+    <span class="rumble" aria-hidden="true">ゴゴゴゴ…</span>
+    <div class="shop" aria-hidden="true"><div class="floor2"><span></span><span></span><span></span></div><div class="awning"></div><div class="sign">あなたのお店</div><div class="win"></div><div class="door"></div></div>
+    <div class="rocks" id="rocks" aria-hidden="true"></div>
+    <canvas class="fx" id="rescueFx" aria-hidden="true"></canvas>
+    <div class="shock" aria-hidden="true"></div>
+    <div class="lifter2" id="liftPanel">
+      <div class="held" aria-hidden="true">
+        <svg viewBox="0 0 600 170" preserveAspectRatio="none"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ABA092"/><stop offset=".6" stop-color="#7A7066"/><stop offset="1" stop-color="#4F4842"/></linearGradient></defs>
+        <path d="M10 70 L40 22 L120 30 L170 4 L260 18 L330 6 L420 24 L500 10 L570 40 L592 96 L560 150 L470 164 L380 150 L300 166 L200 152 L110 166 L40 146 L6 112 Z" fill="url(#hg)" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M150 40 L180 90 L160 140 M330 30 L310 80 L350 120 M470 50 L440 100" fill="none" stroke="#121212" stroke-width="4" stroke-linecap="round"/>
+        <path d="M60 30 L20 -10 M70 40 L30 10 M540 30 L590 -6 M520 26 L560 -16" stroke="#7A4A2A" stroke-width="8" stroke-linecap="round"/></svg>
+        <div class="held-tags"><span>締め切り</span><span>人手不足</span><span class="red">集客ゼロ</span><span>資料づくり</span><span>SNS更新</span></div>
+      </div>
+      <img class="lift-hero" src="img/lift-cut.webp" alt="崩れたがれきを両腕で持ち上げるYSYヒーロー">
+    </div>
+    <div class="flash" aria-hidden="true"></div>
+    <span class="catch" aria-hidden="true">ガシッ！</span>
+    <div class="ground" aria-hidden="true"></div>
+    <p class="rescue-cap"><span class="c1">そのとき、山積みの「困った」がお店に崩れてきた…！</span><span class="c2">大丈夫。<em>YSYが全部受け止めます。</em></span></p>
+  </div>
+</section>
+
+<section class="battle" id="battle">
+  <div class="wrap">
+    <div class="head rv"><span class="label">BATTLE</span><h2>悪の「困った怪人」と対決！</h2><p class="lead">ボタンを押して、YSYの必殺技で怪人を1体ずつ倒してください。</p></div>
+    <div class="arena panel rv" id="arena">
+      <div class="arena-bg" aria-hidden="true"></div>
+      <div class="round" id="round"><span id="roundNo">ROUND 1</span><b id="roundName">シメキリ大魔王</b></div>
+      <ol class="queue" aria-label="対戦する怪人">
+        <li data-i="0"><img src="img/v-stone.webp" alt="シメキリ大魔王"></li>
+        <li data-i="1"><img src="img/v-soldier.webp" alt="テマカカリ兵長"></li>
+        <li data-i="2"><img src="img/v-flame.webp" alt="キャクゼロ魔人"></li>
+      </ol>
+      <img class="b-hero" id="bHero" src="img/fly-side.webp" alt="構えるYSYヒーロー">
+      <div class="foe" id="foe">
+        <div class="vwrap"><img class="vimg" id="foeImg" src="img/v-stone.webp" alt="シメキリ大魔王"><span class="ko" aria-hidden="true">KO!</span></div>
+        <div class="hp" role="meter" aria-label="怪人の体力" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
+        <p class="vline" id="foeLine">「締め切りは明日だぞ〜！」</p>
+      </div>
+      <img class="atk" id="atk" src="img/f-kick-cut.webp" alt="" aria-hidden="true">
+      <span class="eyebeam" id="eyebeam" aria-hidden="true"></span><span class="eyebeam" id="eyebeam2" aria-hidden="true"></span><span class="eyeglow" id="eg1" aria-hidden="true"></span><span class="eyeglow" id="eg2" aria-hidden="true"></span>
+      <span class="impact" id="impact" aria-hidden="true"></span>
+      <span class="hit-sfx" id="hitSfx" aria-hidden="true"></span>
+      <div class="whiteout" id="whiteout" aria-hidden="true"></div>
+    </div>
+    <div class="battle-ctrl">
+      <button type="button" class="mv big" id="mvBtn"><small id="mvSub">ROUND 1　VS シメキリ大魔王</small><span id="mvName">スピード制作キック！</span></button>
+    </div>
+    <p class="battle-msg" id="battleMsg" aria-live="polite">怪人たちが現れた！ まずはシメキリ大魔王だ！</p>
+    <div class="victory" id="victory" hidden>
+      <img class="vic-hero" src="img/n-fist.webp" alt="" aria-hidden="true"><p class="vic-big">完全勝利！</p>
+      <p>あなたの「困った」も、YSYが倒します。</p>
+      <div class="btns" style="animation:none"><a class="btn red" href="#sos">救援要請する</a><button class="btn yel" type="button" id="battleReset">もう一度戦う</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="feature">
+  <div class="wrap">
+    <div class="head head-chara rv"><div><span class="label">POWER</span><h2>YSYの3つの力</h2><p class="lead">選ばれる理由です。</p></div><img class="side-chara" src="img/stand-hips.webp" alt="腰に手を当てて立つYSYヒーロー"></div>
+    <div class="feat">
+      <div class="panel feat-card rv"><span class="ficon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 16h32v24H8zM16 16v-5h16v5M8 26h32"/></svg></span><div class="no">01</div><h3>まとめて任せられる</h3><p>Web制作・デザイン・SNS運用・資料制作・画像制作・業務サポートまで、複数の作業をまとめてご相談いただけます。</p></div>
+      <div class="panel feat-card rv"><span class="ficon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M27 4 10 27h13l-3 17 18-24H25z"/></svg></span><div class="no">02</div><h3>柔軟でスピーディーな対応</h3><p>「何を頼めばいいか分からない」段階からでも対応可能。単発のご依頼から継続的なサポートまで、状況に合わせて進めます。</p></div>
+      <div class="panel feat-card rv"><span class="ficon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 10h36v22H22l-9 7v-7H6z"/><path d="M15 21h18"/></svg></span><div class="no">03</div><h3>相談しやすく、距離が近い</h3><p>大きな制作会社のような複雑なやり取りはありません。細かなご要望も確認しながら、納得できる形を一緒に作ります。</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band " aria-hidden="true"><div class="band-in"><span>ホームページ制作</span><span>チラシ・メニュー</span><span>SNS運用</span><span>動画編集</span><span>資料・教材</span><span>ロゴ</span><span>LINEスタンプ</span><span>イベント・集客</span><span>ホームページ制作</span><span>チラシ・メニュー</span><span>SNS運用</span><span>動画編集</span><span>資料・教材</span><span>ロゴ</span><span>LINEスタンプ</span><span>イベント・集客</span></div></div>
+<section id="moves">
+  <div class="wrap">
+    <div class="head head-chara rv"><div><span class="label">SPECIAL MOVES</span><h2>必殺技（料金プラン）</h2><p class="lead">ピンチの大きさに合わせて、3つのプランから選べます。</p></div><img class="side-chara floaty" src="img/float-cross.webp" alt="腕を組んで浮かぶYSYヒーロー"></div>
+    <div class="moves">
+      <article class="panel move rv"><span class="rank">LEVEL 1 / SPOT</span><h3>SPOTプラン</h3><ul><li>画像・バナー制作</li><li>資料・簡易デザイン</li><li>SNS投稿用クリエイティブ</li><li>各種単発サポート</li></ul><div class="gauge-l"><span>POWER</span><span>★</span></div><div class="gauge"><i data-max=".34"></i></div><div class="price">15,000<small>円〜</small></div></article>
+      <article class="panel move mid rv"><span class="rank">LEVEL 2 / BUSINESS</span><h3>BUSINESSプラン</h3><ul><li>チラシ・販促物制作</li><li>SNS・動画・資料制作</li><li>集客・宣伝サポート</li><li>各種業務の組み合わせ対応</li></ul><div class="gauge-l"><span>POWER</span><span>★★</span></div><div class="gauge"><i data-max=".67"></i></div><div class="price">30,000<small>円〜</small></div></article>
+      <article class="panel move top rv"><span class="rank" style="color:var(--yellow)">LEVEL MAX / TOTAL SUPPORT</span><h3>TOTAL SUPPORTプラン</h3><ul><li>ホームページ制作</li><li>イベント企画・運営</li><li>集客・プロモーション</li><li>継続的な業務サポート</li></ul><div class="gauge-l"><span>POWER</span><span>★★★</span></div><div class="gauge"><i data-max="1"></i></div><div class="price">100,000<small>円〜</small></div></article>
+    </div>
+    <details class="panel opts rv">
+      <summary><h3>強化アイテム（追加オプション）</h3><span class="opts-more">詳しく見る</span></summary>
+      <dl>
+        <div><dt>特急対応</dt><dd>+10,000円</dd></div><div><dt>追加修正</dt><dd>+5,000円</dd></div>
+        <div><dt>ロゴ制作</dt><dd>+30,000円〜</dd></div><div><dt>LINEスタンプ制作</dt><dd>+30,000円〜</dd></div>
+        <div><dt>動画編集・再構築</dt><dd>+30,000円〜</dd></div><div><dt>集客・宣伝サポート</dt><dd>+30,000円〜</dd></div>
+        <div><dt>ポスティング</dt><dd>+20,000円〜＋配布費</dd></div><div><dt>継続サポート</dt><dd>+30,000円〜/月</dd></div>
+      </dl>
+    </details>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="head rv"><span class="label">WORKS</span><h2>これまでの活躍（制作実績）</h2><p class="lead">企業・教育機関・飲食店・芸能関連事業など、幅広い業界で7社・事業者との取引実績があります。</p></div>
+
+    <div class="koma rv" aria-label="4コマ漫画：ホームページ制作の出動記録">
+      <div class="koma-head">
+        <p class="koma-title">出動記録「ホームページ、<em>最短その日</em>に公開！」</p>
+        <span class="clock" aria-hidden="true"><i></i></span>
+      </div>
+      <div class="koma-grid">
+        <figure class="k k1"><span class="kno">1</span><span class="day">10:00</span><div class="chat" aria-hidden="true"><span class="msg">ホームページ、<br>急ぎで作れますか？</span><span class="msg me">おまかせください！</span></div><figcaption><span class="kb">お客様からの<br>救援要請が届いた！</span></figcaption></figure>
+        <figure class="k k2"><span class="kno">2</span><span class="day">11:00</span><img src="img/stand-hips.webp" alt="出動するYSYヒーロー"><figcaption><span class="kb">YSY、出動！<br>すぐにヒアリング</span></figcaption></figure>
+        <figure class="k k3"><span class="kno">3</span><span class="day">13:00〜</span><span class="ksfx" aria-hidden="true">ビュン！</span><img src="img/fly-front.webp" alt="猛スピードで飛ぶYSYヒーロー"><figcaption><span class="kb">構成もデザインも<br>一気に仕上げ！</span></figcaption></figure>
+        <figure class="k k4"><span class="kno">4</span><span class="day">18:00</span>
+          <div class="phone" aria-hidden="true"><div class="ph-scr"><b>YSY</b><img src="img/fly-side.webp" alt=""><span class="ph-btn"></span><span class="ph-line"></span><span class="ph-line s"></span></div></div>
+          <figcaption><span class="kb">その日のうちに<br>公開完了！</span></figcaption></figure>
+      </div>
+      <div class="days" aria-hidden="true"><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span class="goal">18:00<small>公開</small></span></div>
+      <p class="koma-note">※即日公開は、1ページ程度のシンプルなサイトで、文章や写真などの素材がそろっている場合の目安です。ページ数や内容によっては数日いただきます。お急ぎの場合は特急対応（+10,000円）もご相談ください。</p>
+    </div>
+
+    <div class="wgrid">
+      <article class="wcard rv" data-sp=".10" style="--r:-2deg"><figure><img src="img/boss.webp" alt="BOSS22 復活イベント「肉と酒」の告知チラシ" loading="lazy"></figure><div class="cap"><span class="cat">FLYER</span><h3>BOSS22 復活イベント「肉と酒」</h3><p>和牛ステーキと飲み放題のイベント告知。3部入れ替え制の時間・定員・参加費がひと目で分かるよう整理しました。</p></div></article>
+      <article class="wcard rv" data-sp="-.06" style="--r:1.5deg"><figure><img src="img/monkey.webp" alt="サルの家 創業47周年 Anniversary Event のチラシ" loading="lazy"></figure><div class="cap"><span class="cat">FLYER</span><h3>サルの家 創業47周年 Anniversary Event</h3><p>昭和・骨董がテーマのBarの周年イベント。お店の世界観に合う落ち着いた配色で、期間限定価格と値上げのお知らせを1枚にまとめました。</p></div></article>
+      <article class="wcard rv" data-sp=".14" style="--r:-1deg"><figure><img src="img/guide.webp" alt="獣医学科 DATA GUIDE 2027 の1ページ目" loading="lazy"></figure><div class="cap"><span class="cat">DOCUMENT</span><h3>獣医学科 DATA GUIDE 2027</h3><p>入試日程・配点・学費を公式要項から整理した受験生向け資料。表と色分けで、必要な日付をすぐ探せる構成にしました。</p></div></article>
+      <article class="wcard wide rv" data-sp="-.08" style="--r:1deg"><figure><img src="img/ina.webp" alt="稲垣メソッド初級編の講座動画サムネイル" loading="lazy"></figure><div class="cap"><span class="cat">VIDEO</span><h3>稲垣メソッド 初級編（講座動画）</h3><p>芸能・キャストを目指す方向けのオンライン講座。講師キャラクターとホワイトボード形式のスライドで、シリーズ動画として制作しました。</p></div></article>
+      <article class="wcard wide rv" data-sp=".08" style="--r:-1.5deg"><figure><img src="img/stamp.webp" alt="LINEスタンプ「伊藤隆一の日常」" loading="lazy"></figure><div class="cap"><span class="cat">LINE STAMP</span><h3>LINEスタンプ「伊藤隆一の日常」</h3><p>ご本人をモデルにした、日常のあいさつで使えるLINEスタンプ。表情とポーズを描き分け、文字も読みやすく仕上げました。</p></div></article>
+      <article class="wcard rv" data-sp="-.1" style="--r:1deg"><figure class="logo-fig"><img src="img/logo.webp" alt="YSY総合サービスのロゴマーク" loading="lazy"></figure><div class="cap"><span class="cat">LOGO</span><h3>YSY総合サービス ロゴ</h3><p>家紋をモチーフに、表情のあるハートを3つ組み合わせたロゴ。和の格式と親しみやすさを両立させました。</p></div></article>
+    </div>
+    <p class="swipe-hint">← 横にスワイプして見る →</p>
+  </div>
+</section>
+
+<div class="band rev yel" aria-hidden="true"><div class="band-in"><span>MISSION COMPLETE</span><span>7社・事業者が利用</span><span>中野から出動</span><span>即日対応もご相談ください</span><span>MISSION COMPLETE</span><span>7社・事業者が利用</span><span>中野から出動</span><span>即日対応もご相談ください</span></div></div>
+<section id="shindan">
+  <div class="wrap">
+    <div class="head rv"><span class="label">CHECK</span><h2>あなたにぴったりの<br>必殺技診断</h2><p class="lead">3つの質問に答えるだけで、合うプランが分かります。</p></div>
+    <div class="panel quiz rv" id="quiz">
+      <div class="q" data-step="0">
+        <p class="qn">Q1. 今回お願いしたいことは？</p>
+        <div class="opts-btn">
+          <button type="button" data-v="1">画像やバナーなど1つだけ</button>
+          <button type="button" data-v="2">チラシ・SNS・資料などいくつか</button>
+          <button type="button" data-v="3">ホームページやイベントまるごと</button>
+        </div>
+      </div>
+      <div class="q" data-step="1" hidden>
+        <p class="qn">Q2. どのくらいの期間、手伝ってほしい？</p>
+        <div class="opts-btn">
+          <button type="button" data-v="1">今回だけ</button>
+          <button type="button" data-v="2">数か月ほど</button>
+          <button type="button" data-v="3">これからずっと</button>
+        </div>
+      </div>
+      <div class="q" data-step="2" hidden>
+        <p class="qn">Q3. 集客や宣伝まで任せたい？</p>
+        <div class="opts-btn">
+          <button type="button" data-v="1">作るだけでいい</button>
+          <button type="button" data-v="2">少し相談したい</button>
+          <button type="button" data-v="3">しっかり任せたい</button>
+        </div>
+      </div>
+      <div class="result" hidden aria-live="polite">
+        <div class="res-in">
+          <img src="img/n-thumb.webp" alt="" aria-hidden="true">
+          <div>
+            <p class="res-l">あなたにぴったりの必殺技は…</p>
+            <p class="res-plan" id="resPlan"></p>
+            <p class="res-txt" id="resTxt"></p>
+            <div class="btns" style="justify-content:flex-start;animation:none">
+              <a class="btn red" href="#sos" id="resGo">このプランで相談する</a>
+              <button class="btn yel" type="button" id="resRetry">もう一度</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="qbar" aria-hidden="true"><i id="qbar"></i></div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="head rv"><span class="label">FLOW</span><h2>出動までの4ステップ</h2><p class="lead">ご依頼から納品までの流れです。</p></div>
+    <div class="flow-wrap" id="flowWrap"><div class="flow-track" aria-hidden="true"><i id="flowFill"></i><img class="flow-hero" id="flowHero" src="img/fly-side.webp" alt=""></div><ol class="flow"><li class="panel fstep rv" data-i="0"><img class="fpose" src="img/office.webp" alt="" aria-hidden="true" loading="lazy"><span class="st">STEP 1</span><h3>救援要請（お問い合わせ）</h3><p>ご希望の内容・目的・納期を簡単にお知らせください。</p></li><li class="panel fstep rv" data-i="1"><img class="fpose" src="img/stand-hips.webp" alt="" aria-hidden="true" loading="lazy"><span class="st">STEP 2</span><h3>作戦会議（打ち合わせ）</h3><p>オンライン・電話のほか、中野の事務所や町田など都内・神奈川県内で対面も可能です。</p></li><li class="panel fstep rv" data-i="2"><img class="fpose" src="img/float-cross.webp" alt="" aria-hidden="true" loading="lazy"><span class="st">STEP 3</span><h3>作戦提案・お見積り</h3><p>進め方と料金をご提案。ご納得いただいてから正式なご依頼となります。</p></li><li class="panel fstep rv" data-i="3"><img class="fpose" src="img/fly-front.webp" alt="" aria-hidden="true" loading="lazy"><span class="st">STEP 4</span><h3>出動（制作・対応）</h3><p>途中確認や修正をはさみながら、完成まで対応します。</p></li></ol><p class="swipe-hint">← 横にスワイプして見る →</p></div>
+  </div>
+</section>
+
+<div class="band blk" aria-hidden="true"><div class="band-in"><span>相談だけでもOK</span><span>都内・神奈川は対面OK</span><span>オンライン相談OK</span><span>見積り無料</span><span>相談だけでもOK</span><span>都内・神奈川は対面OK</span><span>オンライン相談OK</span><span>見積り無料</span></div></div>
+<section id="faq">
+  <div class="wrap faq-wrap">
+    <div class="head head-chara rv"><div><span class="label">FAQ</span><h2>よくある質問</h2><p class="lead">気になることは、なんでも聞いてください。</p></div><div class="faq-hero"><span class="say">なんでも<br>聞いてね！</span><img class="side-chara floaty" src="img/n-welcome.webp" alt="両手を広げて迎えるYSYヒーロー" loading="lazy"></div></div>
+    <div class="faq">
+      <details class="panel rv"><summary>どのような内容を依頼できますか？</summary><p>ホームページ制作、デザイン、SNS運用、資料制作、動画編集、イベント関連、集客サポート、各種業務サポートなど幅広く対応しています。掲載のない内容でも、まずはご相談ください。</p></details>
+      <details class="panel rv"><summary>相談だけでも可能ですか？</summary><p>はい、可能です。内容がまだ具体的に決まっていない段階でも、お気軽にご相談ください。ご希望やお悩みを伺いながら、必要な内容を一緒に整理します。</p></details>
+      <details class="panel rv"><summary>料金はどのように決まりますか？</summary><p>ご依頼内容・作業量・納期などを確認したうえでお見積りします。事前に料金をご案内し、内容にご納得いただいてから作業を開始します。</p></details>
+      <details class="panel rv"><summary>対面での打ち合わせは可能ですか？</summary><p>はい、可能です。オンライン・電話のほか、中野の事務所や町田をはじめ、東京都内・神奈川県内での対面打ち合わせにも対応しています。</p></details>
+      <details class="panel rv"><summary>急ぎの依頼にも対応できますか？</summary><p>スケジュールやご依頼内容によっては対応可能です。お急ぎの場合は、お問い合わせ時に希望納期をお知らせください。特急対応は追加料金となる場合があります。</p></details>
+      <details class="panel rv"><summary>納品後の修正や継続サポートは可能ですか？</summary><p>はい、可能です。納品後の修正・更新や、SNS運用・ホームページ管理・各種業務などの継続サポートにも対応しています。</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-city" aria-hidden="true"><svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0 160V100h80V100h90V50h90V70h90V85h40V50h50V115h40V100h40V115h70V90h80V70h40V130h50V115h90V100h70V85h50V130h50V70h50V85h80V115h50V160z"/></svg><img class="roof-hero" src="img/n-back.webp" alt=""><span class="pin">中野</span></div>
+  <div class="wrap">
+    <div class="head rv"><span class="label">ABOUT</span><h2>YSY総合サービスについて</h2></div>
+    <div class="about-grid">
+      <div class="panel about-txt rv">
+        <p>YSY総合サービスは、東京都中野区を拠点に、ホームページ制作・デザイン・SNS運用から、イベントや事務などの業務サポートまで幅広くお手伝いしています。</p>
+        <p>「こんなことも頼める？」という小さなご相談も大歓迎です。お客様の「やりたい」をカタチにするために、ご相談から納品・運用まで一つひとつ丁寧に対応します。個人事業主・小規模事業者の方も、お気軽にご相談ください。</p>
+      </div>
+      <dl class="panel info about-info rv">
+        <div class="row"><dt>屋号</dt><dd>YSY総合サービス</dd><span></span></div>
+        <div class="row"><dt>代表</dt><dd>伊藤 康也</dd><span></span></div>
+        <div class="row"><dt>創業</dt><dd>2026年1月</dd><span></span></div>
+        <div class="row"><dt>実績</dt><dd>7社・事業者との取引実績</dd><span></span></div>
+        <div class="row"><dt>営業時間</dt><dd>月曜日〜金曜日 10:00〜18:00（土日祝定休）</dd><span></span></div>
+        <div class="row"><dt>所在地</dt><dd>〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F</dd><span></span></div>
+        <div class="row"><dt>事業内容</dt><dd>ホームページ制作／デザイン／SNS運用／イベント・業務サポート</dd><span></span></div>
+        <div class="row"><dt>対応エリア</dt><dd>東京都内・神奈川県内（オンライン相談も可）</dd><span></span></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sos" id="sos">
+  <div class="signal" aria-hidden="true"><span class="sbeam"></span><span class="screst"><img src="img/logo.webp" alt=""></span><span class="cloud c1"></span><span class="cloud c2"></span></div>
+  <div class="wrap">
+    <div class="head rv"><span class="label">SOS</span><h2>救援要請はこちら</h2><p class="lead">お問い合わせ・お見積りのご相談はこちらから。</p></div>
+    <div class="sos-grid">
+      <form class="panel form rv" id="form" novalidate>
+        <div class="f-row"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="f-row"><label for="f-mail">メールアドレス<span class="req">必須</span></label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="f-row"><label for="f-tel">電話番号<span class="opt">任意</span></label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+        <div class="f-row"><label for="f-kind">ご相談内容<span class="req">必須</span></label>
+          <select id="f-kind" name="kind" required>
+            <option value="">選択してください</option>
+            <option>ホームページ制作</option><option>デザイン・チラシ制作</option><option>SNS・動画制作</option><option>資料・教材制作</option><option>イベント・集客サポート</option><option>各種業務サポート</option><option>その他</option>
+          </select></div>
+        <fieldset class="f-row"><legend>当サービスを知ったきっかけ<span class="opt">任意</span></legend>
+          <div class="chips2">
+            <label><input type="checkbox" name="src" value="Instagram">Instagram</label><label><input type="checkbox" name="src" value="LINE">LINE</label><label><input type="checkbox" name="src" value="SNS">SNS</label><label><input type="checkbox" name="src" value="Google・検索">Google・検索</label><label><input type="checkbox" name="src" value="ご紹介">ご紹介</label><label><input type="checkbox" name="src" value="その他">その他</label>
+          </div></fieldset>
+        <div class="f-row"><label for="f-msg">お問い合わせ内容<span class="opt">任意</span></label><textarea id="f-msg" name="msg" rows="5" placeholder="例：来月のイベントのチラシを作りたいです。"></textarea></div>
+        <label class="agree"><input type="checkbox" id="f-agree" required>個人情報をお問い合わせへの対応のみに使用することに同意する</label>
+        <button type="button" class="pp-link" data-pp>プライバシーポリシーを読む</button>
+        <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="f-err" id="fErr" role="alert" hidden></p>
+        <button class="btn red f-send" type="submit">救援要請を送る（送信する）</button>
+      </form>
+
+      <div class="side-col">
+        <div class="panel call rv">
+          <img class="call-chara" src="img/n-desk.webp" alt="" aria-hidden="true">
+          <h3>ピンチの大小は<br>関係ありません。</h3>
+          <p>「こんなことも頼める？」という小さなご相談も大歓迎。お電話・LINEでも受け付けています。</p>
+          <div class="btns" style="justify-content:flex-start;animation:none">
+            <a class="btn yel" href="https://line.me/R/ti/p/~ytr11" target="_blank" rel="noopener">LINEで相談</a>
+            <a class="btn" style="background:var(--white);color:var(--ink)" href="https://www.instagram.com/ysy_general_services_22/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div class="panel qr-card rv">
+          <img class="qr-img" src="img/line-qr.png" alt="LINE友だち追加用のQRコード" width="180" height="180">
+          <div class="qr-txt">
+            <p class="qr-ttl">LINEで友だち追加</p>
+            <p class="qr-sub">スマホのカメラで読み取ってください。</p>
+            <a class="btn yel qr-open" href="https://line.me/ti/p/f6-3QcYeBv" target="_blank" rel="noopener">LINEで友だち追加する</a>
+          </div>
+        </div>
+        <dl class="panel info rv">
+          <div class="row"><dt>電話</dt><dd id="tel">080-5526-0047</dd><button class="copy" type="button" data-copy="tel">コピー</button></div>
+          <div class="row"><dt>LINE ID</dt><dd id="line">ytr11</dd><button class="copy" type="button" data-copy="line">コピー</button></div>
+          <div class="row"><dt>メール</dt><dd id="mail">suraya3156_0430@yahoo.co.jp</dd><button class="copy" type="button" data-copy="mail">コピー</button></div>
+          <div class="row"><dt>受付</dt><dd>月〜金 10:00〜18:00</dd><span></span></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="pp" id="pp" hidden role="dialog" aria-modal="true" aria-labelledby="ppTitle">
+  <div class="pp-in panel">
+    <button class="pp-x" type="button" id="ppClose" aria-label="閉じる">×</button>
+    <h3 id="ppTitle">プライバシーポリシー</h3>
+    <p>YSY総合サービス（以下「当事業者」）は、お客様の個人情報を以下のとおり適切に取り扱います。</p>
+    <h4>1. 取得する情報</h4><p>お問い合わせフォームなどでご提供いただく、お名前、メールアドレス、電話番号、ご相談内容などの情報です。</p>
+    <h4>2. 利用目的</h4><p>お問い合わせへの回答やご連絡、お見積りやご提案、ご依頼いただいた業務を行うために利用します。</p>
+    <h4>3. 第三者への提供</h4><p>法令に基づく場合を除き、ご本人の同意なく第三者に提供しません。なお、お問い合わせフォームの内容をメールで受け取るため、外部のフォーム送信サービス（FormSubmit）を利用しています。</p>
+    <h4>4. 安全管理</h4><p>個人情報の漏えいや紛失を防ぐため、適切な安全管理に努めます。</p>
+    <h4>5. 開示・訂正・削除</h4><p>ご本人から個人情報の開示、訂正、利用停止、削除のご依頼があった場合は、ご本人であることを確認したうえで速やかに対応します。</p>
+    <h4>6. お問い合わせ窓口</h4><p><span>YSY総合サービス　代表 伊藤 康也</span><br><span>メール：</span>suraya3156_0430@yahoo.co.jp<br><span>電話：</span>080-5526-0047<br><span>所在地：</span><span>〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F</span></p>
+    <h4>7. 改定</h4><p>本ポリシーは、必要に応じて改定することがあります。</p>
+    <p class="pp-date">制定日：2026年11月4日</p>
+  </div>
+</div>
+<div class="thanks" id="thanks" hidden role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+  <div class="thanks-in panel">
+    <img src="img/fly-side.webp" alt="" aria-hidden="true">
+    <h3 id="thanksTitle"><span class="t-ok">救援要請を送信しました！</span><span class="t-ng">送信できませんでした</span></h3>
+    <p class="t-ok">ヒーローが向かいます。担当より、メールまたはお電話で折り返しご連絡します。</p>
+    <p class="t-ng">通信の状態により送信できませんでした。お手数ですが、下の内容をコピーして、LINEかメールでお送りください。</p>
+    <p class="t-note">送信内容の控え</p>
+    <textarea id="thanksBody" rows="6" readonly aria-label="送信内容"></textarea>
+    <div class="btns" style="animation:none">
+      <button class="btn yel" type="button" id="tCopy">内容をコピー</button>
+      <a class="btn red" href="https://line.me/R/ti/p/~ytr11" target="_blank" rel="noopener">LINEを開く</a>
+      <button class="btn" style="background:var(--white)" type="button" id="tClose">閉じる</button>
+    </div>
+  </div>
+</div>
+<footer><img class="foot-hero" id="footHero" src="img/fly-side.webp" alt="" aria-hidden="true"><span class="foot-bye" aria-hidden="true">またね！</span><div class="wrap"><nav class="foot-nav" aria-label="フッターメニュー"><a href="#moves">料金</a><a href="#works">制作実績</a><a href="#faq">よくある質問</a><a href="#about">YSYについて</a><a href="#sos">お問い合わせ</a><button type="button" class="pp-link foot" data-pp>プライバシーポリシー</button></nav><span class="foot-brand"><img src="img/logo.webp" alt="">© 2026 YSY総合サービス</span><a href="#top">ページの先頭へ ▲</a></div></footer>
+
+<script>
+  /* ===== i18n: one-click Japanese / English / Thai ===== */
+  window.LANG='ja';
+  window.EN={"ROUND 1　VS シメキリ大魔王":"ROUND 1　VS Deadline Demon Lord","プライバシーポリシー":"Privacy Policy","YSY総合サービス（以下「当事業者」）は、お客様の個人情報を以下のとおり適切に取り扱います。":"YSY General Services (“we”) handles your personal information properly as described below.","1. 取得する情報":"1. Information we collect","お問い合わせフォームなどでご提供いただく、お名前、メールアドレス、電話番号、ご相談内容などの情報です。":"Your name, email address, phone number, inquiry details and other information you provide through the contact form or other channels.","2. 利用目的":"2. How we use it","お問い合わせへの回答やご連絡、お見積りやご提案、ご依頼いただいた業務を行うために利用します。":"To reply to and contact you about your inquiry, to provide quotes and proposals, and to carry out the work you request.","3. 第三者への提供":"3. Sharing with third parties","法令に基づく場合を除き、ご本人の同意なく第三者に提供しません。なお、お問い合わせフォームの内容をメールで受け取るため、外部のフォーム送信サービス（FormSubmit）を利用しています。":"We do not share your information with third parties without your consent, except where required by law. To receive contact form messages by email, we use an external form delivery service (FormSubmit).","4. 安全管理":"4. Security","個人情報の漏えいや紛失を防ぐため、適切な安全管理に努めます。":"We take appropriate measures to prevent leaks or loss of personal information.","5. 開示・訂正・削除":"5. Access, correction and deletion","ご本人から個人情報の開示、訂正、利用停止、削除のご依頼があった場合は、ご本人であることを確認したうえで速やかに対応します。":"If you ask to see, correct, stop using or delete your personal information, we will respond promptly after confirming your identity.","6. お問い合わせ窓口":"6. Contact","7. 改定":"7. Changes","本ポリシーは、必要に応じて改定することがあります。":"We may update this policy when necessary.","制定日：2026年11月4日":"Effective: November 4, 2026","プライバシーポリシーを読む":"Read the privacy policy","YSY総合サービス　代表 伊藤 康也":"YSY General Services, Owner: Yasuya Ito","メール：":"Email: ","電話：":"Phone: ","所在地：":"Address: ","〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F":"Okuto Kangyo Bldg. 4F, 2-12-12 Nakano, Nakano-ku, Tokyo 164-0001","送信中…":"Sending…","救援要請を送信しました！":"Your call for help has been sent!","ヒーローが向かいます。担当より、メールまたはお電話で折り返しご連絡します。":"A hero is on the way. We'll get back to you by email or phone.","送信できませんでした":"The message could not be sent","通信の状態により送信できませんでした。お手数ですが、下の内容をコピーして、LINEかメールでお送りください。":"Something went wrong while sending. Please copy the text below and send it to us by LINE or email.","送信内容の控え":"Copy of your message","詳しく見る":"Show details","← 横にスワイプして見る →":"← Swipe to see more →","総合サービス":"GENERAL SERVICES","LINE友だち追加用のQRコード":"QR code to add us on LINE","LINEで友だち追加":"Add us on LINE","スマホのカメラで読み取ってください。":"Scan with your phone camera.","LINEで友だち追加する":"Add us on LINE","両手を広げて迎えるYSYヒーロー": "The YSY hero welcoming you with open arms", "こんなピンチに": "Got a crisis?", "怪人と対決": "Battle the villains", "必殺技（料金）": "Special moves (pricing)", "これまでの活躍": "Past missions", "必殺技診断": "Plan finder", "出動までの流れ": "How it works", "よくある質問": "FAQ", "YSYについて": "About YSY", "救援要請": "Call for help", "その「困った」、": "Got a problem?", "が出動します。": " is on the way.", "Web制作・デザイン・SNS運用・資料制作から各種業務サポートまで。「やりたい」を、必要なカタチでまとめて解決します。": "Websites, design, social media, documents and everyday business support. We turn what you want to do into exactly what you need, all in one place.", "救援要請（無料相談）": "Call for help (free consultation)", "こんなピンチ、": "Facing a crisis", "ありませんか？": "like these?", "ガーン": "GASP", "ドキッ": "GULP", "グルグル": "SPIN", "ハッ": "HUH?", "チラシを作る時間がない！": "No time to make a flyer!", "イベントは来週。告知の準備がまったく進んでいない。": "The event is next week, and the promotion hasn't even started.", "ホームページがなくて信用されない…": "No website, so no one trusts us…", "「サイトはありますか？」と聞かれるたびに言葉に詰まる。": "Every time someone asks “Do you have a website?”, you're lost for words.", "SNSも資料も、手が回らない！": "Social media, documents… too much to handle!", "本業で手一杯。でも発信も営業資料も止められない。": "Your main work keeps you busy, but posting and sales materials can't stop.", "何を頼めばいいかも分からない": "Not even sure what to ask for", "そんな段階からでも大丈夫です。": "That's fine. We can start from there.", "バリバリッ！": "RIIIP!", "YSY参上！": "YSY IS HERE!", "そのピンチ、聞きつけた！すぐに変身して駆けつけます。": "We heard your call! Transforming and on our way.", "まとめて任せられる。柔軟でスピーディー。相談しやすく、距離が近い。": "One team for everything. Flexible and fast. Easy to talk to, always close by.", "3つの力で、あなたの「やりたい」をカタチにします。": "Three powers that turn your ideas into reality.", "ゴゴゴゴ…": "RUMBLE…", "あなたのお店": "Your shop", "締め切り": "Deadlines", "人手不足": "Short-staffed", "集客ゼロ": "No customers", "資料づくり": "Paperwork", "SNS更新": "Social posts", "ガシッ！": "CATCH!", "そのとき、山積みの「困った」がお店に崩れてきた…！": "Suddenly, a mountain of problems came crashing down on the shop…!", "大丈夫。": "Don't worry. ", "YSYが全部受け止めます。": "YSY takes the hit for you.", "悪の「困った怪人」と対決！": "Battle the evil Trouble Villains!", "ボタンを押して、YSYの必殺技で怪人を1体ずつ倒してください。": "Press the button to defeat each villain with a YSY special move.", "シメキリ大魔王": "Deadline Demon Lord", "テマカカリ兵長": "Sergeant Busywork", "キャクゼロ魔人": "Zero-Customer Fiend", "「締め切りは明日だぞ〜！」": "“Your deadline is TOMORROW!”", "「面倒な作業を撃ち込んでやる〜！」": "“Take this pile of tedious tasks!”", "「客足を燃やし尽くしてやる〜！」": "“I'll burn away all your customers!”", "スピード制作キック！": "Speedy Build Kick!", "まとめて代行パンチ！": "All-in-One Task Punch!", "とどめの必殺 YSYビーム！！": "Finishing move: YSY BEAM!!", "スピード制作で、締め切りに余裕で間に合った！": "Speedy production beat the deadline with time to spare!", "面倒な作業は、まとめてYSYにおまかせ！": "Leave all the tedious work to YSY!", "集客の力で、お客さんが戻ってきた！": "Smart promotion brought the customers back!", "怪人たちが現れた！ まずはシメキリ大魔王だ！": "The villains appear! First up: Deadline Demon Lord!", "怪人たちがまた現れた！ まずはシメキリ大魔王だ！": "The villains are back! First up: Deadline Demon Lord!", "完全勝利！": "TOTAL VICTORY!", "あなたの「困った」も、YSYが倒します。": "YSY will defeat your problems too.", "救援要請する": "Call for help", "もう一度戦う": "Fight again", "ドカーン！": "KABOOM!", "ズドン！": "POW!", "ビビビーッ！": "ZZZAP!", "YSYの3つの力": "YSY's three powers", "選ばれる理由です。": "Why clients choose us.", "まとめて任せられる": "One team for everything", "Web制作・デザイン・SNS運用・資料制作・画像制作・業務サポートまで、複数の作業をまとめてご相談いただけます。": "Websites, design, social media, documents, graphics and business support. Bring all your tasks to one place.", "柔軟でスピーディーな対応": "Flexible and fast", "「何を頼めばいいか分からない」段階からでも対応可能。単発のご依頼から継続的なサポートまで、状況に合わせて進めます。": "Even if you don't know what to ask for yet, we can help. From one-off jobs to ongoing support, we adapt to your situation.", "相談しやすく、距離が近い": "Easy to talk to, always close", "大きな制作会社のような複雑なやり取りはありません。細かなご要望も確認しながら、納得できる形を一緒に作ります。": "No complicated back-and-forth like a big agency. We check the small details with you and build something you're happy with.", "ホームページ制作": "Website design", "チラシ・メニュー": "Flyers & menus", "SNS運用": "Social media", "動画編集": "Video editing", "資料・教材": "Documents & courseware", "ロゴ": "Logos", "LINEスタンプ": "LINE stickers", "イベント・集客": "Events & promotion", "必殺技（料金プラン）": "Special moves (pricing)", "ピンチの大きさに合わせて、3つのプランから選べます。": "Choose from three plans to match the size of your crisis.", "SPOTプラン": "SPOT plan", "画像・バナー制作": "Images & banners", "資料・簡易デザイン": "Documents & simple design", "SNS投稿用クリエイティブ": "Social media creatives", "各種単発サポート": "One-off support", "円〜": " yen~", "BUSINESSプラン": "BUSINESS plan", "チラシ・販促物制作": "Flyers & promo materials", "SNS・動画・資料制作": "Social, video & documents", "集客・宣伝サポート": "Marketing support", "各種業務の組み合わせ対応": "Mix and match services", "TOTAL SUPPORTプラン": "TOTAL SUPPORT plan", "イベント企画・運営": "Event planning & running", "集客・プロモーション": "Promotion", "継続的な業務サポート": "Ongoing business support", "強化アイテム（追加オプション）": "Power-ups (add-ons)", "特急対応": "Rush service", "+10,000円": "+¥10,000", "追加修正": "Extra revisions", "+5,000円": "+¥5,000", "ロゴ制作": "Logo design", "+30,000円〜": "+¥30,000~", "LINEスタンプ制作": "LINE sticker design", "動画編集・再構築": "Video editing & remakes", "ポスティング": "Flyer distribution", "+20,000円〜＋配布費": "+¥20,000~ plus delivery", "継続サポート": "Ongoing support", "+30,000円〜/月": "+¥30,000~/month", "これまでの活躍（制作実績）": "Past missions (portfolio)", "企業・教育機関・飲食店・芸能関連事業など、幅広い業界で7社・事業者との取引実績があります。": "We've worked with 7 companies and businesses across many fields, including corporate, education, restaurants and entertainment.", "出動記録「ホームページ、": "Mission log: “A website, live ", "最短その日": "the same day", "に公開！」": "!”", "ホームページ、": "Can you build", "急ぎで作れますか？": "a website fast?", "おまかせください！": "Leave it to us!", "お客様からの": "A call for help", "救援要請が届いた！": "from a client!", "YSY、出動！": "YSY, go!", "すぐにヒアリング": "Briefing right away", "ビュン！": "ZOOM!", "構成もデザインも": "Structure and design", "一気に仕上げ！": "done in one go!", "その日のうちに": "Live on", "公開完了！": "the same day!", "公開": " live", "※即日公開は、1ページ程度のシンプルなサイトで、文章や写真などの素材がそろっている場合の目安です。ページ数や内容によっては数日いただきます。お急ぎの場合は特急対応（+10,000円）もご相談ください。": "*Same-day launch applies to a simple one-page site when the text and photos are ready. Larger sites can take a few days. Ask us about rush service (+¥10,000) if you're in a hurry.", "BOSS22 復活イベント「肉と酒」": "BOSS22 comeback event “Meat & Drinks”", "和牛ステーキと飲み放題のイベント告知。3部入れ替え制の時間・定員・参加費がひと目で分かるよう整理しました。": "An event flyer for wagyu steak and all-you-can-drink. Times, capacity and price for three sessions are clear at a glance.", "サルの家 創業47周年 Anniversary Event": "Saru no Ie 47th Anniversary Event", "昭和・骨董がテーマのBarの周年イベント。お店の世界観に合う落ち着いた配色で、期間限定価格と値上げのお知らせを1枚にまとめました。": "An anniversary flyer for a Showa-era antique bar. Calm colors that match the bar's mood, with a limited-time price and a price update on one page.", "獣医学科 DATA GUIDE 2027": "Veterinary Dept. DATA GUIDE 2027", "入試日程・配点・学費を公式要項から整理した受験生向け資料。表と色分けで、必要な日付をすぐ探せる構成にしました。": "A guide for applicants organizing exam dates, scoring and fees from the official guidelines. Tables and colors make key dates easy to find.", "稲垣メソッド 初級編（講座動画）": "Inagaki Method Beginner (course videos)", "芸能・キャストを目指す方向けのオンライン講座。講師キャラクターとホワイトボード形式のスライドで、シリーズ動画として制作しました。": "An online course for aspiring performers. Made as a video series with an instructor character and whiteboard-style slides.", "LINEスタンプ「伊藤隆一の日常」": "LINE stickers “Ryuichi Ito's Daily Life”", "ご本人をモデルにした、日常のあいさつで使えるLINEスタンプ。表情とポーズを描き分け、文字も読みやすく仕上げました。": "Everyday greeting stickers modeled on the client himself, with varied expressions and poses and easy-to-read text.", "YSY総合サービス ロゴ": "YSY General Services logo", "家紋をモチーフに、表情のあるハートを3つ組み合わせたロゴ。和の格式と親しみやすさを両立させました。": "A logo inspired by a Japanese family crest, combining three expressive hearts. Traditional dignity meets friendliness.", "7社・事業者が利用": "Trusted by 7 businesses", "中野から出動": "Dispatched from Nakano", "即日対応もご相談ください": "Ask about same-day service", "あなたにぴったりの": "Quick quiz", "3つの質問に答えるだけで、合うプランが分かります。": "Answer three questions to find the plan that suits you.", "Q1. 今回お願いしたいことは？": "Q1. What do you need this time?", "画像やバナーなど1つだけ": "Just one thing, like an image or banner", "チラシ・SNS・資料などいくつか": "A few things: flyers, social, documents", "ホームページやイベントまるごと": "A whole website or event", "Q2. どのくらいの期間、手伝ってほしい？": "Q2. How long do you need help?", "今回だけ": "Just this once", "数か月ほど": "A few months", "これからずっと": "Ongoing", "Q3. 集客や宣伝まで任せたい？": "Q3. Should we handle promotion too?", "作るだけでいい": "Just make it", "少し相談したい": "Some advice would help", "しっかり任せたい": "Yes, take care of it", "あなたにぴったりの必殺技は…": "Your perfect special move is…", "このプランで相談する": "Ask about this plan", "もう一度": "Try again", "まずは1つから。小さなご依頼や、お試しにぴったりです。": "Start with just one. Perfect for small jobs or trying us out.", "チラシ・SNS・資料などをまとめて。お店や事業の運営を柔軟に支えます。": "Flyers, social media and documents together. Flexible support for your shop or business.", "企画から制作・集客・運営まで丸ごと。「何から始めれば？」の段階からお任せください。": "Everything from planning to production, promotion and running it. Even if you don't know where to start.", "15,000円〜": "¥15,000~", "30,000円〜": "¥30,000~", "100,000円〜": "¥100,000~", "出動までの4ステップ": "4 steps to dispatch", "ご依頼から納品までの流れです。": "From request to delivery.", "救援要請（お問い合わせ）": "Call for help (inquiry)", "ご希望の内容・目的・納期を簡単にお知らせください。": "Tell us briefly what you need, why, and by when.", "作戦会議（打ち合わせ）": "Strategy meeting", "オンライン・電話のほか、中野の事務所や町田など都内・神奈川県内で対面も可能です。": "Online or by phone, or in person at our Nakano office, Machida and elsewhere in Tokyo and Kanagawa.", "作戦提案・お見積り": "Plan & quote", "進め方と料金をご提案。ご納得いただいてから正式なご依頼となります。": "We propose the approach and price. You only commit once you're happy.", "出動（制作・対応）": "Dispatch (production)", "途中確認や修正をはさみながら、完成まで対応します。": "We check in and revise along the way until it's done.", "相談だけでもOK": "Just a consultation is fine", "都内・神奈川は対面OK": "In person in Tokyo & Kanagawa", "オンライン相談OK": "Online consultations", "見積り無料": "Free quotes", "気になることは、なんでも聞いてください。": "Ask us anything.", "なんでも": "Ask me", "聞いてね！": "anything!", "どのような内容を依頼できますか？": "What can I ask you to do?", "ホームページ制作、デザイン、SNS運用、資料制作、動画編集、イベント関連、集客サポート、各種業務サポートなど幅広く対応しています。掲載のない内容でも、まずはご相談ください。": "Websites, design, social media, documents, video editing, events, marketing and all kinds of business support. If it's not listed, just ask.", "相談だけでも可能ですか？": "Can I just ask for advice?", "はい、可能です。内容がまだ具体的に決まっていない段階でも、お気軽にご相談ください。ご希望やお悩みを伺いながら、必要な内容を一緒に整理します。": "Yes. Even if nothing is decided yet, feel free to reach out. We'll listen and help you sort out what you need.", "料金はどのように決まりますか？": "How is the price decided?", "ご依頼内容・作業量・納期などを確認したうえでお見積りします。事前に料金をご案内し、内容にご納得いただいてから作業を開始します。": "We quote based on the work, volume and deadline. You'll know the price up front, and we start only after you agree.", "対面での打ち合わせは可能ですか？": "Can we meet in person?", "はい、可能です。オンライン・電話のほか、中野の事務所や町田をはじめ、東京都内・神奈川県内での対面打ち合わせにも対応しています。": "Yes. Besides online and phone, we meet in person at our Nakano office, Machida and anywhere in Tokyo and Kanagawa.", "急ぎの依頼にも対応できますか？": "Can you handle rush jobs?", "スケジュールやご依頼内容によっては対応可能です。お急ぎの場合は、お問い合わせ時に希望納期をお知らせください。特急対応は追加料金となる場合があります。": "Often, depending on our schedule and the job. Let us know your deadline when you contact us. Rush service may cost extra.", "納品後の修正や継続サポートは可能ですか？": "Do you offer revisions and support after delivery?", "はい、可能です。納品後の修正・更新や、SNS運用・ホームページ管理・各種業務などの継続サポートにも対応しています。": "Yes. We handle revisions and updates after delivery, plus ongoing support such as social media, website management and other tasks.", "中野": "Nakano", "YSY総合サービスについて": "About YSY General Services", "YSY総合サービスは、東京都中野区を拠点に、ホームページ制作・デザイン・SNS運用から、イベントや事務などの業務サポートまで幅広くお手伝いしています。": "Based in Nakano, Tokyo, YSY General Services helps with everything from websites, design and social media to events, admin and other business support.", "「こんなことも頼める？」という小さなご相談も大歓迎です。お客様の「やりたい」をカタチにするために、ご相談から納品・運用まで一つひとつ丁寧に対応します。個人事業主・小規模事業者の方も、お気軽にご相談ください。": "Small requests are always welcome. To turn your ideas into reality, we take care with every step from consultation to delivery and beyond. Sole proprietors and small businesses, feel free to get in touch.", "屋号": "Business name", "YSY総合サービス": "YSY General Services", "代表": "Owner", "伊藤 康也": "Yasuya Ito", "創業": "Founded", "2026年1月": "January 2026", "実績": "Track record", "7社・事業者との取引実績": "Worked with 7 businesses", "営業時間": "Hours", "月曜日〜金曜日 10:00〜18:00（土日祝定休）": "Mon–Fri 10:00–18:00 (closed weekends & holidays)", "所在地": "Address", "〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F": "Okuto Kangyo Bldg. 4F, 2-12-12 Nakano, Nakano-ku, Tokyo 164-0001", "事業内容": "Services", "ホームページ制作／デザイン／SNS運用／イベント・業務サポート": "Websites / Design / Social media / Events & business support", "対応エリア": "Service area", "東京都内・神奈川県内（オンライン相談も可）": "Tokyo and Kanagawa (online consultations available)", "救援要請はこちら": "Call for help here", "お問い合わせ・お見積りのご相談はこちらから。": "For inquiries and quotes.", "お名前": "Name", "必須": "Required", "メールアドレス": "Email", "電話番号": "Phone", "任意": "Optional", "ご相談内容": "Topic", "選択してください": "Please choose", "デザイン・チラシ制作": "Design & flyers", "SNS・動画制作": "Social & video", "資料・教材制作": "Documents & courseware", "イベント・集客サポート": "Events & marketing", "各種業務サポート": "Business support", "その他": "Other", "当サービスを知ったきっかけ": "How did you hear about us?", "Google・検索": "Google / search", "ご紹介": "Referral", "お問い合わせ内容": "Message", "個人情報をお問い合わせへの対応のみに使用することに同意する": "I agree that my personal information will be used only to respond to this inquiry", "救援要請を送る（送信する）": "Send call for help", "ピンチの大小は": "No crisis is", "関係ありません。": "too small.", "「こんなことも頼める？」という小さなご相談も大歓迎。お電話・LINEでも受け付けています。": "Small requests are always welcome. You can also reach us by phone or LINE.", "LINEで相談": "Ask on LINE", "電話": "Phone", "コピー": "Copy", "メール": "Email", "受付": "Hours", "月〜金 10:00〜18:00": "Mon–Fri 10:00–18:00", "救援要請を受け付けました！": "Call for help received!", "ヒーローが向かいます。担当より、メールまたはお電話で折り返しご連絡します。": "A hero is on the way. We'll get back to you by email or phone.", "お急ぎの場合は、下の内容をコピーしてLINEで送っていただくと確実です。": "If it's urgent, copy the text below and send it on LINE.", "内容をコピー": "Copy text", "LINEを開く": "Open LINE", "閉じる": "Close", "またね！": "See you!", "料金": "Pricing", "制作実績": "Portfolio", "お問い合わせ": "Contact", "© 2026 YSY総合サービス": "© 2026 YSY General Services", "ページの先頭へ ▲": "Back to top ▲", "BGMを再生する": "Play music", "BGMを止める": "Stop music", "メニュー": "Menu", "YSYのヒーローキャラクター": "YSY hero character", "YSYの紋章": "YSY crest", "困っているスーツ姿のキャラクター": "A worried character in a suit", "スーツを破ってYSYヒーローに変身するキャラクター": "A character tearing open his shirt to become the YSY hero", "ヒーローが崩れてきたがれきを持ち上げてお店を守る場面": "The hero lifts falling rubble to protect a shop", "崩れたがれきを両腕で持ち上げるYSYヒーロー": "The YSY hero lifting rubble with both arms", "対戦する怪人": "Villains to fight", "構えるYSYヒーロー": "The YSY hero ready to fight", "怪人の体力": "Villain health", "腰に手を当てて立つYSYヒーロー": "The YSY hero with hands on hips", "腕を組んで浮かぶYSYヒーロー": "The YSY hero floating with arms crossed", "4コマ漫画：ホームページ制作の出動記録": "Four-panel comic: a website mission", "出動するYSYヒーロー": "The YSY hero heading out", "猛スピードで飛ぶYSYヒーロー": "The YSY hero flying at full speed", "BOSS22 復活イベント「肉と酒」の告知チラシ": "Flyer for the BOSS22 comeback event", "サルの家 創業47周年 Anniversary Event のチラシ": "Flyer for the Saru no Ie anniversary event", "獣医学科 DATA GUIDE 2027 の1ページ目": "First page of the Veterinary DATA GUIDE 2027", "稲垣メソッド初級編の講座動画サムネイル": "Thumbnails of the Inagaki Method course videos", "YSY総合サービスのロゴマーク": "YSY General Services logo mark", "例：来月のイベントのチラシを作りたいです。": "e.g. I'd like a flyer for next month's event.", "送信内容": "Your message", "フッターメニュー": "Footer menu", "メニューを開く": "Open menu", "メニューを閉じる": "Close menu", "サイト内メニュー": "Site menu", "カテゴリで絞り込む": "Filter by category", "必殺技を選ぶ": "Choose a move", "石の巨人の怪人": "Stone giant villain", "炎をまとった角の怪人": "Horned fire villain", "赤いマントの兵士の怪人": "Soldier villain in a red cape", "がれきの下で守られた事業者": "A business owner protected under the rubble", "【YSY総合サービスへのお問い合わせ】": "[Inquiry to YSY General Services]", "【診断結果：": "[Plan finder result: ", "お名前：": "Name: ", "メール：": "Email: ", "電話：": "Phone: ", "ご相談内容：": "Topic: ", "知ったきっかけ：": "Heard about us via: ", "内容：\n": "Message:\n", "個人情報の取り扱いへの同意": "agreement to the privacy terms", "を入力・確認してください。": "", "コピーしました": "Copied", "コピー済": "Copied", "選択しました": "Selected", "選択済": "Selected", "ギュン！": "ZOOM!", "ゴゴゴ…": "RUMBLE…", "シュッ！": "SWOOSH!", "ズバーン！": "KA-POW!", "ドドン！": "BOOM!", "ドーン！": "BOOM!", "ハテ？": "HMM?", "バシッ！": "WHAM!", "ピコーン！": "DING!"};
+  window.TH={"ROUND 1　VS シメキリ大魔王":"ROUND 1　VS จอมมารเดดไลน์","プライバシーポリシー":"นโยบายความเป็นส่วนตัว","YSY総合サービス（以下「当事業者」）は、お客様の個人情報を以下のとおり適切に取り扱います。":"YSY General Services (“เรา”) ดูแลข้อมูลส่วนบุคคลของคุณอย่างเหมาะสมตามรายละเอียดด้านล่าง","1. 取得する情報":"1. ข้อมูลที่เราเก็บ","お問い合わせフォームなどでご提供いただく、お名前、メールアドレス、電話番号、ご相談内容などの情報です。":"ชื่อ อีเมล เบอร์โทร รายละเอียดที่ปรึกษา และข้อมูลอื่นที่คุณให้ผ่านแบบฟอร์มติดต่อหรือช่องทางอื่น","2. 利用目的":"2. วัตถุประสงค์การใช้งาน","お問い合わせへの回答やご連絡、お見積りやご提案、ご依頼いただいた業務を行うために利用します。":"เพื่อตอบกลับและติดต่อเรื่องที่คุณสอบถาม เสนอราคาและแผนงาน และดำเนินงานที่คุณว่าจ้าง","3. 第三者への提供":"3. การเปิดเผยต่อบุคคลที่สาม","法令に基づく場合を除き、ご本人の同意なく第三者に提供しません。なお、お問い合わせフォームの内容をメールで受け取るため、外部のフォーム送信サービス（FormSubmit）を利用しています。":"เราไม่เปิดเผยข้อมูลแก่บุคคลที่สามโดยไม่ได้รับความยินยอม เว้นแต่กฎหมายกำหนด ทั้งนี้ เราใช้บริการส่งแบบฟอร์มภายนอก (FormSubmit) เพื่อรับข้อความจากแบบฟอร์มทางอีเมล","4. 安全管理":"4. การรักษาความปลอดภัย","個人情報の漏えいや紛失を防ぐため、適切な安全管理に努めます。":"เราดูแลอย่างเหมาะสมเพื่อป้องกันการรั่วไหลหรือสูญหายของข้อมูลส่วนบุคคล","5. 開示・訂正・削除":"5. การขอดู แก้ไข และลบข้อมูล","ご本人から個人情報の開示、訂正、利用停止、削除のご依頼があった場合は、ご本人であることを確認したうえで速やかに対応します。":"หากคุณขอดู แก้ไข ระงับการใช้ หรือลบข้อมูลส่วนบุคคล เราจะดำเนินการโดยเร็วหลังยืนยันตัวตน","6. お問い合わせ窓口":"6. ช่องทางติดต่อ","7. 改定":"7. การแก้ไขนโยบาย","本ポリシーは、必要に応じて改定することがあります。":"เราอาจปรับปรุงนโยบายนี้ตามความจำเป็น","制定日：2026年11月4日":"มีผลตั้งแต่: 4 พฤศจิกายน 2026","プライバシーポリシーを読む":"อ่านนโยบายความเป็นส่วนตัว","YSY総合サービス　代表 伊藤 康也":"YSY General Services เจ้าของ: ยาสึยะ อิโต","メール：":"อีเมล: ","電話：":"โทร: ","所在地：":"ที่อยู่: ","〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F":"อาคาร Okuto Kangyo ชั้น 4, 2-12-12 Nakano, Nakano-ku, Tokyo 164-0001","送信中…":"กำลังส่ง…","救援要請を送信しました！":"ส่งคำขอความช่วยเหลือแล้ว!","ヒーローが向かいます。担当より、メールまたはお電話で折り返しご連絡します。":"ฮีโร่กำลังไป เราจะติดต่อกลับทางอีเมลหรือโทรศัพท์","送信できませんでした":"ส่งข้อความไม่สำเร็จ","通信の状態により送信できませんでした。お手数ですが、下の内容をコピーして、LINEかメールでお送りください。":"การส่งขัดข้อง กรุณาคัดลอกข้อความด้านล่างแล้วส่งถึงเราทาง LINE หรืออีเมล","送信内容の控え":"สำเนาข้อความของคุณ","詳しく見る":"ดูรายละเอียด","← 横にスワイプして見る →":"← ปัดเพื่อดูเพิ่ม →","総合サービス":"GENERAL SERVICES","LINE友だち追加用のQRコード":"คิวอาร์โค้ดเพิ่มเพื่อนใน LINE","LINEで友だち追加":"เพิ่มเพื่อนใน LINE","スマホのカメラで読み取ってください。":"สแกนด้วยกล้องมือถือ","LINEで友だち追加する":"เพิ่มเพื่อนใน LINE","こんなピンチに": "เจอปัญหาแบบนี้ไหม", "怪人と対決": "สู้กับวายร้าย", "必殺技（料金）": "ท่าไม้ตาย (ราคา)", "これまでの活躍": "ผลงานที่ผ่านมา", "必殺技診断": "ค้นหาแพ็กเกจ", "出動までの流れ": "ขั้นตอนการทำงาน", "よくある質問": "คำถามที่พบบ่อย", "YSYについて": "เกี่ยวกับ YSY", "救援要請": "ขอความช่วยเหลือ", "その「困った」、": "มีปัญหาใช่ไหม?", "が出動します。": " พร้อมออกโรงแล้ว", "Web制作・デザイン・SNS運用・資料制作から各種業務サポートまで。「やりたい」を、必要なカタチでまとめて解決します。": "ตั้งแต่ทำเว็บไซต์ ออกแบบ ดูแลโซเชียลมีเดีย ทำเอกสาร ไปจนถึงงานสนับสนุนธุรกิจต่าง ๆ เราเปลี่ยนสิ่งที่คุณอยากทำให้เป็นจริง ครบจบในที่เดียว", "救援要請（無料相談）": "ขอความช่วยเหลือ (ปรึกษาฟรี)", "こんなピンチ、": "เคยเจอ", "ありませんか？": "ปัญหาแบบนี้ไหม?", "ガーン": "ตายแล้ว", "ドキッ": "สะดุ้ง", "グルグル": "มึนหัว", "ハッ": "เอ๊ะ", "チラシを作る時間がない！": "ไม่มีเวลาทำใบปลิว!", "イベントは来週。告知の準備がまったく進んでいない。": "งานอีเวนต์คือสัปดาห์หน้า แต่ยังไม่ได้เริ่มประชาสัมพันธ์เลย", "ホームページがなくて信用されない…": "ไม่มีเว็บไซต์ ลูกค้าเลยไม่เชื่อถือ…", "「サイトはありますか？」と聞かれるたびに言葉に詰まる。": "ทุกครั้งที่ถูกถามว่า “มีเว็บไซต์ไหม?” ก็ได้แต่อึกอัก", "SNSも資料も、手が回らない！": "ทั้งโซเชียลทั้งเอกสาร ทำไม่ทัน!", "本業で手一杯。でも発信も営業資料も止められない。": "งานหลักก็ยุ่งอยู่แล้ว แต่จะหยุดโพสต์หรือหยุดทำเอกสารขายก็ไม่ได้", "何を頼めばいいかも分からない": "ไม่รู้ด้วยซ้ำว่าควรจ้างอะไร", "そんな段階からでも大丈夫です。": "เริ่มจากตรงนั้นก็ได้ ไม่ต้องกังวล", "バリバリッ！": "แคว่ก!", "YSY参上！": "YSY มาแล้ว!", "そのピンチ、聞きつけた！すぐに変身して駆けつけます。": "ได้ยินเสียงขอความช่วยเหลือแล้ว! แปลงร่างแล้วรีบไปทันที", "まとめて任せられる。柔軟でスピーディー。相談しやすく、距離が近い。": "ฝากได้ครบในที่เดียว ยืดหยุ่นและรวดเร็ว คุยง่าย และอยู่ใกล้คุณเสมอ", "3つの力で、あなたの「やりたい」をカタチにします。": "ด้วย 3 พลังนี้ เราจะเปลี่ยนไอเดียของคุณให้เป็นจริง", "ゴゴゴゴ…": "ครืนนน…", "あなたのお店": "ร้านของคุณ", "締め切り": "เดดไลน์", "人手不足": "คนไม่พอ", "集客ゼロ": "ไม่มีลูกค้า", "資料づくり": "งานเอกสาร", "SNS更新": "อัปเดตโซเชียล", "ガシッ！": "รับไว้ได้!", "そのとき、山積みの「困った」がお店に崩れてきた…！": "ทันใดนั้น ปัญหากองโตก็ถล่มลงมาใส่ร้าน…!", "大丈夫。": "ไม่ต้องห่วง ", "YSYが全部受け止めます。": "YSY รับไว้ให้ทั้งหมดเอง", "悪の「困った怪人」と対決！": "สู้กับเหล่าวายร้ายตัวปัญหา!", "ボタンを押して、YSYの必殺技で怪人を1体ずつ倒してください。": "กดปุ่มเพื่อใช้ท่าไม้ตายของ YSY ปราบวายร้ายทีละตัว", "シメキリ大魔王": "จอมมารเดดไลน์", "テマカカリ兵長": "จ่างานจุกจิก", "キャクゼロ魔人": "ปีศาจไร้ลูกค้า", "「締め切りは明日だぞ〜！」": "“เดดไลน์คือพรุ่งนี้นะ!”", "「面倒な作業を撃ち込んでやる〜！」": "“รับงานจุกจิกไปซะ!”", "「客足を燃やし尽くしてやる〜！」": "“ข้าจะเผาลูกค้าให้หมด!”", "スピード制作キック！": "ลูกเตะผลิตงานด่วน!", "まとめて代行パンチ！": "หมัดรับจบทุกงาน!", "とどめの必殺 YSYビーム！！": "ท่าปิดฉาก YSY บีม!!", "スピード制作で、締め切りに余裕で間に合った！": "ทำงานเร็ว ทันเดดไลน์แบบสบาย ๆ!", "面倒な作業は、まとめてYSYにおまかせ！": "งานจุกจิกทั้งหมด ฝาก YSY ได้เลย!", "集客の力で、お客さんが戻ってきた！": "ด้วยพลังการตลาด ลูกค้ากลับมาแล้ว!", "怪人たちが現れた！ まずはシメキリ大魔王だ！": "เหล่าวายร้ายปรากฏตัว! ตัวแรกคือจอมมารเดดไลน์!", "怪人たちがまた現れた！ まずはシメキリ大魔王だ！": "เหล่าวายร้ายกลับมาอีกแล้ว! ตัวแรกคือจอมมารเดดไลน์!", "完全勝利！": "ชนะขาดลอย!", "あなたの「困った」も、YSYが倒します。": "ปัญหาของคุณ YSY ก็ปราบได้เหมือนกัน", "救援要請する": "ขอความช่วยเหลือ", "もう一度戦う": "สู้อีกครั้ง", "ドカーン！": "ตูม!", "ズドン！": "ปัง!", "ビビビーッ！": "วิ้งงง!", "YSYの3つの力": "3 พลังของ YSY", "選ばれる理由です。": "เหตุผลที่ลูกค้าเลือกเรา", "まとめて任せられる": "ฝากได้ครบในที่เดียว", "Web制作・デザイン・SNS運用・資料制作・画像制作・業務サポートまで、複数の作業をまとめてご相談いただけます。": "ทั้งเว็บไซต์ งานออกแบบ โซเชียลมีเดีย เอกสาร งานกราฟิก และงานสนับสนุนธุรกิจ ปรึกษาหลายงานพร้อมกันได้ในที่เดียว", "柔軟でスピーディーな対応": "ยืดหยุ่นและรวดเร็ว", "「何を頼めばいいか分からない」段階からでも対応可能。単発のご依頼から継続的なサポートまで、状況に合わせて進めます。": "แม้ยังไม่รู้ว่าจะจ้างอะไรก็ช่วยได้ ตั้งแต่งานครั้งเดียวไปจนถึงการดูแลต่อเนื่อง เราปรับให้เข้ากับสถานการณ์ของคุณ", "相談しやすく、距離が近い": "คุยง่าย อยู่ใกล้คุณ", "大きな制作会社のような複雑なやり取りはありません。細かなご要望も確認しながら、納得できる形を一緒に作ります。": "ไม่มีขั้นตอนยุ่งยากแบบบริษัทใหญ่ เราเช็กรายละเอียดเล็ก ๆ กับคุณไปด้วยกัน จนได้ผลงานที่พอใจ", "ホームページ制作": "ทำเว็บไซต์", "チラシ・メニュー": "ใบปลิวและเมนู", "SNS運用": "ดูแลโซเชียลมีเดีย", "動画編集": "ตัดต่อวิดีโอ", "資料・教材": "เอกสารและสื่อการสอน", "ロゴ": "โลโก้", "LINEスタンプ": "สติกเกอร์ LINE", "イベント・集客": "อีเวนต์และการตลาด", "必殺技（料金プラン）": "ท่าไม้ตาย (แพ็กเกจราคา)", "ピンチの大きさに合わせて、3つのプランから選べます。": "เลือกได้ 3 แพ็กเกจตามขนาดของปัญหา", "SPOTプラン": "แพ็กเกจ SPOT", "画像・バナー制作": "ภาพและแบนเนอร์", "資料・簡易デザイン": "เอกสารและงานออกแบบง่าย ๆ", "SNS投稿用クリエイティブ": "ภาพสำหรับโพสต์โซเชียล", "各種単発サポート": "งานช่วยเหลือครั้งเดียว", "円〜": " เยนขึ้นไป", "BUSINESSプラン": "แพ็กเกจ BUSINESS", "チラシ・販促物制作": "ใบปลิวและสื่อส่งเสริมการขาย", "SNS・動画・資料制作": "โซเชียล วิดีโอ และเอกสาร", "集客・宣伝サポート": "ช่วยด้านการตลาด", "各種業務の組み合わせ対応": "รวมหลายบริการได้ตามต้องการ", "TOTAL SUPPORTプラン": "แพ็กเกจ TOTAL SUPPORT", "イベント企画・運営": "วางแผนและจัดอีเวนต์", "集客・プロモーション": "โปรโมชัน", "継続的な業務サポート": "ดูแลธุรกิจต่อเนื่อง", "強化アイテム（追加オプション）": "ไอเท็มเสริมพลัง (ตัวเลือกเพิ่มเติม)", "特急対応": "งานด่วน", "+10,000円": "+10,000 เยน", "追加修正": "แก้ไขเพิ่ม", "+5,000円": "+5,000 เยน", "ロゴ制作": "ออกแบบโลโก้", "+30,000円〜": "+30,000 เยนขึ้นไป", "LINEスタンプ制作": "ทำสติกเกอร์ LINE", "動画編集・再構築": "ตัดต่อและปรับปรุงวิดีโอ", "ポスティング": "แจกใบปลิว", "+20,000円〜＋配布費": "+20,000 เยนขึ้นไป + ค่าแจก", "継続サポート": "ดูแลต่อเนื่อง", "+30,000円〜/月": "+30,000 เยนขึ้นไป/เดือน", "これまでの活躍（制作実績）": "ผลงานที่ผ่านมา", "企業・教育機関・飲食店・芸能関連事業など、幅広い業界で7社・事業者との取引実績があります。": "เคยร่วมงานกับ 7 บริษัทและธุรกิจในหลายวงการ ทั้งองค์กร สถาบันการศึกษา ร้านอาหาร และธุรกิจบันเทิง", "出動記録「ホームページ、": "บันทึกภารกิจ “เว็บไซต์ เสร็จ", "最短その日": "ภายในวันเดียว", "に公開！」": "!”", "ホームページ、": "ทำเว็บไซต์", "急ぎで作れますか？": "ด่วนได้ไหม?", "おまかせください！": "ฝากเราได้เลย!", "お客様からの": "ได้รับคำขอ", "救援要請が届いた！": "ความช่วยเหลือจากลูกค้า!", "YSY、出動！": "YSY ออกโรง!", "すぐにヒアリング": "รับบรีฟทันที", "ビュン！": "วูบ!", "構成もデザインも": "ทั้งโครงสร้างและดีไซน์", "一気に仕上げ！": "เสร็จรวดเดียว!", "その日のうちに": "เปิดใช้งาน", "公開完了！": "ได้ในวันเดียว!", "公開": " เปิดตัว", "※即日公開は、1ページ程度のシンプルなサイトで、文章や写真などの素材がそろっている場合の目安です。ページ数や内容によっては数日いただきます。お急ぎの場合は特急対応（+10,000円）もご相談ください。": "*การเปิดใช้ภายในวันเดียวใช้กับเว็บไซต์เรียบง่ายประมาณ 1 หน้า เมื่อมีข้อความและรูปภาพพร้อมแล้ว หากมีหลายหน้าอาจใช้เวลาหลายวัน หากรีบ สอบถามบริการงานด่วน (+10,000 เยน) ได้", "BOSS22 復活イベント「肉と酒」": "BOSS22 อีเวนต์คัมแบ็ก “เนื้อกับเหล้า”", "和牛ステーキと飲み放題のイベント告知。3部入れ替え制の時間・定員・参加費がひと目で分かるよう整理しました。": "ใบปลิวอีเวนต์สเต๊กวากิวและเครื่องดื่มไม่อั้น จัดเวลา จำนวนที่นั่ง และค่าเข้าร่วมของ 3 รอบให้เห็นได้ในทันที", "サルの家 創業47周年 Anniversary Event": "ซารุโนะอิเอะ ครบรอบ 47 ปี Anniversary Event", "昭和・骨董がテーマのBarの周年イベント。お店の世界観に合う落ち着いた配色で、期間限定価格と値上げのお知らせを1枚にまとめました。": "ใบปลิวงานครบรอบของบาร์ธีมยุคโชวะและของเก่า ใช้โทนสีสุขุมเข้ากับร้าน รวมราคาพิเศษช่วงจำกัดและประกาศปรับราคาไว้ในแผ่นเดียว", "獣医学科 DATA GUIDE 2027": "คณะสัตวแพทย์ DATA GUIDE 2027", "入試日程・配点・学費を公式要項から整理した受験生向け資料。表と色分けで、必要な日付をすぐ探せる構成にしました。": "เอกสารสำหรับผู้สมัครสอบ รวบรวมวันสอบ คะแนน และค่าเรียนจากประกาศทางการ ใช้ตารางและสีช่วยให้หาวันที่สำคัญได้ทันที", "稲垣メソッド 初級編（講座動画）": "อินางากิเมธอด ระดับเริ่มต้น (วิดีโอคอร์ส)", "芸能・キャストを目指す方向けのオンライン講座。講師キャラクターとホワイトボード形式のスライドで、シリーズ動画として制作しました。": "คอร์สออนไลน์สำหรับผู้ที่อยากเข้าวงการบันเทิง ทำเป็นวิดีโอซีรีส์ด้วยตัวละครผู้สอนและสไลด์แบบไวต์บอร์ด", "LINEスタンプ「伊藤隆一の日常」": "สติกเกอร์ LINE “ชีวิตประจำวันของริวอิจิ อิโต”", "ご本人をモデルにした、日常のあいさつで使えるLINEスタンプ。表情とポーズを描き分け、文字も読みやすく仕上げました。": "สติกเกอร์ทักทายในชีวิตประจำวันที่ใช้ตัวลูกค้าเป็นแบบ มีหลายสีหน้าและท่าทาง พร้อมตัวอักษรอ่านง่าย", "YSY総合サービス ロゴ": "โลโก้ YSY General Services", "家紋をモチーフに、表情のあるハートを3つ組み合わせたロゴ。和の格式と親しみやすさを両立させました。": "โลโก้ที่ได้แรงบันดาลใจจากตราประจำตระกูลญี่ปุ่น รวมหัวใจที่มีสีหน้า 3 ดวง ทั้งดูมีระดับแบบญี่ปุ่นและเป็นกันเอง", "7社・事業者が利用": "ลูกค้า 7 ธุรกิจไว้วางใจ", "中野から出動": "ออกโรงจากนากาโนะ", "即日対応もご相談ください": "สอบถามงานด่วนภายในวันได้", "あなたにぴったりの": "แบบทดสอบสั้น ๆ", "3つの質問に答えるだけで、合うプランが分かります。": "ตอบแค่ 3 คำถาม ก็รู้ว่าแพ็กเกจไหนเหมาะกับคุณ", "Q1. 今回お願いしたいことは？": "Q1. ครั้งนี้อยากให้ช่วยเรื่องอะไร?", "画像やバナーなど1つだけ": "งานเดียว เช่น ภาพหรือแบนเนอร์", "チラシ・SNS・資料などいくつか": "หลายงาน เช่น ใบปลิว โซเชียล เอกสาร", "ホームページやイベントまるごと": "ทั้งเว็บไซต์หรือทั้งอีเวนต์", "Q2. どのくらいの期間、手伝ってほしい？": "Q2. อยากให้ช่วยนานแค่ไหน?", "今回だけ": "ครั้งนี้ครั้งเดียว", "数か月ほど": "ประมาณ 2–3 เดือน", "これからずっと": "ต่อเนื่องระยะยาว", "Q3. 集客や宣伝まで任せたい？": "Q3. อยากให้ช่วยการตลาดด้วยไหม?", "作るだけでいい": "แค่ทำงานให้ก็พอ", "少し相談したい": "อยากปรึกษาบ้าง", "しっかり任せたい": "ฝากดูแลเต็มที่", "あなたにぴったりの必殺技は…": "ท่าไม้ตายที่เหมาะกับคุณคือ…", "このプランで相談する": "ปรึกษาแพ็กเกจนี้", "もう一度": "ลองอีกครั้ง", "まずは1つから。小さなご依頼や、お試しにぴったりです。": "เริ่มจากงานเดียว เหมาะกับงานเล็กหรือลองใช้บริการ", "チラシ・SNS・資料などをまとめて。お店や事業の運営を柔軟に支えます。": "รวมใบปลิว โซเชียล และเอกสาร ช่วยดูแลร้านหรือธุรกิจของคุณอย่างยืดหยุ่น", "企画から制作・集客・運営まで丸ごと。「何から始めれば？」の段階からお任せください。": "ครบตั้งแต่วางแผน ผลิต ทำการตลาด ไปจนถึงดำเนินงาน แม้ยังไม่รู้จะเริ่มตรงไหนก็ฝากเราได้", "15,000円〜": "15,000 เยนขึ้นไป", "30,000円〜": "30,000 เยนขึ้นไป", "100,000円〜": "100,000 เยนขึ้นไป", "出動までの4ステップ": "4 ขั้นตอนก่อนออกโรง", "ご依頼から納品までの流れです。": "ขั้นตอนตั้งแต่สั่งงานจนถึงส่งมอบ", "救援要請（お問い合わせ）": "ขอความช่วยเหลือ (ติดต่อเรา)", "ご希望の内容・目的・納期を簡単にお知らせください。": "บอกเราสั้น ๆ ว่าต้องการอะไร เพื่ออะไร และต้องเสร็จเมื่อไร", "作戦会議（打ち合わせ）": "ประชุมวางแผน", "オンライン・電話のほか、中野の事務所や町田など都内・神奈川県内で対面も可能です。": "คุยออนไลน์หรือทางโทรศัพท์ได้ หรือพบกันที่ออฟฟิศนากาโนะ มาจิดะ และที่อื่นในโตเกียวและคานางาวะ", "作戦提案・お見積り": "เสนอแผนและใบเสนอราคา", "進め方と料金をご提案。ご納得いただいてから正式なご依頼となります。": "เราเสนอวิธีทำงานและราคา คุณตกลงเมื่อพอใจแล้วเท่านั้น", "出動（制作・対応）": "ออกโรง (ลงมือทำ)", "途中確認や修正をはさみながら、完成まで対応します。": "เช็กความคืบหน้าและแก้ไขระหว่างทาง จนงานเสร็จสมบูรณ์", "相談だけでもOK": "แค่ปรึกษาก็ได้", "都内・神奈川は対面OK": "พบตัวได้ในโตเกียวและคานางาวะ", "オンライン相談OK": "ปรึกษาออนไลน์ได้", "見積り無料": "ประเมินราคาฟรี", "気になることは、なんでも聞いてください。": "สงสัยอะไร ถามได้เลย", "なんでも": "ถามได้", "聞いてね！": "ทุกเรื่อง!", "どのような内容を依頼できますか？": "จ้างงานอะไรได้บ้าง?", "ホームページ制作、デザイン、SNS運用、資料制作、動画編集、イベント関連、集客サポート、各種業務サポートなど幅広く対応しています。掲載のない内容でも、まずはご相談ください。": "เว็บไซต์ งานออกแบบ โซเชียลมีเดีย เอกสาร ตัดต่อวิดีโอ อีเวนต์ การตลาด และงานสนับสนุนธุรกิจอื่น ๆ หากไม่มีในรายการ ก็ปรึกษาได้เลย", "相談だけでも可能ですか？": "ขอแค่ปรึกษาได้ไหม?", "はい、可能です。内容がまだ具体的に決まっていない段階でも、お気軽にご相談ください。ご希望やお悩みを伺いながら、必要な内容を一緒に整理します。": "ได้ครับ แม้ยังไม่มีอะไรชัดเจนก็ติดต่อมาได้ เราจะรับฟังและช่วยจัดลำดับสิ่งที่ต้องทำไปด้วยกัน", "料金はどのように決まりますか？": "ราคาคิดอย่างไร?", "ご依頼内容・作業量・納期などを確認したうえでお見積りします。事前に料金をご案内し、内容にご納得いただいてから作業を開始します。": "เราประเมินราคาจากเนื้องาน ปริมาณงาน และกำหนดส่ง แจ้งราคาให้ทราบก่อน และเริ่มงานเมื่อคุณตกลงแล้วเท่านั้น", "対面での打ち合わせは可能ですか？": "นัดพบตัวได้ไหม?", "はい、可能です。オンライン・電話のほか、中野の事務所や町田をはじめ、東京都内・神奈川県内での対面打ち合わせにも対応しています。": "ได้ครับ นอกจากออนไลน์และโทรศัพท์ เรานัดพบได้ที่ออฟฟิศนากาโนะ มาจิดะ และทุกที่ในโตเกียวและคานางาวะ", "急ぎの依頼にも対応できますか？": "รับงานด่วนไหม?", "スケジュールやご依頼内容によっては対応可能です。お急ぎの場合は、お問い合わせ時に希望納期をお知らせください。特急対応は追加料金となる場合があります。": "รับได้ขึ้นอยู่กับตารางงานและเนื้องาน หากรีบ แจ้งกำหนดส่งที่ต้องการตอนติดต่อ งานด่วนอาจมีค่าใช้จ่ายเพิ่ม", "納品後の修正や継続サポートは可能ですか？": "หลังส่งงานแล้ว แก้ไขหรือดูแลต่อได้ไหม?", "はい、可能です。納品後の修正・更新や、SNS運用・ホームページ管理・各種業務などの継続サポートにも対応しています。": "ได้ครับ เรารับแก้ไขและอัปเดตหลังส่งงาน รวมถึงดูแลต่อเนื่อง เช่น โซเชียลมีเดีย เว็บไซต์ และงานอื่น ๆ", "中野": "นากาโนะ", "YSY総合サービスについて": "เกี่ยวกับ YSY General Services", "YSY総合サービスは、東京都中野区を拠点に、ホームページ制作・デザイン・SNS運用から、イベントや事務などの業務サポートまで幅広くお手伝いしています。": "YSY General Services ตั้งอยู่ที่เขตนากาโนะ โตเกียว ช่วยงานหลากหลาย ตั้งแต่เว็บไซต์ งานออกแบบ โซเชียลมีเดีย ไปจนถึงอีเวนต์ งานธุรการ และงานสนับสนุนธุรกิจ", "「こんなことも頼める？」という小さなご相談も大歓迎です。お客様の「やりたい」をカタチにするために、ご相談から納品・運用まで一つひとつ丁寧に対応します。個人事業主・小規模事業者の方も、お気軽にご相談ください。": "งานเล็ก ๆ ก็ยินดีรับ เพื่อเปลี่ยนไอเดียของคุณให้เป็นจริง เราดูแลทุกขั้นตอนอย่างใส่ใจ ตั้งแต่ปรึกษาจนถึงส่งมอบและหลังจากนั้น ผู้ประกอบการรายย่อยและธุรกิจขนาดเล็กติดต่อมาได้เลย", "屋号": "ชื่อกิจการ", "YSY総合サービス": "YSY General Services", "代表": "เจ้าของ", "伊藤 康也": "ยาสึยะ อิโต", "創業": "ก่อตั้ง", "2026年1月": "มกราคม 2026", "実績": "ผลงาน", "7社・事業者との取引実績": "เคยร่วมงานกับ 7 ธุรกิจ", "営業時間": "เวลาทำการ", "月曜日〜金曜日 10:00〜18:00（土日祝定休）": "จันทร์–ศุกร์ 10:00–18:00 (หยุดเสาร์ อาทิตย์ และวันหยุดนักขัตฤกษ์)", "所在地": "ที่อยู่", "〒164-0001 東京都中野区中野2丁目12-12 オクト勧業ビル 4F": "อาคาร Okuto Kangyo ชั้น 4, 2-12-12 Nakano, Nakano-ku, Tokyo 164-0001", "事業内容": "บริการ", "ホームページ制作／デザイン／SNS運用／イベント・業務サポート": "เว็บไซต์ / ออกแบบ / โซเชียลมีเดีย / อีเวนต์และงานสนับสนุนธุรกิจ", "対応エリア": "พื้นที่ให้บริการ", "東京都内・神奈川県内（オンライン相談も可）": "โตเกียวและคานางาวะ (ปรึกษาออนไลน์ได้)", "救援要請はこちら": "ขอความช่วยเหลือที่นี่", "お問い合わせ・お見積りのご相談はこちらから。": "ติดต่อสอบถามและขอใบเสนอราคาได้ที่นี่", "お名前": "ชื่อ", "必須": "จำเป็น", "メールアドレス": "อีเมล", "電話番号": "เบอร์โทร", "任意": "ไม่บังคับ", "ご相談内容": "เรื่องที่ต้องการปรึกษา", "選択してください": "กรุณาเลือก", "デザイン・チラシ制作": "งานออกแบบและใบปลิว", "SNS・動画制作": "โซเชียลและวิดีโอ", "資料・教材制作": "เอกสารและสื่อการสอน", "イベント・集客サポート": "อีเวนต์และการตลาด", "各種業務サポート": "งานสนับสนุนธุรกิจ", "その他": "อื่น ๆ", "当サービスを知ったきっかけ": "รู้จักเราจากที่ไหน?", "Google・検索": "Google / ค้นหา", "ご紹介": "มีคนแนะนำ", "お問い合わせ内容": "ข้อความ", "個人情報をお問い合わせへの対応のみに使用することに同意する": "ฉันยินยอมให้ใช้ข้อมูลส่วนตัวเพื่อตอบกลับการติดต่อนี้เท่านั้น", "救援要請を送る（送信する）": "ส่งคำขอความช่วยเหลือ", "ピンチの大小は": "ปัญหาเล็กหรือใหญ่", "関係ありません。": "ก็ช่วยได้", "「こんなことも頼める？」という小さなご相談も大歓迎。お電話・LINEでも受け付けています。": "งานเล็ก ๆ ก็ยินดีรับ ติดต่อทางโทรศัพท์หรือ LINE ได้เช่นกัน", "LINEで相談": "ปรึกษาทาง LINE", "電話": "โทร", "コピー": "คัดลอก", "メール": "อีเมล", "受付": "เวลารับเรื่อง", "月〜金 10:00〜18:00": "จ.–ศ. 10:00–18:00", "救援要請を受け付けました！": "ได้รับคำขอความช่วยเหลือแล้ว!", "ヒーローが向かいます。担当より、メールまたはお電話で折り返しご連絡します。": "ฮีโร่กำลังไป เราจะติดต่อกลับทางอีเมลหรือโทรศัพท์", "お急ぎの場合は、下の内容をコピーしてLINEで送っていただくと確実です。": "หากรีบ คัดลอกข้อความด้านล่างแล้วส่งทาง LINE จะเร็วที่สุด", "内容をコピー": "คัดลอกข้อความ", "LINEを開く": "เปิด LINE", "閉じる": "ปิด", "またね！": "แล้วพบกันใหม่!", "料金": "ราคา", "制作実績": "ผลงาน", "お問い合わせ": "ติดต่อเรา", "© 2026 YSY総合サービス": "© 2026 YSY General Services", "ページの先頭へ ▲": "กลับขึ้นด้านบน ▲", "BGMを再生する": "เปิดเพลง", "BGMを止める": "ปิดเพลง", "メニュー": "เมนู", "YSYのヒーローキャラクター": "ตัวละครฮีโร่ของ YSY", "YSYの紋章": "ตราสัญลักษณ์ YSY", "困っているスーツ姿のキャラクター": "ตัวละครในชุดสูทที่กำลังกลุ้มใจ", "スーツを破ってYSYヒーローに変身するキャラクター": "ตัวละครฉีกเสื้อแปลงร่างเป็นฮีโร่ YSY", "ヒーローが崩れてきたがれきを持ち上げてお店を守る場面": "ฮีโร่ยกซากที่ถล่มลงมาเพื่อปกป้องร้าน", "崩れたがれきを両腕で持ち上げるYSYヒーロー": "ฮีโร่ YSY ยกซากด้วยสองแขน", "対戦する怪人": "วายร้ายที่ต้องสู้", "構えるYSYヒーロー": "ฮีโร่ YSY ตั้งท่าพร้อมสู้", "怪人の体力": "พลังชีวิตของวายร้าย", "腰に手を当てて立つYSYヒーロー": "ฮีโร่ YSY ยืนเท้าเอว", "腕を組んで浮かぶYSYヒーロー": "ฮีโร่ YSY กอดอกลอยอยู่", "4コマ漫画：ホームページ制作の出動記録": "การ์ตูน 4 ช่อง: ภารกิจทำเว็บไซต์", "出動するYSYヒーロー": "ฮีโร่ YSY ออกโรง", "猛スピードで飛ぶYSYヒーロー": "ฮีโร่ YSY บินด้วยความเร็วสูง", "BOSS22 復活イベント「肉と酒」の告知チラシ": "ใบปลิวอีเวนต์คัมแบ็ก BOSS22", "サルの家 創業47周年 Anniversary Event のチラシ": "ใบปลิวงานครบรอบซารุโนะอิเอะ", "獣医学科 DATA GUIDE 2027 の1ページ目": "หน้าแรกของ DATA GUIDE 2027 คณะสัตวแพทย์", "稲垣メソッド初級編の講座動画サムネイル": "ภาพตัวอย่างวิดีโอคอร์สอินางากิเมธอด", "YSY総合サービスのロゴマーク": "โลโก้ YSY General Services", "例：来月のイベントのチラシを作りたいです。": "เช่น อยากทำใบปลิวสำหรับอีเวนต์เดือนหน้า", "送信内容": "ข้อความที่ส่ง", "フッターメニュー": "เมนูท้ายหน้า", "メニューを開く": "เปิดเมนู", "メニューを閉じる": "ปิดเมนู", "サイト内メニュー": "เมนูเว็บไซต์", "カテゴリで絞り込む": "กรองตามหมวด", "必殺技を選ぶ": "เลือกท่าไม้ตาย", "石の巨人の怪人": "วายร้ายยักษ์หิน", "炎をまとった角の怪人": "วายร้ายมีเขาลุกเป็นไฟ", "赤いマントの兵士の怪人": "วายร้ายทหารผ้าคลุมแดง", "がれきの下で守られた事業者": "เจ้าของกิจการที่ได้รับการปกป้อง", "両手を広げて迎えるYSYヒーロー": "ฮีโร่ YSY กางแขนต้อนรับ", "【YSY総合サービスへのお問い合わせ】": "[ติดต่อ YSY General Services]", "【診断結果：": "[ผลการค้นหาแพ็กเกจ: ", "お名前：": "ชื่อ: ", "メール：": "อีเมล: ", "電話：": "โทร: ", "ご相談内容：": "เรื่อง: ", "知ったきっかけ：": "รู้จักเราจาก: ", "内容：\n": "ข้อความ:\n", "個人情報の取り扱いへの同意": "การยินยอมเรื่องข้อมูลส่วนตัว", "を入力・確認してください。": "", "コピーしました": "คัดลอกแล้ว", "コピー済": "คัดลอกแล้ว", "選択しました": "เลือกแล้ว", "選択済": "เลือกแล้ว", "ギュン！": "ฟิ้ว!", "ゴゴゴ…": "ครืนนน…", "シュッ！": "ฟึ่บ!", "ズバーン！": "ตูมม!", "ドドン！": "ตึง!", "ドーン！": "ตูม!", "ハテ？": "หืม?", "バシッ！": "เพียะ!", "ピコーン！": "ติ๊ง!"};
+  const __D={en:window.EN,th:window.TH};
+  window.T=s=>{const d=__D[window.LANG]; return (d&&Object.prototype.hasOwnProperty.call(d,s))?d[s]:s;};
+  window.L=(ja,en,th)=>window.LANG==='en'?en:window.LANG==='th'?th:ja;
+  (function(){
+    const box=document.getElementById('langBtn'); if(!box) return;
+    const SKIP='script,style,#battleMsg,#roundNo,#roundName,#mvSub,#mvName,#foeLine,#resPlan,#resTxt,#thanksBody,.copy,.snd-btn,#menuBtn,.boom,.hit-sfx,#fErr,#langBtn';
+    const jaTitle=document.title, md=document.querySelector('meta[name="description"]'), jaDesc=md&&md.content;
+    const conv=(orig,d)=>{ const m=orig.match(/^(\s*)([\s\S]*?)(\s*)$/); const k=m[2]; if(!k) return orig; return Object.prototype.hasOwnProperty.call(d,k)?m[1]+d[k]+m[3]:orig; };
+    function walk(lang){
+      const d=__D[lang];
+      const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&!n.parentElement.closest(SKIP)?1:3});
+      let n; while(n=w.nextNode()){ if(n.__ja===undefined) n.__ja=n.nodeValue; n.nodeValue=d?conv(n.__ja,d):n.__ja; }
+      document.querySelectorAll('[alt],[aria-label],[placeholder]').forEach(e=>{ if(e.closest('#langBtn')) return; ['alt','aria-label','placeholder'].forEach(a=>{ if(!e.hasAttribute(a)) return; e.__jaA=e.__jaA||{}; if(e.__jaA[a]===undefined) e.__jaA[a]=e.getAttribute(a); e.setAttribute(a,d?conv(e.__jaA[a],d):e.__jaA[a]); }); });
+    }
+    function set(lang,anim){
+      window.LANG=lang; document.documentElement.lang=lang; walk(lang);
+      if(!window.__INIT_LANG) document.title=L(jaTitle,'YSY General Services','YSY General Services | บริการครบวงจร');
+      if(md&&!window.__INIT_LANG) md.content=L(jaDesc,'YSY General Services in Nakano, Tokyo: websites, flyers, design, social media, documents and business support.','YSY General Services ที่นากาโนะ โตเกียว: ทำเว็บไซต์ ใบปลิว งานออกแบบ โซเชียลมีเดีย เอกสาร และงานสนับสนุนธุรกิจ');
+      box.querySelectorAll('[data-l]').forEach(b=>{const on=b.dataset.l===lang; b.classList.toggle('lg-on',on); b.setAttribute('aria-pressed',on);});
+      document.querySelectorAll('.copy').forEach(c=>c.textContent=T('コピー'));
+      const sb=document.getElementById('sndBtn'); if(sb) sb.setAttribute('aria-label',T(sb.getAttribute('aria-pressed')==='true'?'BGMを止める':'BGMを再生する'));
+      window.dispatchEvent(new Event('langchange'));
+      try{ localStorage.setItem('ysy-lang',lang); }catch(e){}
+      if(anim){ document.body.classList.remove('lang-swap'); void document.body.offsetWidth; document.body.classList.add('lang-swap'); }
+    }
+    const multi=window.__LANG_URLS;
+    box.addEventListener('click',e=>{ const b=e.target.closest('[data-l]'); if(!b||b.dataset.l===window.LANG) return;
+      if(multi){ try{ localStorage.setItem('ysy-lang',b.dataset.l); }catch(x){} location.href=multi[b.dataset.l]+(location.hash||''); return; }
+      set(b.dataset.l,true); });
+    let saved=null; try{ saved=localStorage.getItem('ysy-lang'); }catch(e){}
+    window.__ysyInitLang=()=>{ if(window.__INIT_LANG){ if(window.__INIT_LANG!=='ja') set(window.__INIT_LANG,false); return; } if(saved==='en'||saved==='th') set(saved,false); };
+  })();
+
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* menu */
+  const btn=document.getElementById('menuBtn'), ov=document.getElementById('overlay');
+  function setMenu(o){ if(o){ov.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('open')));} else {document.body.classList.remove('open');setTimeout(()=>{if(!document.body.classList.contains('open'))ov.hidden=true},550);} btn.setAttribute('aria-expanded',o); btn.textContent=o?'CLOSE':'MENU'; }
+  btn.addEventListener('click',()=>setMenu(!document.body.classList.contains('open')));
+  ov.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('open'))setMenu(false)});
+
+  /* comic sound effects when a section arrives */
+  const words={battle:'ゴゴゴ…',pinch:'ドドン！',feature:'ギュン！',moves:'バシッ！',works:'ズバーン！',shindan:'ピコーン！',flow:'シュッ！',faq:'ハテ？',sos:'ドーン！'};
+  function boom(sec){ if(reduce) return; const b=document.createElement('span'); b.className='boom'; b.setAttribute('aria-hidden','true'); b.textContent=T(words[sec.id]); b.style.left=(8+Math.random()*60)+'%'; b.style.top='40px'; sec.style.position='relative'; sec.appendChild(b); requestAnimationFrame(()=>b.classList.add('go')); setTimeout(()=>b.remove(),1300); }
+
+  /* reveal: only things below the fold start hidden */
+  const rv=[...document.querySelectorAll('.rv')];
+  if('IntersectionObserver' in window && !reduce){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;el.classList.add('in');el.classList.remove('pre');io.unobserve(el);}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach((el,i)=>{ if(el.getBoundingClientRect().top>innerHeight){ el.classList.add('pre'); el.style.transitionDelay=((i%4)*.08)+'s'; io.observe(el);} });
+    const seen=new Set();
+    const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!seen.has(e.target.id)){seen.add(e.target.id);boom(e.target);}}),{threshold:.25});
+    Object.keys(words).forEach(id=>{const s=document.getElementById(id); if(s && s.getBoundingClientRect().top>innerHeight) io2.observe(s);});
+  }
+
+  /* scroll-linked: arrival zoom + speed-line spin, power gauges, works parallax */
+  const arrive=document.getElementById('arrive'), big=document.getElementById('arriveBig');
+  const gauges=[...document.querySelectorAll('.gauge i')], moves=document.getElementById('moves');
+  const cards=[...document.querySelectorAll('.wcard')]; const daysEl=document.querySelector('.days');
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  function onScroll(){
+    const vh=innerHeight;
+    const ar=arrive.getBoundingClientRect(); const pa=clamp(1-(ar.top+ar.height/2)/vh,0,1);
+    arrive.style.setProperty('--rot',(pa*90)+'deg');  big.style.setProperty('--sc',Math.min(0.7+pa*0.5, Math.max(.7,(innerWidth*.92)/(big.scrollWidth||innerWidth))).toFixed(3)); document.getElementById('flyby').style.setProperty('--fx',((pa*1.6-0.35)*innerWidth).toFixed(0)+'px'); const tp=document.querySelector('.tf-stage'); if(tp) tp.style.setProperty('--tp',pa.toFixed(3));
+    const mr=moves.getBoundingClientRect(); const pm=clamp((vh-mr.top)/(vh*0.9),0,1);
+    gauges.forEach(g=>g.parentElement.style.setProperty('--g',(pm*parseFloat(g.dataset.max)).toFixed(3)));
+    gauges.forEach(g=>g.style.transform=`scaleX(${(pm*parseFloat(g.dataset.max)).toFixed(3)})`);
+    if(daysEl){const dr=daysEl.getBoundingClientRect(); daysEl.style.setProperty('--dp',clamp((vh-dr.top)/(vh*0.6),0,1).toFixed(3));}
+    if(innerWidth<900){cards.forEach(c=>c.style.setProperty('--py','0px'));} else cards.forEach(c=>{const r=c.getBoundingClientRect(); const d=(r.top+r.height/2-vh/2); c.style.setProperty('--py',(-d*parseFloat(c.dataset.sp)).toFixed(1)+'px');});
+  }
+  if(!reduce){ addEventListener('scroll',()=>requestAnimationFrame(onScroll),{passive:true}); addEventListener('resize',onScroll); onScroll(); }
+  else { gauges.forEach(g=>g.style.transform=`scaleX(${g.dataset.max})`); }
+
+
+
+
+  /* ===== original BGM + sound effects (Web Audio, generated in the page) ===== */
+  window.YSYsnd=(function(){
+    const btn=document.getElementById('sndBtn'); if(!btn) return {fx(){}};
+    btn.classList.add('hint');
+    let ac=null, master=null, musicGain=null, fxGain=null, on=false, timer=null, step=0, nextT=0;
+    const BPM=138, SPB=60/BPM/2; // eighth notes
+    const N=n=>440*Math.pow(2,(n-69)/12);
+    // C major heroic: C G Am F  (2 bars each = 16 eighths)
+    const chords=[[60,64,67],[55,59,62],[57,60,64],[53,57,60]];
+    const bassR=[36,31,33,29];
+    const lead=[72,null,72,74,76,null,74,72, 74,null,71,null,67,null,null,null,
+                72,null,72,74,76,null,79,77, 76,null,74,null,72,null,null,null,
+                69,null,72,null,76,null,74,72, 72,null,71,null,69,null,67,null,
+                65,null,69,null,72,null,74,76, 79,null,77,null,76,null,74,null];
+    function init(){
+      ac=new (window.AudioContext||window.webkitAudioContext)();
+      master=ac.createGain(); master.gain.value=.7; master.connect(ac.destination);
+      musicGain=ac.createGain(); musicGain.gain.value=.32; musicGain.connect(master);
+      fxGain=ac.createGain(); fxGain.gain.value=.6; fxGain.connect(master);
+    }
+    function tone(freq,t,dur,type,vol,dest,filt){
+      const o=ac.createOscillator(), g=ac.createGain(); o.type=type; o.frequency.setValueAtTime(freq,t);
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+.01); g.gain.exponentialRampToValueAtTime(.0008,t+dur);
+      let node=o;
+      if(filt){ const f=ac.createBiquadFilter(); f.type='lowpass'; f.frequency.value=filt; o.connect(f); node=f; }
+      node.connect(g); g.connect(dest); o.start(t); o.stop(t+dur+.05);
+    }
+    let noiseBuf=null;
+    function noise(t,dur,vol,dest,hp){
+      if(!noiseBuf){ noiseBuf=ac.createBuffer(1,ac.sampleRate*.5,ac.sampleRate); const d=noiseBuf.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; }
+      const s=ac.createBufferSource(), g=ac.createGain(), f=ac.createBiquadFilter(); s.buffer=noiseBuf; f.type='highpass'; f.frequency.value=hp||1000;
+      g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.0008,t+dur); s.connect(f); f.connect(g); g.connect(dest); s.start(t); s.stop(t+dur);
+    }
+    function kick(t,dest,vol){ const o=ac.createOscillator(), g=ac.createGain(); o.frequency.setValueAtTime(140,t); o.frequency.exponentialRampToValueAtTime(40,t+.18);
+      g.gain.setValueAtTime(vol||.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.22); o.connect(g); g.connect(dest); o.start(t); o.stop(t+.25); }
+    function schedule(){
+      while(nextT<ac.currentTime+.25){
+        const s=step%64, bar=Math.floor(s/16), ch=chords[bar], t=nextT;
+        if(s%4===0) kick(t,musicGain,.8);
+        if(s%8===4) noise(t,.16,.35,musicGain,1800);
+        if(s%2===1) noise(t,.04,.12,musicGain,7000);
+        tone(N(bassR[bar]+(s%4===2?12:0)),t,SPB*.9,'square',.22,musicGain,600);
+        if(s%4===0||s%16===14) ch.forEach(n=>tone(N(n),t,SPB*3.6,'sawtooth',.07,musicGain,1800));
+        const L=lead[s]; if(L) tone(N(L),t,SPB*1.8,'square',.12,musicGain,3200);
+        nextT+=SPB; step++;
+      }
+    }
+    function start(){ if(!ac) init(); ac.resume(); nextT=ac.currentTime+.05; step=0; musicGain.gain.cancelScheduledValues(ac.currentTime); musicGain.gain.setValueAtTime(.32,ac.currentTime); timer=setInterval(schedule,60); schedule(); }
+    function stop(){ clearInterval(timer); timer=null; if(ac){ musicGain.gain.setTargetAtTime(0,ac.currentTime,.05); } }
+    btn.addEventListener('click',()=>{
+      on=!on; btn.classList.remove('hint'); btn.setAttribute('aria-pressed',on); btn.setAttribute('aria-label',T(on?'BGMを止める':'BGMを再生する'));
+      btn.querySelector('b').textContent=on?'ON':'OFF';
+      try{ on?start():stop(); }catch(e){ on=false; btn.setAttribute('aria-pressed','false'); btn.querySelector('b').textContent='OFF'; }
+    });
+    document.addEventListener('visibilitychange',()=>{ if(!ac) return; if(document.hidden) ac.suspend(); else if(on) ac.resume(); });
+    // sound effects: only while sound is on
+    function fx(kind){
+      if(!on||!ac) return; const t=ac.currentTime;
+      if(kind==='hit'){ kick(t,fxGain,1); noise(t,.25,.7,fxGain,600); tone(N(43),t,.3,'square',.3,fxGain,900); }
+      else if(kind==='whoosh'){ noise(t,.35,.35,fxGain,2500); }
+      else if(kind==='charge'){ const o=ac.createOscillator(),g=ac.createGain(); o.type='sawtooth'; o.frequency.setValueAtTime(220,t); o.frequency.exponentialRampToValueAtTime(1600,t+.45); g.gain.setValueAtTime(.18,t); g.gain.linearRampToValueAtTime(.001,t+.55); o.connect(g); g.connect(fxGain); o.start(t); o.stop(t+.6); }
+      else if(kind==='beam'){ for(let i=0;i<10;i++){ tone(1200-i*60,t+i*.06,.08,'square',.12,fxGain,4000);} noise(t,.7,.25,fxGain,3000); }
+      else if(kind==='win'){ [72,76,79,84].forEach((n,i)=>tone(N(n),t+i*.12,.5,'square',.16,fxGain,4000)); [60,64,67].forEach(n=>tone(N(n),t+.48,.9,'sawtooth',.08,fxGain,2400)); }
+      else if(kind==='catch'){ kick(t,fxGain,1.1); noise(t,.5,.6,fxGain,300); }
+      else if(kind==='tap'){ tone(N(84),t,.08,'square',.1,fxGain,5000); }
+    }
+    return {fx};
+  })();
+
+  /* rescue scene v2: scroll-linked, deterministic so it rewinds cleanly */
+  (function(){
+    const sec=document.getElementById('rescue'), st=document.getElementById('rescueStage'); if(!sec) return;
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cl=(v,a,b)=>Math.max(a,Math.min(b,v)), eIn=x=>x*x, eOut=x=>1-Math.pow(1-x,3);
+    // lit windows on the near skyline
+    const wins=st.querySelector('.wins'); let wh='';
+    let sd=7; const rnd=()=>{sd=(sd*9301+49297)%233280;return sd/233280;};
+    for(let i=0;i<70;i++){ wh+=`<rect x="${(rnd()*1180).toFixed(0)}" y="${(150+rnd()*130).toFixed(0)}" width="6" height="9"/>`; }
+    wins.innerHTML=wh;
+    // rocks
+    const labels=[['締め切り',0],['人手不足',0],['集客ゼロ',1],['資料づくり',0],['SNS更新',0],['',0],['',0],['',0]];
+    const rocksEl=document.getElementById('rocks');
+    const shapes=['M8 30 L30 6 L72 2 L96 22 L92 62 L60 80 L18 72 Z','M4 22 L40 2 L88 10 L98 48 L70 78 L22 70 L2 50 Z','M10 14 L52 2 L94 18 L90 60 L54 82 L12 66 Z','M2 40 L24 8 L66 4 L98 30 L84 72 L36 80 Z'];
+    const rocks=labels.map(([txt,red],i)=>{
+      const d=document.createElement('div'); d.className='rock2'+(red?' red':'');
+      const sz=txt?(i===2?190:165):(46+((i*37)%34));
+      d.style.width='clamp('+(sz*.6|0)+'px,'+(sz/9).toFixed(1)+'vw,'+sz+'px)';
+      const sh=shapes[i%4];
+      d.innerHTML=`<svg viewBox="0 0 100 84"><defs><linearGradient id="rg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${red?'#B8443A':'#A39889'}"/><stop offset=".55" stop-color="${red?'#8A2A22':'#7A7066'}"/><stop offset="1" stop-color="${red?'#5E1A14':'#4F4842'}"/></linearGradient></defs><path d="${sh}" fill="url(#rg${i})" stroke="#121212" stroke-width="4" stroke-linejoin="round"/><path d="${sh}" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" transform="translate(3 3) scale(.92)"/><path d="M30 20 L44 40 L38 58 M64 18 L58 36 L74 50" fill="none" stroke="#121212" stroke-width="2.5" stroke-linecap="round"/>${i%3===0?'<path d="M84 8 L104 -10 M88 16 L110 4" stroke="#7A4A2A" stroke-width="4" stroke-linecap="round"/>':''}</svg>${txt?'<b>'+txt+'</b>':''}`;
+      rocksEl.appendChild(d);
+      return {svg:d.querySelector('svg'),el:d, x0:.12+((i*0.137)%0.76), x1:.30+((i*0.091)%0.40), delay:(i%5)*.045+(txt?0:.06), rot0:-40+i*23, rot1:txt?(i%2?-1:1)*(8+i*3):(i%2?-1:1)*(160+i*25), stop:.40+((i*0.023)%0.08)};
+    });
+    // fx canvas
+    const cv=document.getElementById('rescueFx'), cx=cv.getContext('2d'); let W=0,H=0,DPR=1;
+    function size(){ DPR=Math.min(devicePixelRatio||1,2); W=st.clientWidth; H=st.clientHeight; cv.width=W*DPR; cv.height=H*DPR; cx.setTransform(DPR,0,0,DPR,0,0); }
+    size(); addEventListener('resize',()=>{size();on();});
+    const P=[]; sd=42; for(let i=0;i<140;i++) P.push({a:rnd()*Math.PI*2,s:.4+rnd(),r:1+rnd()*3.5,k:rnd(),x:rnd(),y:rnd()});
+    function drawFx(p){
+      cx.clearRect(0,0,W,H);
+      const groundY=H*.85;
+      // dust plume while rocks crash down (.25-.55)
+      const dust=cl((p-.22)/.18,0,1)*(1-cl((p-.5)/.2,0,1));
+      if(dust>0){ for(let i=0;i<60;i++){ const q=P[i]; const spread=(q.x-.5)*W*(.4+dust*.8); const rise=q.k*H*.28*dust;
+        cx.fillStyle=`rgba(190,175,150,${(.05+.08*q.s)*dust})`; cx.beginPath(); cx.arc(W/2+spread,groundY-rise*.7,(14+q.r*10)*(.6+dust),0,7); cx.fill(); } }
+      // falling grit
+      const grit=cl(p/.45,0,1)*(1-cl((p-.45)/.1,0,1));
+      if(grit>0){ cx.fillStyle='rgba(120,110,100,.9)'; for(let i=60;i<100;i++){ const q=P[i]; const y=((q.y+p*2.4*q.s)%1)*groundY; cx.fillRect(q.x*W,y,q.r+1,q.r+1);} }
+      // spark burst on catch (.5-.66)
+      const sp=cl((p-.5)/.16,0,1);
+      if(sp>0&&sp<1){ const ox=W*(innerWidth>=900?.5-.1:.5), oy=H*.48;
+        for(let i=100;i<140;i++){ const q=P[i]; const d=eOut(sp)*(120+q.s*260); const x=ox+Math.cos(q.a)*d, y=oy+Math.sin(q.a)*d*.7+sp*sp*80;
+          cx.strokeStyle=`rgba(255,${190+(q.k*60|0)},60,${1-sp})`; cx.lineWidth=2+q.r*.6; cx.beginPath(); cx.moveTo(x,y); cx.lineTo(x-Math.cos(q.a)*14,y-Math.sin(q.a)*10); cx.stroke(); } }
+    }
+    function f(p){
+      const S=st.style;
+      const warn=cl(p/.12,0,1)*(1-cl((p-.42)/.08,0,1));
+      S.setProperty('--wr',(warn*(.6+.4*Math.abs(Math.sin(p*60)))).toFixed(3));
+      S.setProperty('--ru',(cl((p-.02)/.06,0,1)*(1-cl((p-.3)/.06,0,1))).toFixed(2));
+      S.setProperty('--rux',(Math.sin(p*220)*4).toFixed(1)+'px');
+      S.setProperty('--par',p.toFixed(3));
+      // rocks
+      rocks.forEach(r=>{
+        const lp=cl((p-.06-r.delay)/(r.stop-.06-r.delay),0,1), fall=eIn(lp);
+        const caughtFade=1-cl((p-.5)/.05,0,1);
+        const x=(r.x0+(r.x1-r.x0)*fall)*W - r.el.offsetWidth/2;
+        const yTop=-H*.3, yEnd=H*(.40+((r.x0*7)%1)*.10)-(r.el.offsetHeight*.3);
+        const bounce=lp>=1?Math.sin(cl((p-r.stop)/.06,0,1)*Math.PI)*-12:0;
+        const y=yTop+(yEnd-yTop)*fall+bounce;
+        const rot=r.rot0+(r.rot1-r.rot0)*fall;
+        r.el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`; r.svg.style.transform=`rotate(${rot.toFixed(1)}deg)`;
+        r.el.style.opacity=(lp>0?1:0)*caughtFade;
+      });
+      // shake when rocks land and on catch
+      const land=cl((p-.38)/.1,0,1)*(1-cl((p-.48)/.04,0,1)), hit=cl((p-.5)/.02,0,1)*(1-cl((p-.52)/.06,0,1));
+      const amp=reduce?0:(land*6+hit*14);
+      S.setProperty('--shx',(Math.sin(p*900)*amp).toFixed(1)+'px'); S.setProperty('--shy',(Math.cos(p*700)*amp*.6).toFixed(1)+'px');
+      // hero catch
+      const rise=eOut(cl((p-.44)/.08,0,1)), caught=p>.5;
+      S.setProperty('--lp',(1-rise).toFixed(3)); S.setProperty('--lr',(6-rise*8).toFixed(2));
+      S.setProperty('--ls',(1+(caught?Math.max(0,.08-(p-.5)*.6):0)).toFixed(3));
+      S.setProperty('--ll',(cl((p-.44)/.08,0,1)*(1-cl((p-.56)/.1,0,1))).toFixed(2));
+      S.setProperty('--fl',(Math.max(0,1-Math.abs(p-.505)/.025)*.9).toFixed(2));
+      const sk=cl((p-.5)/.14,0,1); S.setProperty('--sk',(sk*22).toFixed(2)); S.setProperty('--sko',(sk>0?(1-sk):0).toFixed(2));
+      S.setProperty('--cs',caught?(Math.min(1,(p-.5)/.05)*(p<.86?1:Math.max(0,1-(p-.86)/.08))).toFixed(2):0);
+      if(caught&&!window.__ysyCaught){window.__ysyCaught=1; window.YSYsnd&&YSYsnd.fx('catch');} if(!caught) window.__ysyCaught=0;
+      S.setProperty('--c1',caught?0:1); S.setProperty('--c2',caught?1:0);
+      S.setProperty('--rp',eOut(cl((p-.5)/.15,0,1)).toFixed(3));
+      drawFx(reduce?1:p);
+    }
+    function on(){ const r=sec.getBoundingClientRect(); f(reduce?1:cl(-r.top/(r.height-innerHeight),0,1)); }
+    if(!reduce) addEventListener('scroll',()=>requestAnimationFrame(on),{passive:true});
+    on();
+  })();
+
+  /* battle: one foe at a time, finisher = eye beam */
+  (function(){
+    const arena=document.getElementById('arena'); if(!arena) return;
+    const $=id=>document.getElementById(id);
+    const hero=$('bHero'), atk=$('atk'), imp=$('impact'), eb=$('eyebeam'), eb2=$('eyebeam2'), eg1=$('eg1'), eg2=$('eg2'), sfx=$('hitSfx'), msg=$('battleMsg'), vic=$('victory'), foe=$('foe'), foeImg=$('foeImg'), btn=$('mvBtn'), wo=$('whiteout');
+    const hpEl=foe.querySelector('.hp'), qs=[...arena.querySelectorAll('.queue li')];
+    const R=[
+      {name:'シメキリ大魔王',img:'img/v-stone.webp',line:'「締め切りは明日だぞ〜！」',move:'スピード制作キック！',kind:'kick',src:'img/f-kick-cut.webp',sfx:'ドカーン！',win:'スピード制作で、締め切りに余裕で間に合った！'},
+      {name:'テマカカリ兵長',img:'img/v-soldier.webp',line:'「面倒な作業を撃ち込んでやる〜！」',move:'まとめて代行パンチ！',kind:'punch',src:'img/f-punch-cut.webp',sfx:'ズドン！',win:'面倒な作業は、まとめてYSYにおまかせ！'},
+      {name:'キャクゼロ魔人',img:'img/v-flame.webp',line:'「客足を燃やし尽くしてやる〜！」',move:'とどめの必殺 YSYビーム！！',kind:'beam',src:'img/f-beam-cut.webp',sfx:'ビビビーッ！',win:'集客の力で、お客さんが戻ってきた！'}
+    ];
+    const PT={kick:[.998,.33],punch:[.003,.52],beam:[.58,.24]}, EYE2=[.71,.222];
+    R.forEach(r=>{[r.img,r.src].forEach(u=>{const i=new Image(); i.src=u;});});
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let n=0, busy=false, msgFn=()=>T('怪人たちが現れた！ まずはシメキリ大魔王だ！');
+    const play=(el,c)=>{el.classList.remove(c); void el.offsetWidth; el.classList.add(c);};
+    const setHp=v=>{hpEl.querySelector('i').style.setProperty('--hp',v+'%'); hpEl.setAttribute('aria-valuenow',v); hpEl.classList.toggle('low',v<=40);};
+    function setRound(i,enter){
+      const r=R[i]; foeImg.src=r.img; foeImg.alt=T(r.name); $('foeLine').textContent=T(r.line); setHp(100);
+      foe.classList.remove('down','hit'); if(enter&&!reduce) play(foe,'enter');
+      $('roundNo').textContent=i===2?'FINAL ROUND':'ROUND '+(i+1); $('roundName').textContent=T(r.name);
+      $('mvSub').textContent=(i===2?'FINAL':'ROUND '+(i+1))+'　VS '+T(r.name); $('mvName').textContent=T(r.move);
+      btn.classList.toggle('final',i===2);
+      qs.forEach((q,j)=>{q.classList.toggle('now',j===i); q.classList.toggle('done',j<i);});
+    }
+    function finish(){
+      const r=R[n]; setHp(0); foe.classList.add('down'); qs[n].classList.add('done');
+      atk.classList.remove('on','lunge'); hero.classList.remove('away'); [eb,eb2].forEach(e=>e.classList.remove('fire')); [eg1,eg2].forEach(e=>e.classList.remove('on'));
+      const done1=()=>L(r.name+'を倒した！ '+r.win,'Defeated '+T(r.name)+'! '+T(r.win),'ปราบ'+T(r.name)+'สำเร็จ! '+T(r.win)); msgFn=done1; msg.textContent=done1();
+      n++;
+      if(n<R.length){ setTimeout(()=>{ setRound(n,true); const nx=R[n]; msgFn=()=>done1()+L(' 次は'+nx.name+'だ！',' Next up: '+T(nx.name)+'!',' ต่อไปคือ'+T(nx.name)+'!'); msg.textContent=msgFn(); busy=false; btn.disabled=false; },reduce?0:900); }
+      else { vic.hidden=false; YSYsnd.fx('win'); msgFn=()=>L('すべての怪人を倒した！ '+r.win,'All villains defeated! '+T(r.win),'ปราบวายร้ายครบทุกตัวแล้ว! '+T(r.win)); msg.textContent=msgFn(); btn.disabled=true; busy=false; }
+    }
+    function attack(){
+      if(busy||n>=R.length) return; busy=true; btn.disabled=true;
+      const r=R[n]; if(reduce){ finish(); return; }
+      atk.onload=null; atk.src=r.src;
+      const go=()=>{
+        const ar=arena.getBoundingClientRect(), fw=foe.querySelector('.vwrap').getBoundingClientRect();
+        const H=ar.height, Wd=ar.width, mobile=innerWidth<=640;
+        const tx=fw.left-ar.left+fw.width*.5, ty=fw.top-ar.top+fw.height*.4;
+        const nat=atk.naturalWidth/atk.naturalHeight;
+        let h=r.kind==='kick'?H*(mobile?.46:.64):r.kind==='beam'?H*(mobile?.44:.82):H*(mobile?.52:.82), w=h*nat;
+        if(w>Wd*(mobile?.9:.62)){ w=Wd*(mobile?.9:.62); h=w/nat; }
+        atk.style.width=w+'px'; atk.style.height=h+'px';
+        const p=PT[r.kind]; let L,T;
+        if(r.kind==='kick'){ L=tx-fw.width*.12-p[0]*w; T=ty-p[1]*h; }
+        else if(r.kind==='punch'){ L=tx+fw.width*.15-p[0]*w; T=ty-p[1]*h; }
+        else { L=mobile?-w*.06:Wd*.01; T=H-h-(mobile?4:H*.02); }
+        if(mobile&&r.kind!=='beam'){ T=H-h-4; L=r.kind==='kick'?Math.max(0,tx-w*.95):Math.min(Wd-w,tx-w*.05); }
+        L=Math.max(-w*.08,Math.min(Wd-w*.92,L)); T=Math.max(-h*.05,Math.min(H-h,T));
+        atk.style.left=L+'px'; atk.style.top=T+'px';
+        atk.dataset.from=r.kind==='punch'?'right':'left';
+        hero.classList.add('away'); play(atk,'on'); YSYsnd.fx('whoosh'); if(r.kind!=='beam') play(atk,'lunge');
+        const fx=L+p[0]*w, fy=T+p[1]*h, hitAt=r.kind==='beam'?650:300;
+        if(r.kind==='beam'){
+          const ex2=L+EYE2[0]*w, ey2=T+EYE2[1]*h;
+          [[eb,fx,fy,tx-8,ty-6],[eb2,ex2,ey2,tx+8,ty+6]].forEach(([el,x,y,X,Y])=>{
+            el.style.left=x+'px'; el.style.top=y+'px'; el.style.setProperty('--bl',Math.hypot(X-x,Y-y)+'px'); el.style.transform=`rotate(${Math.atan2(Y-y,X-x)}rad)`; });
+          eg1.style.left=fx+'px'; eg1.style.top=fy+'px'; eg2.style.left=ex2+'px'; eg2.style.top=ey2+'px';
+          setTimeout(()=>{play(eg1,'on'); play(eg2,'on');},120);
+          YSYsnd.fx('charge'); setTimeout(()=>{play(eb,'fire'); play(eb2,'fire'); play(arena,'charge'); YSYsnd.fx('beam');},300);
+        }
+        setTimeout(()=>{
+          imp.style.left=tx+'px'; imp.style.top=ty+'px'; imp.classList.toggle('mega',r.kind==='beam'); play(imp,'go');
+          play(foe,'hit'); play(arena,'quake'); YSYsnd.fx('hit');
+          sfx.textContent=window.T(r.sfx); sfx.classList.toggle('mega',r.kind==='beam');
+          sfx.style.left=Math.max(4,Math.min(Wd-sfx.offsetWidth-4,tx-sfx.offsetWidth/2))+'px'; sfx.style.top=Math.max(4,fw.top-ar.top-10)+'px'; play(sfx,'go');
+          setHp(r.kind==='beam'?0:15);
+          if(r.kind==='beam') play(wo,'flash');
+        },hitAt);
+        setTimeout(finish, r.kind==='beam'?1700:1200);
+      };
+      if(atk.complete&&atk.naturalWidth&&atk.src.endsWith(r.src)) go(); else atk.onload=go;
+    }
+    btn.addEventListener('click',attack);
+    $('battleReset').addEventListener('click',()=>{ n=0; vic.hidden=true; btn.disabled=false; setRound(0,true); msgFn=()=>T('怪人たちがまた現れた！ まずはシメキリ大魔王だ！'); msg.textContent=msgFn(); btn.focus(); });
+    setRound(0,false);
+    window.addEventListener('langchange',()=>{ const i=Math.min(n,R.length-1), r=R[i]; $('roundName').textContent=T(r.name); $('mvSub').textContent=(i===2?'FINAL':'ROUND '+(i+1))+'　VS '+T(r.name); $('mvName').textContent=T(r.move); $('foeLine').textContent=T(r.line); foeImg.alt=T(r.name); msg.textContent=msgFn(); });
+  })();
+
+
+  /* flow progress + step lighting */
+  (function(){
+    const w=document.getElementById('flowWrap'); if(!w) return;
+    const steps=[...w.querySelectorAll('.fstep')], tr=w.querySelector('.flow-track');
+    const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+    function on(){ const r=w.getBoundingClientRect(); const p=cl((innerHeight*.75-r.top)/(r.height*.9),0,1);
+      tr.style.setProperty('--fp',p.toFixed(3)); steps.forEach((s,i)=>s.classList.toggle('lit',p>=(i+0.4)/steps.length||(innerWidth<=760&&s.getBoundingClientRect().top<innerHeight*.7))); }
+    addEventListener('scroll',()=>requestAnimationFrame(on),{passive:true}); addEventListener('resize',on); on();
+  })();
+
+  /* diagnosis */
+  (function(){
+    const quiz=document.getElementById('quiz'); if(!quiz) return;
+    const qs=[...quiz.querySelectorAll('.q')], res=quiz.querySelector('.result'), bar=document.getElementById('qbar');
+    let ans=[];
+    const plans={1:['SPOTプラン','15,000円〜','まずは1つから。小さなご依頼や、お試しにぴったりです。'],2:['BUSINESSプラン','30,000円〜','チラシ・SNS・資料などをまとめて。お店や事業の運営を柔軟に支えます。'],3:['TOTAL SUPPORTプラン','100,000円〜','企画から制作・集客・運営まで丸ごと。「何から始めれば？」の段階からお任せください。']};
+    function show(i){ qs.forEach((q,j)=>q.hidden=j!==i); res.hidden=true; bar.style.width=(i/3*100)+'%'; }
+    quiz.addEventListener('click',e=>{
+      const b=e.target.closest('.opts-btn button'); if(!b) return;
+      ans.push(+b.dataset.v);
+      if(ans.length<3){ show(ans.length); qs[ans.length].querySelector('button').focus(); return; }
+      const avg=ans.reduce((a,c)=>a+c,0)/3, k=avg<1.7?1:avg<2.5?2:3, p=plans[k];
+      qs.forEach(q=>q.hidden=true); res.hidden=false; bar.style.width='100%';
+      window.__quizK=k; document.getElementById('resPlan').textContent=T(p[0])+(LANG==='ja'?'（'+p[1]+'）':' ('+T(p[1])+')');
+      document.getElementById('resTxt').textContent=T(p[2]);
+      document.getElementById('resGo').dataset.plan=p[0];
+      document.getElementById('resGo').focus();
+    });
+    window.addEventListener('langchange',()=>{ if(!res.hidden&&window.__quizK){ const p=plans[window.__quizK]; document.getElementById('resPlan').textContent=T(p[0])+(LANG==='ja'?'（'+p[1]+'）':' ('+T(p[1])+')'); document.getElementById('resTxt').textContent=T(p[2]); } });
+    document.getElementById('resRetry').onclick=()=>{ans=[];show(0);qs[0].querySelector('button').focus();};
+    document.getElementById('resGo').addEventListener('click',e=>{
+      const m=document.getElementById('f-msg'); const plan=e.currentTarget.dataset.plan;
+      if(m && plan && !m.value.includes(T(plan))) m.value=(T('【診断結果：')+T(plan)+(LANG==='ja'?'】':']')+'\n'+m.value).trim();
+    });
+  })();
+
+  /* form */
+  (function(){
+    const f=document.getElementById('form'); if(!f) return;
+    const err=document.getElementById('fErr'), th=document.getElementById('thanks'), body=document.getElementById('thanksBody');
+    f.addEventListener('submit',e=>{
+      e.preventDefault();
+      const need=[['f-name','お名前'],['f-mail','メールアドレス'],['f-kind','ご相談内容']]; const miss=[];
+      need.forEach(([id,l0])=>{const l=T(l0);const el=document.getElementById(id); const bad=!el.value.trim()||(el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)); el.setAttribute('aria-invalid',bad); if(bad) miss.push(l);});
+      const ag=document.getElementById('f-agree'); if(!ag.checked) miss.push(T('個人情報の取り扱いへの同意'));
+      if(miss.length){ err.textContent=L(miss.join('・')+'を入力・確認してください。','Please check: '+miss.join(', ')+'.','กรุณาตรวจสอบ: '+miss.join(', ')); err.hidden=false; const first=f.querySelector('[aria-invalid=true]')||ag; first.focus(); return; }
+      err.hidden=true;
+      if(f._honey&&f._honey.value) return;
+      const src=[...f.querySelectorAll('input[name=src]:checked')].map(i=>i.value).join('、');
+      body.value=[T('【YSY総合サービスへのお問い合わせ】'),T('お名前：')+f.name.value,T('メール：')+f.email.value,f.tel.value?T('電話：')+f.tel.value:'',T('ご相談内容：')+T(f.kind.value),src?T('知ったきっかけ：')+src.split('、').map(T).join(', '):'',f.msg.value?T('内容：\n')+f.msg.value:''].filter(Boolean).join('\n');
+      const send=f.querySelector('.f-send'), label=send.textContent; send.disabled=true; send.textContent=T('送信中…');
+      const show=ok=>{ th.classList.toggle('ng',!ok); th.hidden=false; send.disabled=false; send.textContent=label; document.getElementById(ok?'tClose':'tCopy').focus(); if(ok){ f.reset(); f.querySelectorAll('[aria-invalid]').forEach(x=>x.removeAttribute('aria-invalid')); } };
+      const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),15000);
+      fetch('https://formsubmit.co/ajax/suraya3156_0430@yahoo.co.jp',{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({_subject:'【YSY】ホームページからのお問い合わせ（'+f.name.value+' 様）',_template:'table',_captcha:'false',
+          'お名前':f.name.value,email:f.email.value,'電話番号':f.tel.value||'-','ご相談内容':f.kind.value,'知ったきっかけ':src||'-','お問い合わせ内容':f.msg.value||'-','表示言語':LANG})})
+        .then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{ clearTimeout(tm); show(String(j.success)!=='false'); })
+        .catch(()=>{ clearTimeout(tm); show(false); });
+    });
+    const close=()=>{th.hidden=true; f.querySelector('.f-send').focus();};
+    document.getElementById('tClose').onclick=close;
+    th.addEventListener('click',e=>{if(e.target===th) close();});
+    th.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+    document.getElementById('tCopy').onclick=function(){const b=this; try{navigator.clipboard.writeText(body.value).then(()=>{b.textContent=T('コピーしました')},()=>{body.select();b.textContent=T('選択しました')})}catch(x){body.select();b.textContent=T('選択しました')}};
+  })();
+
+  /* privacy policy dialog */
+  (function(){
+    const pp=document.getElementById('pp'); if(!pp) return; let last=null;
+    const close=()=>{ pp.hidden=true; if(last) last.focus(); };
+    document.addEventListener('click',e=>{ const b=e.target.closest('[data-pp]'); if(b){ last=b; pp.hidden=false; pp.querySelector('#ppClose').focus(); } });
+    document.getElementById('ppClose').onclick=close;
+    pp.addEventListener('click',e=>{ if(e.target===pp) close(); });
+    pp.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
+  /* hide top controls while scrolling down on small screens */
+  (function(){
+    let y0=scrollY;
+    addEventListener('scroll',()=>{ const y=scrollY, small=innerWidth<=900;
+      if(!small||document.body.classList.contains('open')||y<160){ document.body.classList.remove('hide-top'); y0=y; return; }
+      if(y>y0+8){ document.body.classList.add('hide-top'); y0=y; } else if(y<y0-8){ document.body.classList.remove('hide-top'); y0=y; }
+    },{passive:true});
+  })();
+  /* copy */
+  document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.copy),t=el.textContent.trim();const ok=()=>{b.textContent=T('コピー済');setTimeout(()=>b.textContent=T('コピー'),1500)};const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent=T('選択済')};try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}}));
+})();
+
+  window.__ysyInitLang&&window.__ysyInitLang();
+</script>
+
+</body>
+</html>
