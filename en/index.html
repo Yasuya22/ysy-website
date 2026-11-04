@@ -470,8 +470,8 @@ body.hide-top .lang-btn,body.hide-top .menu-btn{transform:translateY(calc(-100% 
   .flow-wrap .swipe-hint{display:block;color:var(--sub)}
 }
 
-/* ===== opening intro v3 (~18s): boss arrives -> clash -> beam duel -> explosion -> site ===== */
-.intro{--T:18.1s;position:fixed;inset:0;z-index:200;background:#07060b;overflow:hidden;animation:inOut .7s ease-in 17.4s forwards,inEnd var(--T) steps(1,end) forwards}
+/* ===== opening intro v3 (~19.5s): boss arrives -> clash -> beam duel -> explosion -> site ===== */
+.intro{--T:19.6s;position:fixed;inset:0;z-index:200;background:#07060b;overflow:hidden;animation:inOut .7s ease-in 18.9s forwards,inEnd var(--T) steps(1,end) forwards}
 @keyframes inEnd{to{visibility:hidden;pointer-events:none}}
 @keyframes inOut{to{opacity:0;transform:scale(1.06)}}
 .intro.wait,.intro.wait *{animation-play-state:paused!important}
@@ -485,15 +485,15 @@ body.hide-top .lang-btn,body.hide-top .menu-btn{transform:translateY(calc(-100% 
 .cam img,.sc,.in-lines{will-change:transform,opacity;backface-visibility:hidden}
 .in-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;mix-blend-mode:screen}
 .in-white{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4;animation:wh var(--T) linear both}
-@keyframes wh{0%,26.6%{opacity:0}26.8%{opacity:.9}28.5%{opacity:0}38.1%{opacity:0}38.2%{opacity:.85}40%{opacity:0}52.1%{opacity:0}52.2%{opacity:.8}54%{opacity:0}
-  79.4%{opacity:0}80.6%{opacity:1}83%{opacity:.15}86%{opacity:0}88%{opacity:0}89.5%{opacity:.9}91.5%{opacity:0}100%{opacity:0}}
+@keyframes wh{32.14%{opacity:0}32.4%{opacity:.85}33.93%{opacity:0}0%,24.56%{opacity:0}24.75%{opacity:.9}33.97%{opacity:0}42.84%{opacity:0}42.93%{opacity:.85}44.59%{opacity:0}55.77%{opacity:0}55.86%{opacity:.8}57.52%{opacity:0}
+  80.98%{opacity:0}82.08%{opacity:1}84.3%{opacity:.15}87.07%{opacity:0}88.92%{opacity:0}90.3%{opacity:.9}92.15%{opacity:0}100%{opacity:0}}
 .in-lines{position:absolute;left:50%;top:50%;width:300vmax;height:300vmax;translate:-50% -50%;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.13) 0 1.2deg,transparent 1.2deg 6deg);opacity:0;animation:inSpin var(--T) linear,inLinesOn var(--T) linear}
 @keyframes inSpin{to{rotate:90deg}}
-@keyframes inLinesOn{0%,17.6%{opacity:0}18%,27%{opacity:1}27.4%,50%{opacity:0}50.4%,59.8%{opacity:1}60.2%,88%{opacity:0}89%,100%{opacity:.8}}
+@keyframes inLinesOn{0%,15.9%{opacity:0}16.3%,32%{opacity:1}32.4%,54%{opacity:0}54.3%,62.8%{opacity:1}63.1%,89%{opacity:0}89.8%,100%{opacity:.8}}
 .sc{position:absolute;inset:0;overflow:hidden;opacity:0;animation:scn var(--d) linear both var(--s)}
 @keyframes scn{0%{opacity:0}5%{opacity:1}95%{opacity:1}100%{opacity:0}}
-.s1{--s:0s;--d:3.3s;animation-name:scn0}.s2{--s:3.15s;--d:1.8s}.s3{--s:4.85s;--d:2.1s}.s4{--s:6.88s;--d:2.25s}.s5{--s:9.05s;--d:1s}.s5b{--s:10s;--d:.95s}.s6{--s:10.9s;--d:3.75s}.s7{--s:14.6s;--d:1.75s}
-.s8{--s:16.05s;--d:2.1s;animation-name:scnIn;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#fff 0,#fff3c4 28%,#ffc93c 55%,#e8590c 100%)}
+.s1{--s:0s;--d:3.3s;animation-name:scn0}.s2{--s:3.15s;--d:1.8s}.s3{--s:6.35s;--d:2.1s}.s4{--s:8.38s;--d:2.25s}.s5{--s:10.55s;--d:1s}.s5b{--s:11.5s;--d:.95s}.s6{--s:12.4s;--d:3.75s}.s7{--s:16.1s;--d:1.75s}
+.s8{--s:17.55s;--d:2.1s;animation-name:scnIn;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#fff 0,#fff3c4 28%,#ffc93c 55%,#e8590c 100%)}
 @keyframes scn0{0%,95%{opacity:1}100%{opacity:0}}
 @keyframes scnIn{0%{opacity:0}8%,100%{opacity:1}}
 .ikb,.ikbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -504,13 +504,13 @@ body.hide-top .lang-btn,body.hide-top .menu-btn{transform:translateY(calc(-100% 
 .in-sfx{position:absolute;margin:0;font-family:var(--f-jp);font-weight:900;line-height:1;white-space:nowrap;color:var(--yellow);-webkit-text-stroke:4px #111;paint-order:stroke fill;text-shadow:6px 6px 0 var(--red);opacity:0;animation:sfx .55s cubic-bezier(.2,1.8,.4,1) forwards var(--at)}
 html[lang="en"] .in-sfx{font-family:var(--f-hero);letter-spacing:.04em}
 @keyframes sfx{0%{opacity:0;transform:scale(2.6) rotate(var(--r,-8deg))}60%{opacity:1}100%{opacity:1;transform:scale(1) rotate(var(--r,-8deg))}}
-.in-sfx.sortie{--at:3.9s;left:50%;bottom:10%;translate:-50% 0;font-size:clamp(46px,10vw,120px)}
-.in-sfx.hit1{--at:6.95s;left:5%;top:13%;font-size:clamp(54px,12vw,150px)}
-.in-sfx.hit2{--at:9.42s;left:50%;top:8%;translate:-50% 0;--r:6deg;font-size:clamp(50px,11vw,130px)}
-.in-sfx.cry1{--at:11.4s;left:4%;top:10%;font-size:clamp(34px,7vw,84px);color:#fff;text-shadow:0 0 22px #ef4444,5px 5px 0 #7f1d1d}
-.in-sfx.cry2{--at:12.9s;right:6%;bottom:12%;--r:-4deg;font-size:clamp(36px,7vw,92px);color:#fff;text-shadow:0 0 26px #facc15,5px 5px 0 var(--red)}
-.in-sfx.kaboom{--at:14.8s;left:50%;top:50%;translate:-50% -50%;--r:-6deg;font-size:clamp(56px,13vw,170px);color:#fff7cc;-webkit-text-stroke:5px #3b0d0d;text-shadow:0 0 40px #fb923c,8px 8px 0 #b91c1c}
-.in-sfx.kaboom{animation:sfx .55s cubic-bezier(.2,1.8,.4,1) forwards var(--at),boomOut .5s ease-in forwards 15.95s}
+.in-sfx.sortie{--at:5.05s;right:5%;bottom:12%;font-size:clamp(46px,10vw,120px)}
+.in-sfx.hit1{--at:8.45s;left:5%;top:13%;font-size:clamp(54px,12vw,150px)}
+.in-sfx.hit2{--at:10.92s;left:50%;top:8%;translate:-50% 0;--r:6deg;font-size:clamp(50px,11vw,130px)}
+.in-sfx.cry1{--at:12.9s;left:4%;top:10%;font-size:clamp(34px,7vw,84px);color:#fff;text-shadow:0 0 22px #ef4444,5px 5px 0 #7f1d1d}
+.in-sfx.cry2{--at:14.4s;right:6%;bottom:12%;--r:-4deg;font-size:clamp(36px,7vw,92px);color:#fff;text-shadow:0 0 26px #facc15,5px 5px 0 var(--red)}
+.in-sfx.kaboom{--at:16.3s;left:50%;top:50%;translate:-50% -50%;--r:-6deg;font-size:clamp(56px,13vw,170px);color:#fff7cc;-webkit-text-stroke:5px #3b0d0d;text-shadow:0 0 40px #fb923c,8px 8px 0 #b91c1c}
+.in-sfx.kaboom{animation:sfx .55s cubic-bezier(.2,1.8,.4,1) forwards var(--at),boomOut .5s ease-in forwards 17.45s}
 @keyframes boomOut{to{opacity:0;transform:scale(1.6) rotate(-6deg)}}
 /* 1 boss */
 #scBoss{transform-origin:50% 40%;animation:kb1 3.3s cubic-bezier(.2,.6,.3,1) both 0s}
@@ -522,28 +522,32 @@ html[lang="en"] .in-sfx{font-family:var(--f-hero);letter-spacing:.04em}
 .s2{background:radial-gradient(circle at 50% 50%,#3a0a0a,#07060b 70%)}
 .in-fly2{position:absolute;left:50%;top:46%;height:min(58vh,520px,78vw);width:auto;translate:-50% -50%;animation:toCam 1.75s cubic-bezier(.55,0,.35,1) both 3.2s}
 @keyframes toCam{0%{transform:scale(.05) rotate(-8deg);opacity:0}12%{opacity:1}70%{transform:scale(1) rotate(0)}100%{transform:scale(2.6);opacity:1}}
+/* 2b hero entrance */
+.s2b{--s:4.85s;--d:1.55s}
+#scHero{object-position:50% 35%;transform-origin:30% 45%;animation:kbH 1.55s cubic-bezier(.1,.9,.2,1) both 4.85s}
+@keyframes kbH{0%{transform:scale(1.6) translate(6%,-4%)}35%{transform:scale(1.08)}100%{transform:scale(1.16)}}
 /* 3 face-off */
 .vs-p{position:absolute;inset:0;overflow:hidden}
 .vs-l{clip-path:polygon(0 0,57% 0,43% 100%,0 100%);background:radial-gradient(circle at 25% 55%,#ef4444,#7f1d1d 55%,#2a0505);}
 .vs-r{clip-path:polygon(57% 0,100% 0,100% 100%,43% 100%);background:radial-gradient(circle at 75% 55%,#a855f7,#3b0764 55%,#0f0219)}
 .vs-l::before,.vs-r::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.18) 1.5px,transparent 2px) 0 0/14px 14px;opacity:.6}
-.vs-l img{position:absolute;left:4%;bottom:-2%;height:min(88vh,92vw);width:auto;animation:vsL .7s cubic-bezier(.2,1,.3,1) both 4.95s,drift 2s linear both 5.6s}
-.vs-r img{position:absolute;right:2%;bottom:-2%;height:min(90vh,94vw);width:auto;animation:vsR .7s cubic-bezier(.2,1,.3,1) both 5.1s,drift2 2s linear both 5.8s}
+.vs-l img{position:absolute;left:4%;bottom:-2%;height:min(88vh,92vw);width:auto;animation:vsL .7s cubic-bezier(.2,1,.3,1) both 6.45s,drift 2s linear both 7.1s}
+.vs-r img{position:absolute;right:2%;bottom:-2%;height:min(90vh,94vw);width:auto;animation:vsR .7s cubic-bezier(.2,1,.3,1) both 6.6s,drift2 2s linear both 7.3s}
 @keyframes vsL{from{transform:translateX(-70vw)}to{transform:none}}
 @keyframes vsR{from{transform:translateX(70vw)}to{transform:none}}
 @keyframes drift{from{transform:none}to{transform:translateX(2vw) scale(1.03)}}
 @keyframes drift2{from{transform:none}to{transform:translateX(-2vw) scale(1.03)}}
-.vs-seam{position:absolute;left:50%;top:-10%;width:10px;height:120%;translate:-50% 0;rotate:8.5deg;background:#fff;box-shadow:0 0 18px #fff,0 0 40px #facc15;transform:scaleY(0);animation:seam .35s ease-out forwards 5.35s}
+.vs-seam{position:absolute;left:50%;top:-10%;width:10px;height:120%;translate:-50% 0;rotate:8.5deg;background:#fff;box-shadow:0 0 18px #fff,0 0 40px #facc15;transform:scaleY(0);animation:seam .35s ease-out forwards 6.85s}
 @keyframes seam{to{transform:scaleY(1)}}
-.vs{position:absolute;left:50%;top:50%;translate:-50% -50%;margin:0;font-family:var(--f-hero);font-size:clamp(80px,15vw,190px);color:var(--yellow);-webkit-text-stroke:5px #111;paint-order:stroke fill;text-shadow:8px 8px 0 var(--red),0 0 40px rgba(250,204,21,.8);opacity:0;animation:sfx .5s cubic-bezier(.2,1.8,.4,1) forwards 5.5s;--r:-6deg}
+.vs{position:absolute;left:50%;top:50%;translate:-50% -50%;margin:0;font-family:var(--f-hero);font-size:clamp(80px,15vw,190px);color:var(--yellow);-webkit-text-stroke:5px #111;paint-order:stroke fill;text-shadow:8px 8px 0 var(--red),0 0 40px rgba(250,204,21,.8);opacity:0;animation:sfx .5s cubic-bezier(.2,1.8,.4,1) forwards 7s;--r:-6deg}
 /* 4 punch clash */
-#scClash{transform-origin:66% 50%;animation:kb4 2.25s cubic-bezier(.1,.9,.2,1) both 6.88s}
+#scClash{transform-origin:66% 50%;animation:kb4 2.25s cubic-bezier(.1,.9,.2,1) both 8.38s}
 @keyframes kb4{0%{transform:scale(1.45)}12%{transform:scale(1.02)}100%{transform:scale(1.12)}}
 /* 5 exchange */
 .s5{background:radial-gradient(circle at 50% 50%,#2b0f3a,#07060b 72%)}
 .x-kick,.x-punch{position:absolute;top:calc(44vh - var(--h)*var(--cy));height:var(--h);width:auto}
-.x-kick{--h:min(60vh,44vw);--cy:.33;right:47.5%;animation:kIn .38s cubic-bezier(.6,0,.9,.6) both 9.07s,kBack .55s cubic-bezier(.2,.8,.3,1) forwards 9.45s}
-.x-punch{--h:min(64vh,48vw);--cy:.4;left:47.5%;animation:pIn .38s cubic-bezier(.6,0,.9,.6) both 9.07s,pBack .55s cubic-bezier(.2,.8,.3,1) forwards 9.45s}
+.x-kick{--h:min(60vh,44vw);--cy:.33;right:47.5%;animation:kIn .38s cubic-bezier(.6,0,.9,.6) both 10.57s,kBack .55s cubic-bezier(.2,.8,.3,1) forwards 10.95s}
+.x-punch{--h:min(64vh,48vw);--cy:.4;left:47.5%;animation:pIn .38s cubic-bezier(.6,0,.9,.6) both 10.57s,pBack .55s cubic-bezier(.2,.8,.3,1) forwards 10.95s}
 @keyframes kIn{from{transform:translateX(-55vw)}to{transform:none}}
 @keyframes pIn{from{transform:translateX(55vw)}to{transform:none}}
 @keyframes kBack{to{transform:translateX(-3vw) rotate(-3deg)}}
@@ -552,29 +556,29 @@ html[lang="en"] .in-sfx{font-family:var(--f-hero);letter-spacing:.04em}
 .ch-l{clip-path:polygon(0 0,46% 0,54% 100%,0 100%);background:radial-gradient(circle at 40% 30%,#f87171,#450a0a 70%)}
 .ch-r{clip-path:polygon(46% 0,100% 0,100% 100%,54% 100%);background:radial-gradient(circle at 60% 45%,#c084fc,#2e1065 70%)}
 .ch-p img{position:absolute;height:150%;width:auto;top:-8%}
-.ch-l img{left:-2%;height:132%;top:-3%;animation:chL .95s ease-out both 10s}
-.ch-r img{right:-6%;height:118%;top:-2%;animation:chR .95s ease-out both 10s}
+.ch-l img{left:-2%;height:132%;top:-3%;animation:chL .95s ease-out both 11.5s}
+.ch-r img{right:-6%;height:118%;top:-2%;animation:chR .95s ease-out both 11.5s}
 @keyframes chL{from{transform:scale(1)}to{transform:scale(1.12)}}
 @keyframes chR{from{transform:scale(1.12)}to{transform:scale(1)}}
 /* 6 beam duel */
-#scBeam{transform-origin:59.5% 45.5%;animation:kb6 3.75s cubic-bezier(.4,0,.7,1) both 10.9s}
+#scBeam{transform-origin:59.5% 45.5%;animation:kb6 3.75s cubic-bezier(.4,0,.7,1) both 12.4s}
 @keyframes kb6{from{transform:scale(1.05)}to{transform:scale(1.32)}}
 /* 7 explosion */
 .s7{background:radial-gradient(circle at 50% 52%,#7c2d12,#1c0704 70%)}
-.ex-core{position:absolute;left:50%;top:52%;width:60vmax;height:60vmax;margin:-30vmax 0 0 -30vmax;border-radius:50%;background:radial-gradient(circle,#fff 0,#fff7cc 14%,#fde047 26%,#fb923c 40%,#dc2626 56%,rgba(127,29,29,.6) 66%,transparent 72%);transform:scale(0);animation:exCore 1.7s cubic-bezier(.1,.8,.2,1) both 14.62s}
+.ex-core{position:absolute;left:50%;top:52%;width:60vmax;height:60vmax;margin:-30vmax 0 0 -30vmax;border-radius:50%;background:radial-gradient(circle,#fff 0,#fff7cc 14%,#fde047 26%,#fb923c 40%,#dc2626 56%,rgba(127,29,29,.6) 66%,transparent 72%);transform:scale(0);animation:exCore 1.7s cubic-bezier(.1,.8,.2,1) both 16.12s}
 @keyframes exCore{0%{transform:scale(.05)}60%{transform:scale(1.25);opacity:1}100%{transform:scale(1.45);opacity:.85}}
 .ex-ring{position:absolute;left:50%;top:52%;width:40vmax;height:40vmax;margin:-20vmax 0 0 -20vmax;border-radius:50%;border:1.4vmax solid rgba(255,255,255,.9);box-shadow:0 0 40px #fde68a,inset 0 0 40px #fde68a;transform:scale(0);opacity:0;animation:exRing 1s cubic-bezier(.1,.7,.3,1) forwards var(--at)}
-.ex-ring.r1{--at:14.66s}.ex-ring.r2{--at:14.95s}
+.ex-ring.r1{--at:16.16s}.ex-ring.r2{--at:16.45s}
 @keyframes exRing{0%{transform:scale(.1);opacity:1}100%{transform:scale(3.2);opacity:0}}
 /* 8 logo */
 .in-core{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:0 16px;text-align:center}
-.in-crest{width:clamp(96px,16vw,160px);height:auto;border-radius:50%;border:5px solid #fff;box-shadow:6px 6px 0 var(--red),0 0 40px rgba(255,255,255,.9);animation:inCrest .7s cubic-bezier(.2,1.6,.4,1) both 16.15s}
+.in-crest{width:clamp(96px,16vw,160px);height:auto;border-radius:50%;border:5px solid #fff;box-shadow:6px 6px 0 var(--red),0 0 40px rgba(255,255,255,.9);animation:inCrest .7s cubic-bezier(.2,1.6,.4,1) both 17.65s}
 @keyframes inCrest{from{transform:scale(3) rotate(-220deg);opacity:0}to{transform:none;opacity:1}}
-.in-ysy{margin:6px 0 0;font-family:var(--f-hero);font-size:clamp(76px,16vw,180px);line-height:.9;color:var(--red);-webkit-text-stroke:4px #fff;paint-order:stroke fill;text-shadow:7px 7px 0 #111;rotate:-4deg;animation:inSlam .5s cubic-bezier(.2,1.7,.4,1) both 16.55s}
+.in-ysy{margin:6px 0 0;font-family:var(--f-hero);font-size:clamp(76px,16vw,180px);line-height:.9;color:var(--red);-webkit-text-stroke:4px #fff;paint-order:stroke fill;text-shadow:7px 7px 0 #111;rotate:-4deg;animation:inSlam .5s cubic-bezier(.2,1.7,.4,1) both 18.05s}
 @keyframes inSlam{from{transform:scale(2.6);opacity:0}to{transform:none;opacity:1}}
-.in-sub{margin:4px 0 0;font-family:var(--f-jp);font-weight:900;font-size:clamp(24px,5vw,52px);letter-spacing:.14em;color:#111;text-shadow:3px 3px 0 #fff;rotate:-4deg;white-space:nowrap;animation:inUp .45s ease-out both 16.85s}
+.in-sub{margin:4px 0 0;font-family:var(--f-jp);font-weight:900;font-size:clamp(24px,5vw,52px);letter-spacing:.14em;color:#111;text-shadow:3px 3px 0 #fff;rotate:-4deg;white-space:nowrap;animation:inUp .45s ease-out both 18.35s}
 html[lang="en"] .in-sub,html[lang="th"] .in-sub{font-family:var(--f-hero);font-size:clamp(20px,4.4vw,44px)}
-.in-tag{margin:16px 0 0;font-family:var(--f-jp);font-weight:900;font-size:clamp(16px,3vw,28px);color:#7f1d1d;animation:inUp .5s ease-out both 17.05s}
+.in-tag{margin:16px 0 0;font-family:var(--f-jp);font-weight:900;font-size:clamp(16px,3vw,28px);color:#7f1d1d;animation:inUp .5s ease-out both 18.55s}
 @keyframes inUp{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
 /* ui */
 .in-ui{position:absolute;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:10px;z-index:6;padding:0 12px}
@@ -589,12 +593,14 @@ body.intro-on .hero *{animation-play-state:paused!important}
   #scClash{object-position:50% 20%}
   #scBeam{object-position:50% 26%}
   #scBoss{object-position:50% 30%}
+  #scHero{object-position:50% 40%}
 }
 /* whole battle images on tall or very wide screens */
 @media (max-aspect-ratio:4/5),(min-aspect-ratio:17/9){
   .ikbg{display:block}
   .ikb{object-fit:contain}
-  #scBoss{animation-name:kb1p}#scClash{animation-name:kb4p}#scBeam{animation-name:kb6p}
+  #scBoss{animation-name:kb1p}#scHero{animation-name:kbHp}
+  @keyframes kbHp{0%{transform:scale(1.35)}35%{transform:scale(1)}100%{transform:scale(1.06)}}#scClash{animation-name:kb4p}#scBeam{animation-name:kb6p}
   @keyframes kb1p{from{transform:scale(1.14)}to{transform:scale(1)}}
   @keyframes kb4p{0%{transform:scale(1.22)}12%{transform:scale(1)}100%{transform:scale(1.05)}}
   @keyframes kb6p{from{transform:scale(1)}to{transform:scale(1.1)}}
@@ -815,7 +821,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="sc s1"><img class="ikbg" src="../img/sc-boss.webp" alt=""><img class="ikb" id="scBoss" src="../img/sc-boss.webp" alt=""><i class="zap"></i>
       <p class="in-cap">The deadliest villain has arrived.</p></div>
     <!-- 2 hero sorties -->
-    <div class="sc s2"><img class="in-fly2" src="../img/fly-front.webp" alt=""><p class="in-sfx sortie">YSY, go!</p></div>
+    <div class="sc s2"><img class="in-fly2" src="../img/fly-front.webp" alt=""></div>
+    <div class="sc s2b"><img class="ikbg" src="../img/sc-hero.webp" alt=""><img class="ikb" id="scHero" src="../img/sc-hero.webp" alt=""><p class="in-sfx sortie">YSY, go!</p></div>
     <!-- 3 face-off -->
     <div class="sc s3">
       <div class="vs-p vs-l"><img src="../img/n-fist.webp" alt=""></div>
@@ -1636,14 +1643,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){ el.classList.add('gone'); return; }
     document.body.classList.add('intro-on');
     try{ sessionStorage.setItem('ysy-intro','1'); localStorage.setItem('ysy-intro-at',String(Date.now())); }catch(e){}
-    const TOTAL=18.1, lang=()=>document.documentElement.lang||'ja';
+    const TOTAL=19.6, lang=()=>document.documentElement.lang||'ja';
     const TX={on:{ja:'🔊 音ありで見る',en:'🔊 Sound on',th:'🔊 เปิดเสียง'},off:{ja:'🔇 音を消す',en:'🔇 Mute',th:'🔇 ปิดเสียง'}};
     const tx=k=>TX[k][lang()]||TX[k].ja;
     const cam=document.getElementById('introCam'), cv=document.getElementById('introFx'), cx=cv.getContext('2d');
     const snd=document.getElementById('introSnd'), sk=document.getElementById('introSkip');
     let fin=false, raf=0, started=false, t0=0, AC=null, master=null, flashAt=-9;
     const SHORT=matchMedia('(max-width: 760px)').matches;
-    const SEG=[[0,2.1],[6.85,8.35],[12.5,13.95],[14.55,99]]; let seg=0;
+    const SEG=[[0,2.1],[4.85,6.1],[8.35,9.85],[14.0,15.45],[16.05,99]]; let seg=0;
     function jump(x){ try{ el.getAnimations({subtree:true}).forEach(a=>{ a.currentTime=x*1000; }); }catch(e){}
       P.length=0; flashAt=performance.now(); last=x;
       if(AC&&master){ const old=master; try{ old.gain.setTargetAtTime(0,AC.currentTime,.03); setTimeout(()=>old.disconnect(),250); }catch(e){} score(x); } }
@@ -1682,8 +1689,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     let last=0;
     function shakeAmt(t){
       const dec=(at,amp,len)=>(t>=at&&t<at+len)?amp*(1-(t-at)/len):0;
-      let s=0; if(t<3.2) s=1.6; if(t>10.9&&t<14.6) s=2+(t-10.9)*2.4;
-      return s+dec(6.9,22,.5)+dec(9.45,16,.4)+dec(14.6,30,1.2)+dec(5.5,8,.3);
+      let s=0; if(t<3.2) s=1.6; if(t>12.4&&t<16.1) s=2+(t-12.4)*2.4;
+      return s+dec(4.9,16,.45)+dec(8.4,22,.5)+dec(10.95,16,.4)+dec(16.1,30,1.2)+dec(7.0,8,.3);
     }
     function loop(){
       raf=requestAnimationFrame(loop);
@@ -1696,19 +1703,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       if(t<3.25){ for(let i=0;i<3;i++) P.push({x:rnd(0,W),y:H+10,vx:rnd(-20,20),vy:rnd(-160,-60),life:0,max:rnd(1.2,2.4),s:rnd(1.5,3.5),c:Math.random()<.6?'#c084fc':'#fb923c',k:'dot',g:0,dr:1});
         if(Math.random()<.05){ const x=rnd(W*.1,W*.9); bolt(x,0,x+rnd(-120,120),H*rnd(.3,.6),'rgba(233,213,255,.9)',2); } }
       /* 2: speed streaks toward camera */
-      if(t>3.2&&t<4.9){ for(let i=0;i<3;i++){ const a=rnd(0,Math.PI*2), R0=Math.max(W,H)*.36; P.push({x:W/2+Math.cos(a)*R0,y:H/2+Math.sin(a)*R0,vx:Math.cos(a)*rnd(900,1800),vy:Math.sin(a)*rnd(900,1800),life:0,max:.5,s:rnd(1,2.2),c:'#fff',k:'streak',g:0,dr:1}); } }
+      if(t>3.2&&t<6.3){ for(let i=0;i<3;i++){ const a=rnd(0,Math.PI*2), R0=Math.max(W,H)*.36; P.push({x:W/2+Math.cos(a)*R0,y:H/2+Math.sin(a)*R0,vx:Math.cos(a)*rnd(900,1800),vy:Math.sin(a)*rnd(900,1800),life:0,max:.5,s:rnd(1,2.2),c:'#fff',k:'streak',g:0,dr:1}); } }
       /* 4: punch impact */
-      once('p1',t,6.95,()=>{ const [x,y]=cover('scClash',.66,.49); burst(x,y,140,{v0:250,v1:1100,l0:.3,l1:.9,s0:1.5,s1:3.5,c:['#fff','#fde047','#fb923c','#f0abfc'],dr:.9,g:400}); });
-      if(t>6.95&&t<7.4){ const [x,y]=cover('scClash',.66,.49); const k=1-(t-6.95)/.45; glow(x,y,260*k+40,[[0,'rgba(255,255,255,'+k+')'],[.3,'rgba(253,224,71,'+(.7*k)+')'],[1,'rgba(251,146,60,0)']]); }
+      once('p1',t,8.45,()=>{ const [x,y]=cover('scClash',.66,.49); burst(x,y,140,{v0:250,v1:1100,l0:.3,l1:.9,s0:1.5,s1:3.5,c:['#fff','#fde047','#fb923c','#f0abfc'],dr:.9,g:400}); });
+      if(t>8.45&&t<8.9){ const [x,y]=cover('scClash',.66,.49); const k=1-(t-8.45)/.45; glow(x,y,260*k+40,[[0,'rgba(255,255,255,'+k+')'],[.3,'rgba(253,224,71,'+(.7*k)+')'],[1,'rgba(251,146,60,0)']]); }
       /* 5: kick vs punch */
-      once('p2',t,9.45,()=>{ burst(W*.5,H*.44,110,{v0:250,v1:950,l0:.25,l1:.7,s0:1.5,s1:3,c:['#fff','#fde047','#c084fc'],g:300}); });
-      if(t>9.45&&t<9.8){ const k=1-(t-9.45)/.35; glow(W*.5,H*.44,220*k+30,[[0,'rgba(255,255,255,'+k+')'],[.4,'rgba(250,204,21,'+(.6*k)+')'],[1,'rgba(168,85,247,0)']]); }
+      once('p2',t,10.95,()=>{ burst(W*.5,H*.44,110,{v0:250,v1:950,l0:.25,l1:.7,s0:1.5,s1:3,c:['#fff','#fde047','#c084fc'],g:300}); });
+      if(t>10.95&&t<11.3){ const k=1-(t-10.95)/.35; glow(W*.5,H*.44,220*k+30,[[0,'rgba(255,255,255,'+k+')'],[.4,'rgba(250,204,21,'+(.6*k)+')'],[1,'rgba(168,85,247,0)']]); }
       /* 5b: charging */
-      if(t>10&&t<10.95){ const k=(t-10)/.95; for(let i=0;i<3;i++){ const a=rnd(0,Math.PI*2), R=rnd(120,260); const tx2=W*.27, ty=H*.35; P.push({x:tx2+Math.cos(a)*R,y:ty+Math.sin(a)*R,vx:-Math.cos(a)*R*2.2,vy:-Math.sin(a)*R*2.2,life:0,max:.45,s:2,c:i%2?'#f87171':'#e9d5ff',k:'dot',g:0,dr:1}); } }
+      if(t>11.5&&t<12.45){ const k=(t-11.5)/.95; for(let i=0;i<3;i++){ const a=rnd(0,Math.PI*2), R=rnd(120,260); const tx2=W*.27, ty=H*.35; P.push({x:tx2+Math.cos(a)*R,y:ty+Math.sin(a)*R,vx:-Math.cos(a)*R*2.2,vy:-Math.sin(a)*R*2.2,life:0,max:.45,s:2,c:i%2?'#f87171':'#e9d5ff',k:'dot',g:0,dr:1}); } }
       /* 6: beam duel */
-      if(t>10.9&&t<14.75){
+      if(t>12.4&&t<16.25){
         const E=cover('scBeam',.238,.33), Pm=cover('scBeam',.70,.53), C0=cover('scBeam',.595,.455);
-        const ph=t-10.9, push=t>13.55?Math.min(1,(t-13.55)/1.0):0;
+        const ph=t-12.4, push=t>15.05?Math.min(1,(t-15.05)/1.0):0;
         const wob=Math.sin(ph*7)*.06+Math.sin(ph*17)*.02;
         let ox=C0[0]+(Pm[0]-E[0])*(wob+push*.55), oy=C0[1]+(Pm[1]-E[1])*(wob+push*.55);
         const bw=Math.max(8,Math.min(W,H)*.022)*(1+ph*.12);
@@ -1721,10 +1728,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         if(push>0){ cx.fillStyle='rgba(255,255,255,'+(push*push*.9)+')'; cx.fillRect(0,0,W,H); }
       }
       /* 7: explosion debris + embers */
-      once('ex',t,14.65,()=>{ const x=W/2,y=H*.52; burst(x,y,220,{v0:300,v1:1500,l0:.6,l1:1.6,s0:1.5,s1:4,c:['#fff','#fde047','#fb923c','#f97316','#ef4444'],g:260,dr:.94}); burst(x,y,46,{v0:250,v1:1000,l0:1,l1:1.7,s0:7,s1:18,c:['#1f1714','#2a1d18','#3b2a22'],k:'rock',g:900,dr:.97}); });
-      if(t>14.7&&t<16.2&&Math.random()<.8){ P.push({x:rnd(0,W),y:H+10,vx:rnd(-30,30),vy:rnd(-260,-120),life:0,max:rnd(.8,1.6),s:rnd(1.5,3),c:'#fdba74',k:'dot',g:0,dr:1}); }
+      once('ex',t,16.15,()=>{ const x=W/2,y=H*.52; burst(x,y,220,{v0:300,v1:1500,l0:.6,l1:1.6,s0:1.5,s1:4,c:['#fff','#fde047','#fb923c','#f97316','#ef4444'],g:260,dr:.94}); burst(x,y,46,{v0:250,v1:1000,l0:1,l1:1.7,s0:7,s1:18,c:['#1f1714','#2a1d18','#3b2a22'],k:'rock',g:900,dr:.97}); });
+      if(t>16.2&&t<17.7&&Math.random()<.8){ P.push({x:rnd(0,W),y:H+10,vx:rnd(-30,30),vy:rnd(-260,-120),life:0,max:rnd(.8,1.6),s:rnd(1.5,3),c:'#fdba74',k:'dot',g:0,dr:1}); }
       /* 8: golden sparkles around the logo */
-      if(t>16.1&&t<17.6&&Math.random()<.7){ P.push({x:W/2+rnd(-W*.35,W*.35),y:H/2+rnd(-H*.3,H*.3),vx:0,vy:rnd(-30,-10),life:0,max:rnd(.5,1),s:rnd(2,4),c:'#fff',k:'star',g:0,dr:1}); }
+      if(t>17.6&&t<19.1&&Math.random()<.7){ P.push({x:W/2+rnd(-W*.35,W*.35),y:H/2+rnd(-H*.3,H*.3),vx:0,vy:rnd(-30,-10),life:0,max:rnd(.5,1),s:rnd(2,4),c:'#fff',k:'star',g:0,dr:1}); }
       /* draw particles */
       for(let i=P.length-1;i>=0;i--){ const p=P[i]; p.life+=dt; if(p.life>p.max){ P.splice(i,1); continue; }
         p.vx*=Math.pow(p.dr,dt*60); p.vy=p.vy*Math.pow(p.dr,dt*60)+p.g*dt; p.x+=p.vx*dt; p.y+=p.vy*dt; const a=1-p.life/p.max;
@@ -1745,7 +1752,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       const comp=C.createDynamicsCompressor(); comp.threshold.value=-14; comp.ratio.value=4; comp.connect(C.destination);
       master=C.createGain(); master.gain.value=.85; master.connect(comp);
       const nb=C.createBuffer(1,C.sampleRate*2,C.sampleRate); const nd=nb.getChannelData(0); for(let i=0;i<nd.length;i++) nd[i]=Math.random()*2-1;
-      const at=s=>T0+s, ok=s=>s>=off-.05;
+      let SHF=true; const S=s=>(SHF&&s>=4.85)?s+1.5:s; const at=s=>T0+S(s), ok=s=>S(s)>=off-.05;
       function env(g,t,a,peak,d){ g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+a); g.gain.exponentialRampToValueAtTime(0.0001,t+a+d); }
       function osc(type,f,s,dur,peak,a,cut,f2){ if(!ok(s)) return; const t=at(s), o=C.createOscillator(), g=C.createGain(); o.type=type; o.frequency.setValueAtTime(f,t); if(f2) o.frequency.exponentialRampToValueAtTime(f2,t+dur); let n=o; if(cut){ const lp=C.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=cut; o.connect(lp); n=lp; } n.connect(g); g.connect(master); env(g,t,a||.005,peak,dur); o.start(t); o.stop(t+dur+.1); }
       function noise(s,dur,peak,type,f,f2,a){ if(!ok(s)) return; const t=at(s), src=C.createBufferSource(), bf=C.createBiquadFilter(), g=C.createGain(); src.buffer=nb; src.loop=true; bf.type=type; bf.frequency.setValueAtTime(f,t); if(f2) bf.frequency.exponentialRampToValueAtTime(f2,t+dur); src.connect(bf); bf.connect(g); g.connect(master); env(g,t,a||.005,peak,dur); src.start(t); src.stop(t+dur+.1); }
@@ -1765,9 +1772,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       const b=60/160, start=4.85; const bass=[38,38,41,38,43,38,41,40];
       const chords=[[50,53,57],[46,50,53],[48,52,55],[50,53,57]];
       boom(4.85,false); noise(4.85,1.2,.25,'highpass',5000);
-      for(let i=0;i*b/2+start<14.55;i++){ const s=start+i*b/2; if(i%2===0) kick(s); if(i%4===2) snare(s); hat(s);
+      SHF=false; for(let i=0;i*b/2+start<16.05;i++){ const s=start+i*b/2; if(i%2===0) kick(s); if(i%4===2) snare(s); hat(s);
         osc('sawtooth',N(bass[i%8]),s,b/2*.9,.16,.005,520);
         if(i%8===0) stab(s,chords[(i/8|0)%4],b*1.6,.06); }
+      SHF=true; SHF=false; boom(4.85,false); stab(4.85,[N(62),N(66),N(69),N(74)],.7,.1); noise(4.85,.8,.3,'highpass',3000); SHF=true;
       // impacts
       boom(6.9,false); noise(6.9,.5,.5,'highpass',3000); stab(6.9,[N(62),N(65),N(69)],.6,.1);
       noise(9.05,.4,.3,'bandpass',400,5000); boom(9.45,false); noise(9.45,.35,.5,'highpass',2500);
