@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yasuya22.github.io/ysy-website/sitemap.xml
