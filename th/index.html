@@ -1724,7 +1724,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       if(t>11.5&&t<12.45){ const k=(t-11.5)/.95; for(let i=0;i<3;i++){ const a=rnd(0,Math.PI*2), R=rnd(120,260); const tx2=W*.27, ty=H*.35; P.push({x:tx2+Math.cos(a)*R,y:ty+Math.sin(a)*R,vx:-Math.cos(a)*R*2.2,vy:-Math.sin(a)*R*2.2,life:0,max:.45,s:2,c:i%2?'#f87171':'#e9d5ff',k:'dot',g:0,dr:1}); } }
       /* 6: beam duel */
       if(t>12.4&&t<16.25){
-        const E=cover('scBeam',.30,.383), Pm=cover('scBeam',.686,.455), C0=cover('scBeam',.462,.439);
+        const E=cover('scBeam',.305,.378), Pm=cover('scBeam',.60,.50), C0=cover('scBeam',.478,.447);
         const ph=t-12.4, push=t>15.05?Math.min(1,(t-15.05)/1.0):0;
         const wob=Math.sin(ph*7)*.06+Math.sin(ph*17)*.02;
         let ox=C0[0]+(Pm[0]-E[0])*(wob+push*.55), oy=C0[1]+(Pm[1]-E[1])*(wob+push*.55);
