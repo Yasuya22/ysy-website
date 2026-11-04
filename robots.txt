@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://yasuya22.github.io/ysy-website/sitemap.xml
+Sitemap: https://ysy-service.com/sitemap.xml
