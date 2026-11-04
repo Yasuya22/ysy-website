@@ -1683,7 +1683,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     const snd=document.getElementById('introSnd'), sk=document.getElementById('introSkip');
     let fin=false, raf=0, started=false, t0=0, AC=null, master=null, flashAt=-9;
     const SHORT=!FULL&&matchMedia('(max-width: 760px)').matches;
-    const SEG=[[0,2.1],[4.85,6.1],[8.35,9.85],[14.0,15.45],[16.05,99]]; let seg=0;
+    const SEG=[[0,2.1],[4.85,7.75],[8.35,9.85],[14.0,15.45],[16.05,99]]; let seg=0;
     function jump(x){ try{ el.getAnimations({subtree:true}).forEach(a=>{ a.currentTime=x*1000; }); }catch(e){}
       P.length=0; flashAt=performance.now(); last=x;
       if(AC&&master){ const old=master; try{ old.gain.setTargetAtTime(0,AC.currentTime,.03); setTimeout(()=>old.disconnect(),250); }catch(e){} score(x); } }
