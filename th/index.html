@@ -1639,7 +1639,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   /* opening intro v3: once per visit; skippable; optional synced soundtrack */
   (function(){
     const el=document.getElementById('intro'); if(!el) return;
-    let seen=false; try{ seen=sessionStorage.getItem('ysy-intro')==='1' || (Date.now()-(+localStorage.getItem('ysy-intro-at')||0))<30*864e5; }catch(e){}
+    const FORCE=window.__FORCE_INTRO||/[?&]intro\b/.test(location.search), FULL=window.__FULL_INTRO||/[?&]full\b/.test(location.search);
+    let seen=false; if(!FORCE) try{ seen=sessionStorage.getItem('ysy-intro')==='1' || (Date.now()-(+localStorage.getItem('ysy-intro-at')||0))<30*864e5; }catch(e){}
     if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){ el.classList.add('gone'); return; }
     document.body.classList.add('intro-on');
     try{ sessionStorage.setItem('ysy-intro','1'); localStorage.setItem('ysy-intro-at',String(Date.now())); }catch(e){}
@@ -1649,7 +1650,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     const cam=document.getElementById('introCam'), cv=document.getElementById('introFx'), cx=cv.getContext('2d');
     const snd=document.getElementById('introSnd'), sk=document.getElementById('introSkip');
     let fin=false, raf=0, started=false, t0=0, AC=null, master=null, flashAt=-9;
-    const SHORT=matchMedia('(max-width: 760px)').matches;
+    const SHORT=!FULL&&matchMedia('(max-width: 760px)').matches;
     const SEG=[[0,2.1],[4.85,6.1],[8.35,9.85],[14.0,15.45],[16.05,99]]; let seg=0;
     function jump(x){ try{ el.getAnimations({subtree:true}).forEach(a=>{ a.currentTime=x*1000; }); }catch(e){}
       P.length=0; flashAt=performance.now(); last=x;
@@ -1660,6 +1661,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       if(fin) return; fin=true; cancelAnimationFrame(raf);
       if(AC){ try{ master.gain.setTargetAtTime(0,AC.currentTime,.12); setTimeout(()=>AC.close(),600); }catch(e){} }
       el.classList.add('gone'); document.body.classList.remove('intro-on');
+      if(FORCE){ const r=document.createElement('button'); r.type='button'; r.textContent=({ja:'▶ もう一度見る',en:'▶ Watch again',th:'▶ ดูอีกครั้ง'})[lang()]||'▶ もう一度見る';
+        r.style.cssText='position:fixed;left:50%;top:50%;translate:-50% -50%;z-index:300;padding:18px 30px;font-size:20px;font-weight:900;border-radius:40px;border:4px solid #111;background:#ffd60a;color:#111;box-shadow:5px 5px 0 #e11d2e;cursor:pointer';
+        r.onclick=()=>location.reload(); document.body.appendChild(r); }
     }
     sk.tabIndex=0; snd.tabIndex=0; snd.textContent=tx('on');
     sk.addEventListener('click',done);
