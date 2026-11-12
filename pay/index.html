@@ -1,0 +1,149 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お支払いページ｜YSY総合サービス</title><meta name="robots" content="noindex,nofollow"><link rel="icon" href="/img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Dela+Gothic+One&family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<style>
+:root{--paper:#FFF7E2;--ink:#121212;--red:#E3261B;--yel:#FFD21F;--sub:#3D3A33;--green:#06C755}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper) radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1.5px) 0 0/16px 16px;color:var(--ink);font-family:'Noto Sans JP','Hiragino Sans',sans-serif;line-height:1.8;padding-bottom:0}
+img{max-width:100%;height:auto;display:block}a{color:inherit}
+.wrap{width:min(1080px,calc(100% - 32px));margin:0 auto}
+.dg{font-family:'Dela Gothic One','Noto Sans JP',sans-serif;font-weight:400}
+.bang{font-family:Bangers,'Dela Gothic One',sans-serif;letter-spacing:.04em}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900}.brand img{width:40px;height:40px;border-radius:50%;border:3px solid var(--ink)}
+.top .tel{font-weight:900;text-decoration:none;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;font-weight:900;font-size:17px;text-decoration:none;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn.line{background:var(--green);color:#fff}.btn.red{background:var(--red);color:#fff}.btn.wh{background:#fff}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-bottom:6px solid var(--ink)}
+.hero::before{content:"";position:absolute;inset:-60%;background:repeating-conic-gradient(from 0deg at 70% 45%,rgba(255,210,31,.13) 0 3deg,transparent 3deg 10deg)}
+.hero .in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:40px 0 48px}
+.kicker{display:inline-block;background:var(--yel);color:var(--ink);font-weight:900;padding:4px 14px;border:3px solid #000;rotate:-2deg;font-size:16px}
+.hero h1{margin:14px 0 10px;font-size:clamp(26px,4.4vw,50px);line-height:1.25}.nw{white-space:nowrap}
+.hero h1 em{font-style:normal;color:var(--yel)}
+.hero p.lead{margin:0 0 16px;font-size:17px;color:#ddd}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}.chips span{font-weight:900;font-size:14px;background:#fff;color:var(--ink);border:3px solid #000;padding:3px 12px;box-shadow:3px 3px 0 var(--red)}
+.price-badge{white-space:nowrap;display:inline-flex;align-items:baseline;gap:10px;background:#fff;color:var(--ink);border:4px solid #000;box-shadow:6px 6px 0 var(--red);padding:8px 18px;margin-bottom:22px}
+.price-badge s{color:#888;font-size:16px}.price-badge b{font-size:40px;color:var(--red);line-height:1}.price-badge small{font-weight:900}
+.camp{display:block;font-size:13px;font-weight:900;color:var(--yel);margin:-12px 0 18px}
+.hero .btns{display:flex;flex-wrap:wrap;gap:14px}
+.hero .btn{border-color:#fff;box-shadow:5px 5px 0 var(--yel)}
+.hero-pic{position:relative}
+.hero-pic .burst{position:absolute;inset:4% 0;background:var(--yel);clip-path:polygon(50% 0,60% 18%,80% 8%,78% 30%,100% 32%,86% 50%,100% 68%,78% 70%,80% 92%,60% 82%,50% 100%,40% 82%,20% 92%,22% 70%,0 68%,14% 50%,0 32%,22% 30%,20% 8%,40% 18%)}
+.hero-pic img{position:relative;width:100%;filter:drop-shadow(10px 12px 0 rgba(0,0,0,.45));animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+/* sections */
+section{padding:56px 0}
+.sh{margin-bottom:26px}
+.sh .en{display:block;font-size:clamp(44px,7vw,72px);line-height:.85;color:var(--yel);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--red),7px 7px 0 var(--ink);rotate:-2deg;transform-origin:left}
+.sh h2{margin:10px 0 0;font-size:clamp(24px,3.6vw,36px);line-height:1.35}
+.sh h2 em{font-style:normal;background:linear-gradient(transparent 60%,var(--yel) 60%)}
+.card{background:#fff;border:4px solid var(--ink);box-shadow:7px 7px 0 var(--ink)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.checks li{list-style:none;display:flex;gap:14px;align-items:center;padding:14px 18px;font-weight:900;font-size:17px}
+.checks li::before{content:"✓";flex:none;width:34px;height:34px;display:grid;place-items:center;border:4px solid var(--ink);color:var(--red);font-size:22px}
+.checks li:nth-child(even){box-shadow:7px 7px 0 var(--red)}
+.after{margin-top:24px;text-align:center;font-size:clamp(20px,3vw,28px)}
+.after em{font-style:normal;color:var(--red)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why .card{display:flex;flex-direction:column}
+.why .bar{background:var(--ink);color:var(--yel);padding:6px 16px;font-size:20px}
+.why .body{padding:18px 20px 20px}
+.why h3{margin:0 0 8px;font-size:21px;line-height:1.35}
+.why p{margin:0;font-size:15px;color:var(--sub)}
+.why .card:nth-child(2) .body{background:var(--yel)}
+.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.inc .card{padding:18px}.inc .ic{font-size:34px;line-height:1}.inc h3{margin:8px 0 2px;font-size:18px}.inc p{margin:0;font-size:14px;color:var(--sub)}
+.inc .card:nth-child(3n+2){box-shadow:7px 7px 0 var(--red)}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.works figure{margin:0}.works .shot{border:5px solid var(--ink);box-shadow:9px 9px 0 var(--red);background:#fff}
+.works figure:nth-child(2) .shot{box-shadow:9px 9px 0 var(--ink)}
+.works figcaption{margin-top:14px}.works b{display:block;font-size:19px}.works span{font-size:14px;color:var(--sub)}
+.works a{font-weight:900;font-size:14px;color:var(--red)}
+.dark{background:var(--ink);color:#fff}
+.dark .sh .en{-webkit-text-stroke:2px #000}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{background:#fff;color:var(--ink);border:5px solid #fff;box-shadow:8px 8px 0 var(--red);padding:22px 20px;display:flex;flex-direction:column}
+.plan.pop{background:var(--yel);box-shadow:8px 8px 0 #fff;position:relative}
+.plan.pop::before{content:"おすすめ";position:absolute;top:-16px;right:14px;background:var(--red);color:#fff;font-weight:900;padding:2px 12px;border:3px solid #000;rotate:6deg}
+.plan h3{margin:0;font-size:24px}.plan .for{font-size:14px;font-weight:700;color:var(--sub);margin:2px 0 12px}
+.plan .reg{color:#777;font-size:15px}.plan .now{font-size:40px;color:var(--red);line-height:1.1}.plan .now small{font-size:16px;color:var(--ink)}
+.plan ul{margin:14px 0 0;padding-left:1.2em;font-size:14px;font-weight:700}
+.camp-over .plan .reg,.camp-over .price-badge s,.camp-over .camp,.camp-over .campnote{display:none}
+.plan .regnow{display:none}.camp-over .plan .now{display:none}.camp-over .plan .regnow{display:block}
+.camp-over .price-badge .nowp{display:none}.price-badge .regp{display:none}.camp-over .price-badge .regp{display:inline}
+.notes{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}.notes span{border:3px solid #fff;padding:4px 14px;font-weight:900;font-size:15px}
+.campnote{text-align:center;margin-top:18px;font-weight:900;color:var(--yel)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.flow .card{padding:18px;text-align:center}.flow .n{font-size:40px;color:var(--red);line-height:1}.flow h3{margin:6px 0 4px;font-size:18px}.flow p{margin:0;font-size:14px;color:var(--sub)}
+.faq details{background:#fff;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);margin-bottom:14px}
+.faq summary{cursor:pointer;padding:14px 18px;font-weight:900;font-size:17px;list-style:none;display:flex;gap:10px}
+.faq summary::before{content:"Q";color:var(--red);font-family:Bangers;font-size:24px;line-height:1.1}
+.faq details p{margin:0;padding:0 18px 16px 44px;font-size:15px}
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start}
+form.card{padding:22px}
+.f{margin-bottom:14px}.f label{display:block;font-weight:900;margin-bottom:4px}.f .req{background:var(--red);color:#fff;font-size:12px;padding:1px 6px;margin-left:6px}.f .opt{background:#999;color:#fff;font-size:12px;padding:1px 6px;margin-left:6px}
+.f input,.f select,.f textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:3px solid var(--ink);background:#fff}
+.f input[aria-invalid=true],.f select[aria-invalid=true]{border-color:var(--red);background:#fff1f0}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:6px 0 14px}
+.err{color:var(--red);font-weight:900}
+.hp{position:absolute;left:-9999px}
+.side .card{padding:22px;margin-bottom:20px;text-align:center}
+.side h3{margin:0 0 6px;font-size:22px}.side p{margin:0 0 14px;font-size:15px;color:var(--sub)}
+.side .qr{width:170px;margin:0 auto 10px;image-rendering:pixelated}
+.side .chara{width:180px;margin:0 auto -6px}
+.done{padding:24px;text-align:center}
+footer{text-align:center;padding:26px 0 100px;font-size:13px;color:var(--sub)}
+footer a{margin:0 8px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;grid-template-columns:1fr 1fr 1fr;border-top:4px solid var(--ink)}
+.sticky a{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 4px;font-weight:900;font-size:15px;text-decoration:none;color:#fff}
+.sticky .l{background:var(--green)}.sticky .t{background:var(--ink)}.sticky .m{background:var(--red)}
+@media(max-width:820px){
+ .hero .in{grid-template-columns:1fr;padding:26px 0 36px}.hero-pic{order:-1;width:min(190px,50vw);margin:0 auto}.price-badge{padding:8px 12px;gap:6px;max-width:100%}.price-badge b{font-size:30px}.price-badge s{font-size:13px}.price-badge small{font-size:13px}
+ .checks,.why,.inc,.works,.plans,.contact{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}
+ .top .tel{display:none}.sticky{display:grid}footer{padding-bottom:90px}
+ .hero .btns .btn{flex:1 1 100%}
+}
+@media(prefers-reduced-motion:reduce){.hero-pic img{animation:none}html{scroll-behavior:auto}}
+@media(max-width:380px){.price-badge s{display:none}}
+
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pay .card{padding:24px 22px;display:flex;flex-direction:column}
+.pay .tag{display:inline-block;align-self:flex-start;font-family:Bangers;letter-spacing:.06em;font-size:22px;background:var(--ink);color:var(--yel);padding:2px 12px;margin-bottom:10px}
+.pay h3{margin:0 0 6px;font-size:24px}.pay p{margin:0 0 16px;font-size:15px;color:var(--sub);flex:1}
+.pay .card:nth-child(2){box-shadow:7px 7px 0 var(--red)}
+.brands{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}.brands span{font-size:12px;font-weight:900;border:2px solid var(--ink);padding:1px 8px;background:#fff}
+.note{background:var(--yel);border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:16px 20px;font-weight:900;margin-bottom:26px}
+.note small{display:block;font-weight:700;margin-top:4px}
+.bank{padding:22px}.bank h3{margin:0 0 6px;font-size:22px}.bank p{margin:0;color:var(--sub);font-size:15px}
+ol.steps{margin:0;padding-left:1.3em;font-weight:700}ol.steps li{margin-bottom:6px}
+@media(max-width:820px){.pay{grid-template-columns:1fr}}
+</style></head><body>
+<div class="wrap top"><a class="brand" href="/"><img src="/img/logo.webp" alt="">YSY総合サービス</a><a class="tel" href="tel:08055260047">📞 080-5526-0047</a></div>
+<header class="hero"><div class="wrap in" style="grid-template-columns:1fr">
+ <div><span class="kicker">PAYMENT</span><h1 class="dg">お支払い<em>ページ</em></h1><p class="lead">YSY総合サービスをご利用いただきありがとうございます。<br>下記の方法でお支払いいただけます。</p></div>
+</div></header>
+<section><div class="wrap">
+ <div class="note">⚠️ お支払いは、完成品をご確認いただいてからお願いいたします。<small>金額はお見積り・ご請求の内容をご確認ください。ご不明な点はお支払い前にご連絡ください。</small></div>
+ <div class="sh"><span class="en bang">CARD</span><h2 class="dg"><em>クレジットカード</em>でのお支払い</h2></div>
+ <div class="pay">
+  <div class="card"><span class="tag">WEBSITE</span><h3 class="dg">ホームページ制作</h3><p>ホームページ制作のお支払いはこちらから。</p><div class="brands"><span>VISA</span><span>Mastercard</span><span>JCB</span><span>AMEX</span><span>Diners</span><span>Discover</span></div><a class="btn red" href="https://square.link/u/2aMrMCCN" target="_blank" rel="noopener">ホームページ制作を支払う</a></div>
+  <div class="card"><span class="tag">OTHERS</span><h3 class="dg">各種お支払い</h3><p>チラシ・デザイン・月額サポート・追加修正など、ホームページ制作以外のお支払いはこちらから。</p><div class="brands"><span>VISA</span><span>Mastercard</span><span>JCB</span><span>AMEX</span><span>Diners</span><span>Discover</span></div><a class="btn red" href="https://square.link/u/3DDOyYVs" target="_blank" rel="noopener">各種お支払いへ進む</a></div>
+ </div>
+ <p style="margin-top:14px;font-size:13px;color:var(--sub)">※決済はSquare株式会社の安全な決済ページで行われます。カード情報がYSY総合サービスに伝わることはありません。</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+ <div class="sh"><span class="en bang">BANK</span><h2 class="dg"><em>銀行振込</em>でのお支払い</h2></div>
+ <div class="card bank"><h3 class="dg">振込先は別途お知らせします</h3><p>ご請求時にLINEまたはメールで振込先をお送りします。振込手数料はお客様のご負担となります。</p></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+ <div class="sh"><span class="en bang">FLOW</span><h2 class="dg">お支払いの<em>流れ</em></h2></div>
+ <div class="card" style="padding:22px"><ol class="steps"><li>完成品をご確認ください</li><li>ご請求金額をYSYからお知らせします</li><li>カードまたは銀行振込でお支払い</li><li>入金を確認後、公開・納品いたします</li></ol></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap" style="text-align:center">
+ <p style="font-weight:900">ご不明な点はお気軽にどうぞ</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener">LINEで問い合わせ</a><a class="btn wh" href="tel:08055260047">📞 080-5526-0047</a></div>
+</div></section>
+<footer><div><a href="/">YSY総合サービス トップ</a></div>© 2026 YSY総合サービス</footer>
+</body></html>
