@@ -131,8 +131,26 @@ footer a{margin:0 8px}
 .svclist a{display:flex;flex-direction:column;gap:6px;text-decoration:none;padding:22px}
 .svclist .ic{font-size:40px;line-height:1}.svclist h2{margin:0;font-size:22px}.svclist p{margin:0;font-size:14px;color:var(--sub)}
 .svclist b{color:var(--red);font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:20px}
+/* ===== light motion ===== */
+.js .mv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .mv.in{opacity:1;transform:none}
+.js .checks li::before{content:"";color:transparent}
+.js .checks li.on::before{content:"✓";color:var(--red);animation:ckpop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes ckpop{0%{transform:scale(.6) rotate(-20deg)}60%{transform:scale(1.25) rotate(4deg)}100%{transform:none}}
+.inc .card,.related a,.svclist a,.works .shot,.paybox div,.flow .card{transition:transform .15s,box-shadow .15s}
+.inc .card:hover,.related a:hover,.svclist a:hover,.flow .card:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.works figure:hover .shot{transform:translate(-3px,-3px) rotate(-.6deg)}
+.ptable tr{transition:background .15s}.ptable tr:hover{background:#fff7d6}
+.btn.line{position:relative;overflow:hidden}
+.btn.line::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:lshine 3.6s 1.2s ease-in-out infinite;pointer-events:none}
+@keyframes lshine{0%{left:-70%}28%,100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.js .mv{opacity:1;transform:none;transition:none}.js .checks li::before{content:"✓";color:var(--red);animation:none}.btn.line::after{animation:none;display:none}}
 @media(max-width:820px){.paybox,.works.w3{grid-template-columns:1fr}.ptable th,.ptable td{padding:10px 12px}.ptable td{font-size:16px}}
-</style></head><body>
+</style><script>document.documentElement.classList.add('js');document.addEventListener('DOMContentLoaded',function(){var R=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;var sel='.sh,.checks li,.after,.inc .card,.ptable,.paybox div,.pnote,.works figure,.flow .card,.faq details,.contact>*,.related a,.svclist a';var els=[].slice.call(document.querySelectorAll(sel));els.forEach(function(el){el.classList.add('mv')});
+function show(el){var p=el.parentElement,sib=[].filter.call(p.children,function(c){return c.classList.contains('mv')}),i=Math.max(0,sib.indexOf(el));el.style.transitionDelay=Math.min(i,6)*70+'ms';el.classList.add('in');if(el.matches('.checks li'))setTimeout(function(){el.classList.add('on')},R?0:250+Math.min(i,6)*150)}
+if(R||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');if(el.matches('.checks li'))el.classList.add('on')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(function(el){io.observe(el)});
+setTimeout(function(){els.forEach(function(el){if(!el.classList.contains('in')&&el.getBoundingClientRect().top<innerHeight){show(el)}})},1500)});</script></head><body>
 <div class="wrap top"><a class="brand" href="/"><img src="/img/logo.webp" alt="">YSY総合サービス</a><a class="tel cv-tel" href="tel:08055260047">📞 080-5526-0047</a></div>
 <header class="hero"><div class="wrap in"><div><span class="kicker">SERVICES</span><h1 class="dg">YSYの<em>サービス一覧</em></h1><p class="lead">制作・集客・業務運営まで。個人事業主から法人まで、まとめてサポートします。初回相談・お見積りは無料です。</p><div class="btns"><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener">LINEで無料相談</a><a class="btn red" href="/#sos">お問い合わせ</a></div></div><div class="hero-pic"><span class="burst"></span><img src="/img/n-welcome.webp" alt="YSYのヒーローキャラクター"></div></div></header>
 <div class="wrap"><p class="crumb"><a href="/">トップ</a> ＞ サービス一覧</p></div>
