@@ -1937,7 +1937,7 @@ window.CAMP_OVER=Date.now()>new Date('2027-04-01T00:00:00+09:00').getTime(); if(
   (function(){
     const el=document.getElementById('intro'); if(!el) return;
     const FORCE=window.__FORCE_INTRO||/[?&]intro\b/.test(location.search), FULL=window.__FULL_INTRO||/[?&]full\b/.test(location.search);
-    let seen=false; if(!FORCE) try{ seen=sessionStorage.getItem('ysy-intro')==='1' || (Date.now()-(+localStorage.getItem('ysy-intro-at')||0))<30*864e5; }catch(e){}
+    let seen=false; if(!FORCE) try{ seen=sessionStorage.getItem('ysy-intro')==='1'; }catch(e){}
     if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){ el.classList.add('gone'); return; }
     document.body.classList.add('intro-on');
     try{ sessionStorage.setItem('ysy-intro','1'); localStorage.setItem('ysy-intro-at',String(Date.now())); }catch(e){}
