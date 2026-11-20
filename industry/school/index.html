@@ -131,6 +131,16 @@ footer a{margin:0 8px}
 .svclist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
 .svclist a{display:flex;flex-direction:column;gap:6px;text-decoration:none;padding:22px}
 .svclist .ic{font-size:40px;line-height:1}.svclist h2{margin:0;font-size:22px}.svclist p{margin:0;font-size:14px;color:var(--sub)}
+.shc{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}.shc>div{min-width:0}
+.pz{width:clamp(110px,16vw,170px);height:auto;flex:none;filter:drop-shadow(4px 5px 0 rgba(18,18,18,.25))}
+.pz-sad{animation:pzsad 3.2s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes pzsad{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg) translateY(2px)}}
+.pz-oops{animation:pzshake 2.8s ease-in-out infinite}
+@keyframes pzshake{0%,80%,100%{transform:none}84%{transform:translateX(-4px) rotate(-3deg)}88%{transform:translateX(4px) rotate(3deg)}92%{transform:translateX(-3px)}96%{transform:translateX(2px)}}
+.after-w{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}.after-w .after{margin:0;text-align:left}
+.pz-joy{width:clamp(100px,14vw,150px);animation:fl 2.4s ease-in-out infinite}
+@media(max-width:560px){.pz{width:92px}.after-w{flex-direction:column;gap:4px}.after-w .after{text-align:center}}
+@media(prefers-reduced-motion:reduce){.pz{animation:none!important}}
 .svclist b{color:var(--red);font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:20px}
 /* ===== light motion ===== */
 .js .mv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
@@ -161,7 +171,7 @@ document.addEventListener('DOMContentLoaded',function(){
   er.hidden=true;if(f._honey.value)return;
   var b=f.querySelector('button[type=submit]'),lb=b.textContent;b.disabled=true;b.textContent='送信中…';
   fetch('https://formsubmit.co/ajax/suraya3156_0430@yahoo.co.jp',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'【YSY・教室・スクール・講師】ご相談（'+f.name.value+' 様）',_template:'table',_captcha:'false','お名前・会社名':f.name.value,email:f.email.value,'電話番号':f.tel.value||'-','業種':f.kind.value||'-','ご相談内容':f.msg.value||'-','流入元':'サービスページ（教室・スクール・講師）'})})
-  .then(function(r){return r.ok?r.json():Promise.reject()}).then(function(){f.outerHTML='<div class="card done"><h3 class="dg" style="margin:0 0 8px;font-size:26px">送信しました！</h3><p>ご相談ありがとうございます。内容を確認して、できるだけ早くご連絡します。</p></div>';})
+  .then(function(r){return r.ok?r.json():Promise.reject()}).then(function(){f.outerHTML='<div class="card done"><img src="/img/p-joy.webp" alt="" style="width:160px;margin:0 auto 6px"><h3 class="dg" style="margin:0 0 8px;font-size:26px">送信しました！</h3><p>ご相談ありがとうございます。内容を確認して、できるだけ早くご連絡します。</p></div>';})
   .catch(function(){b.disabled=false;b.textContent=lb;er.textContent='送信できませんでした。お手数ですがLINEかお電話でご連絡ください。';er.hidden=false;});
  });
 });
@@ -176,13 +186,13 @@ document.addEventListener('DOMContentLoaded',function(){
   <div class="chips"><span>体験申込フォーム</span><span>コース・料金表</span><span>講師紹介</span><span>講座動画もOK</span><span>スマホ対応</span></div>
   <div class="btns"><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener">LINEで無料相談</a><a class="btn red" href="#contact">フォームで相談する</a></div>
  </div>
- <div class="hero-pic"><span class="burst"></span><img src="/img/stand-hips.webp" alt="YSYのヒーローキャラクター"></div>
+ <div class="hero-pic"><span class="burst"></span><img src="/img/p-run.webp" alt="YSYのヒーローキャラクター"></div>
 </div></header>
 <div class="wrap"><p class="crumb"><a href="/">トップ</a> ＞ <a href="/industry/">業種別のご案内</a> ＞ 教室・スクール・講師</p></div>
 <section><div class="wrap">
- <div class="sh"><span class="en bang">CHECK!</span><h2 class="dg">こんな<em>お悩み</em>、ありませんか？</h2></div>
+ <div class="sh shc"><div><span class="en bang">CHECK!</span><h2 class="dg">こんな<em>お悩み</em>、ありませんか？</h2></div><img class="pz pz-sad" src="/img/p-sad.webp" alt="" aria-hidden="true" loading="lazy"></div>
  <ul class="checks" style="padding:0;margin:0"><li class="card">チラシだけでは生徒が集まらない</li><li class="card">体験レッスンの申込みをネットで受けたい</li><li class="card">コースや料金を分かりやすく見せたい</li><li class="card">オンライン講座の動画を作りたい</li><li class="card">教材や資料づくりに時間がかかる</li><li class="card">保護者に信頼されるサイトにしたい</li></ul>
- <p class="after dg">ひとつでも当てはまったら、<em>YSY</em>が出動します！</p>
+ <div class="after-w"><img class="pz pz-joy" src="/img/p-land.webp" alt="" aria-hidden="true" loading="lazy"><p class="after dg">ひとつでも当てはまったら、<em>YSY</em>が出動します！</p></div>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
  <div class="sh"><span class="en bang">SERVICE</span><h2 class="dg">対応できる<em>内容</em></h2></div>
@@ -204,7 +214,7 @@ document.addEventListener('DOMContentLoaded',function(){
  <div class="flow"><div class="card"><div class="n bang">STEP 1</div><h3 class="dg">お問い合わせ</h3><p>LINE・電話・フォームから。初回相談・お見積りは無料です。</p></div><div class="card"><div class="n bang">STEP 2</div><h3 class="dg">打ち合わせ</h3><p>オンライン全国対応。町田・中野を中心に対面もOK。</p></div><div class="card"><div class="n bang">STEP 3</div><h3 class="dg">お見積り・ご依頼</h3><p>料金と進め方をご提案。ご納得いただいてから正式依頼。</p></div><div class="card"><div class="n bang">STEP 4</div><h3 class="dg">制作・納品</h3><p>途中確認と修正をはさみながら完成へ。ご入金確認後に納品・公開。</p></div></div>
 </div></section>
 <section style="padding-top:0" class="faq"><div class="wrap">
- <div class="sh"><span class="en bang">FAQ</span><h2 class="dg">よくある<em>質問</em></h2></div>
+ <div class="sh shc"><div><span class="en bang">FAQ</span><h2 class="dg">よくある<em>質問</em></h2></div><img class="pz pz-oops" src="/img/p-shock.webp" alt="" aria-hidden="true" loading="lazy"></div>
  <details><summary>体験レッスンの申込みをネットで受けられますか？</summary><p>はい。申込フォーム（5,000円〜）や予約システム（10,000円〜）で、24時間ネットから受け付けられます。</p></details><details><summary>オンライン講座の動画も作れますか？</summary><p>はい。講師キャラクターやホワイトボード形式のスライドを使ったシリーズ講座動画の制作実績があります（10,000円〜）。</p></details><details><summary>生徒募集のチラシも頼めますか？</summary><p>チラシ・ポスターは8,000円〜です。ホームページと同じデザインでそろえると、信頼感が増します。</p></details>
 </div></section>
 <section id="contact" style="padding-top:0"><div class="wrap">
@@ -222,7 +232,7 @@ document.addEventListener('DOMContentLoaded',function(){
    <button class="btn red cv-form" type="submit" style="width:100%">無料で相談する（送信）</button>
   </form>
   <div class="side">
-   <div class="card"><img class="chara" src="/img/n-desk.webp" alt="" aria-hidden="true"><h3 class="dg">LINEなら<br>もっと気軽に</h3><p>「こんなこと頼める？」だけでもOK。</p><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener" style="width:100%">LINEで相談する</a></div>
+   <div class="card"><img class="chara" src="/img/p-thumb.webp" alt="" aria-hidden="true"><h3 class="dg">LINEなら<br>もっと気軽に</h3><p>「こんなこと頼める？」だけでもOK。</p><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener" style="width:100%">LINEで相談する</a></div>
    <div class="card"><h3 class="dg">お電話でも</h3><p>平日 10:00〜18:00</p><a class="btn wh cv-tel" href="tel:08055260047" style="width:100%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="#121212" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l10 2 4 12-6 5c3 7 9 13 16 16l5-6 12 4 2 10c-2 6-8 9-14 8C24 54 10 40 6 20c-1-6 2-12 8-14z" fill="#E3261B"/><path d="M40 8a16 16 0 0 1 16 16M40 16a8 8 0 0 1 8 8" stroke="#121212"/></g></svg> 080-5526-0047</a></div>
   </div>
  </div>
