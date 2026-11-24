@@ -207,6 +207,11 @@ footer{color:var(--sub)}footer a{color:#F3EEF8}
 .pz{filter:drop-shadow(0 0 14px rgba(217,53,140,.4))}
 .done{background:rgba(26,18,36,.9)}
 .inc .ic{display:inline-block;background:linear-gradient(135deg,#F3E1A6,#E7C66B);border-radius:14px;padding:6px;box-shadow:0 0 14px rgba(231,198,107,.35)}.inc .ic .ico{filter:none;width:46px!important;height:46px!important}
+
+.hero-pic img{animation:none;max-width:420px;margin:0 auto;border-radius:0 0 50% 50%/0 0 8% 8%}
+.hero-pic .burst{inset:-6% -6% 0}
+.side .chara{width:150px;border-radius:50%;background:radial-gradient(circle,rgba(217,53,140,.35),transparent 70%)}
+.after-w{gap:0}
 </style><script>document.documentElement.classList.add('js');document.addEventListener('DOMContentLoaded',function(){var R=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;var sel='.sh,.checks li,.after,.inc .card,.ptable,.paybox div,.pnote,.works figure,.flow .card,.faq details,.contact>*,.related a,.svclist a';var els=[].slice.call(document.querySelectorAll(sel));els.forEach(function(el){el.classList.add('mv')});
 function show(el){var p=el.parentElement,sib=[].filter.call(p.children,function(c){return c.classList.contains('mv')}),i=Math.max(0,sib.indexOf(el));el.style.transitionDelay=Math.min(i,6)*70+'ms';el.classList.add('in');if(el.matches('.checks li'))setTimeout(function(){el.classList.add('on')},R?0:250+Math.min(i,6)*150)}
 if(R||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');if(el.matches('.checks li'))el.classList.add('on')});return}
@@ -236,13 +241,13 @@ document.addEventListener('DOMContentLoaded',function(){
   <div class="chips"><span>秘密厳守</span><span>料金システム</span><span>在籍・出勤表</span><span>求人ページ</span><span>年齢確認表示</span></div>
   <div class="btns"><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener">LINEで無料相談</a><a class="btn red" href="#contact">フォームで相談する</a></div>
  </div>
- <div class="hero-pic"><span class="burst"></span><img src="/img/p-cool.webp" alt="YSYのヒーローキャラクター"></div>
+ <div class="hero-pic"><span class="burst"></span><img src="/img/night-chara.webp" alt="YSYのヒーローキャラクター"></div>
 </div></header>
 <div class="wrap"><p class="crumb"><a href="/">トップ</a> ＞ <a href="/industry/">業種別のご案内</a> ＞ ナイトワーク・風俗店</p></div>
 <section><div class="wrap">
- <div class="sh shc"><div><span class="en bang">CHECK!</span><h2 class="dg">こんな<em>お悩み</em>、ありませんか？</h2></div><img class="pz pz-sad" src="/img/p-sad.webp" alt="" aria-hidden="true" loading="lazy"></div>
+ <div class="sh shc"><div><span class="en bang">CHECK!</span><h2 class="dg">こんな<em>お悩み</em>、ありませんか？</h2></div></div>
  <ul class="checks" style="padding:0;margin:0"><li class="card">ポータルサイトの掲載料が高い</li><li class="card">お店の公式サイトがない・古い</li><li class="card">料金システムが分かりにくいと言われる</li><li class="card">求人の応募を増やしたい</li><li class="card">出勤情報を自分で更新したい</li><li class="card">外国人のお客様にも案内したい</li></ul>
- <div class="after-w"><img class="pz pz-joy" src="/img/p-land.webp" alt="" aria-hidden="true" loading="lazy"><p class="after dg">ひとつでも当てはまったら、<em>YSY</em>が出動します！</p></div>
+ <div class="after-w"><p class="after dg">ひとつでも当てはまったら、<em>YSY</em>が出動します！</p></div>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
  <div class="sh"><span class="en bang">SERVICE</span><h2 class="dg">対応できる<em>内容</em></h2></div>
@@ -265,7 +270,7 @@ document.addEventListener('DOMContentLoaded',function(){
  <div class="flow"><div class="card"><div class="n bang">STEP 1</div><h3 class="dg">お問い合わせ</h3><p>LINE・電話・フォームから。初回相談・お見積りは無料です。</p></div><div class="card"><div class="n bang">STEP 2</div><h3 class="dg">打ち合わせ</h3><p>オンラインなら全国・海外どこからでも。町田・中野を中心に対面もOK。</p></div><div class="card"><div class="n bang">STEP 3</div><h3 class="dg">お見積り・お支払い</h3><p>料金と進め方をご提案。お支払いでご依頼確定。</p></div><div class="card"><div class="n bang">STEP 4</div><h3 class="dg">制作・納品</h3><p>お支払い確認後に制作スタート。修正をはさみながら完成・納品。</p></div></div>
 </div></section>
 <section style="padding-top:0" class="faq"><div class="wrap">
- <div class="sh shc"><div><span class="en bang">FAQ</span><h2 class="dg">よくある<em>質問</em></h2></div><img class="pz pz-oops" src="/img/p-shock.webp" alt="" aria-hidden="true" loading="lazy"></div>
+ <div class="sh shc"><div><span class="en bang">FAQ</span><h2 class="dg">よくある<em>質問</em></h2></div></div>
  <details><summary>相談したことは外に知られませんか？</summary><p>ご相談内容やお客様の情報は秘密厳守で取り扱い、制作実績への掲載もお客様の了承がない限り行いません。</p></details><details><summary>どんな業態でも頼めますか？</summary><p>法律にもとづく届出をして営業しているお店が対象です。ご依頼の際に届出の確認をさせていただきます。</p></details><details><summary>在籍や出勤情報は自分で更新できますか？</summary><p>はい。ご自身で更新しやすい仕様にも対応します。在籍・出勤・お知らせの更新代行（月10,000円〜・任意）もあります。</p></details><details><summary>写真の扱いで気をつけることは？</summary><p>掲載する写真はご本人の同意を得たものに限ります。顔出しの有無やぼかしなどもご相談ください。</p></details><details><summary>求人ページで注意することは？</summary><p>18歳未満の方を対象にしない、仕事内容や条件を正しく書くなど、求人の決まりに沿った内容でお作りします。</p></details>
 </div></section>
 <section id="contact" style="padding-top:0"><div class="wrap">
@@ -283,7 +288,7 @@ document.addEventListener('DOMContentLoaded',function(){
    <button class="btn red cv-form" type="submit" style="width:100%">無料で相談する（送信）</button>
   </form>
   <div class="side">
-   <div class="card"><img class="chara" src="/img/p-thumb.webp" alt="" aria-hidden="true"><h3 class="dg">LINEなら<br>もっと気軽に</h3><p>「こんなこと頼める？」だけでもOK。</p><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener" style="width:100%">LINEで相談する</a></div>
+   <div class="card"><img class="chara" src="/img/night-chara.webp" alt="" aria-hidden="true"><h3 class="dg">LINEなら<br>もっと気軽に</h3><p>「こんなこと頼める？」だけでもOK。</p><a class="btn line cv-line" href="https://line.me/R/ti/p/@ysy_service" target="_blank" rel="noopener" style="width:100%">LINEで相談する</a></div>
    <div class="card"><h3 class="dg">お電話でも</h3><p>平日 10:00〜18:00</p><a class="btn wh cv-tel" href="tel:08055260047" style="width:100%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="#121212" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l10 2 4 12-6 5c3 7 9 13 16 16l5-6 12 4 2 10c-2 6-8 9-14 8C24 54 10 40 6 20c-1-6 2-12 8-14z" fill="#E3261B"/><path d="M40 8a16 16 0 0 1 16 16M40 16a8 8 0 0 1 8 8" stroke="#121212"/></g></svg> 080-5526-0047</a></div>
   </div>
  </div>
